@@ -87,6 +87,16 @@
     color: grey;
     margin-top: -30px;
   }
+  .star{
+    border: none;
+    background: none;
+    outline: none;
+    font-size: 20px;
+  }
+  .agentinfo{
+   padding-bottom: 40px;
+  }
+
 </style>
 
 <body>
@@ -323,7 +333,7 @@
             2,168 square feet
             0.75acre lot</p>
 
-          <h5 class="fw-bold m-3">property details (Nereby)</h5>
+          <h5 class="m-3">property details (Nereby)</h5>
           <div class="row">
             <div class="col-3">
               <p class="d-flex align-items-center"><span class="material-symbols-outlined">
@@ -370,18 +380,77 @@
                 </span> Supermarket</p>
             </div>
           </div>
-
+          <h5 class="fw-bold m-3">Amenities</h5>
+          <div class="row">
+            <div class="col-3">
+              <p class="d-flex align-items-center"><span class="material-symbols-outlined">
+                  done
+                </span> Smart Home</p>
+              <p class="d-flex align-items-center"><span class="material-symbols-outlined">
+                  done
+                </span> Electricity </p>
+            </div>
+            <div class="col-3">
+              <p class="d-flex align-items-center"><span class="material-symbols-outlined">
+                  done
+                </span> Furnished kitchen</p>
+              <p class="d-flex align-items-center"><span class="material-symbols-outlined">
+                  done
+                </span> Electricity </p>
+            </div>
+            <div class="col-3">
+              <p class="d-flex align-items-center"><span class="material-symbols-outlined">
+                  done
+                </span> Water Supply</p>
+              <p class="d-flex align-items-center"><span class="material-symbols-outlined">
+                  done
+                </span> Walk In Closet </p>
+            </div>
+            <div class="col-3">
+              <p class="d-flex align-items-center"><span class="material-symbols-outlined">
+                  done
+                </span> Tile Flooring</p>
+              <p class="d-flex align-items-center"><span class="material-symbols-outlined">
+                  done
+                </span> Good Roads </p>
+            </div>
+          </div>
+          <h6 class="m-3"> Customers Review</h6>
+          <h6>Review This property</h6>
+          <button onclick="star()" class="star"><i class="fa-regular fa-star"></i></button>
+          <button onclick="star()" class="star"><i class="fa-regular fa-star"></i></button>
+          <button onclick="star()" class="star"><i class="fa-regular fa-star"></i></button>
+          <button onclick="star()" class="star"><i class="fa-regular fa-star"></i></button>
+          <button onclick="star()" class="star"><i class="fa-regular fa-star"></i></button>
         </div>
+
         <div class="side2 w-25 h-100 col-4">
-          <div class="w=-100 h-25 rounded-2 shadow agentinfo">
-            <button class="btn btn-danger w-100">AGENT INFORMATION</button>
+          <div class="w=-100 rounded-2 h-25 shadow agentinfo">
+            <button class="btn btn-danger  w-100">AGENT INFORMATION</button>
             <img class="img-fluid agent" src="./mark.png" alt="">
             <small class="d-flex align-items-center text-danger"> <i class="fa-solid fa-phone"></i> 08132577114 </small>
             <small class="d-flex align-items-center text-danger"><i class="fa-brands fa-whatsapp"></i>
               0903855512</small>
             <small class="text-danger"><i class="fa-solid fa-envelope"></i>adewaleagbolahan025@gmail.com </small>
           </div>
+          <divclass="w=-100 rounded-2 h-25 shadow agentinfo>
+            <button class="btn btn-light">Request a Tour</button>
+            <div class="login-box">
+                 <input type="text" name="" required="">
+                 <label>Username</label>
+               </div>
+               <div class="user-box">
+                 <input type="password" name="" required="">
+                 <label>Password</label>
+               </div><center>
+               <a href="#">
+                      SEND
+                  <span></span>
+               </a></center>
+       </div>
         </div>
+
+        
       </div>
     </div>
 
@@ -748,6 +817,9 @@
       alert("email successfully")
     }
 
+  }
+  function star() {
+    document.querySelectorAll(".star").style.backgroundColor = "yellow"
   }
 
 

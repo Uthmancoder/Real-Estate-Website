@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bolder fs-4" href="#">
+                Realtor<span class="text-danger">.com®</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <div class="d-flex align-items-center item-div">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Buy</a>
+                        </li>
+                        <li class="nav-item ">
+                            <a onclick="sell()" class="nav-link" href="#">Sell</a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="rent.html">Rent</a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="#">Mortgage</a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="#">Find Realtors</a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="#">My Home</a>
+                        </li>
+                    </div>
+                    <div class="d-flex sec-div align-items-center">
+                        <li class="nav-item">
+                            <button class="btn butt btn-outline-secondary mx-2">Manage Rentals</button>
+                        </li>
+                        <li class="nav-item">
+                            <button class="btn butt btn-outline-secondary mx-2">Advertise</button>
+                        </li>
+                        <li class="nav-item">
+                            <button onclick="sigout()" class="btn butt btn-danger mx-2">Sign Out<i class="fa-solid fa-user"></i></button>
+                        </li>
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </nav>
+  
+
+    <main>
+        <div>
+            <img id="buybackground" class="backgroundimg"
+              src="https://static.rdc.moveaws.com/images/hero/default/2021-11/jpg/hp-hero-desktop.jpg" alt="">
+            <div class="abs">
+              <h1 class="text-light size my-4">Get yourself a perfect home</h1>
+              <p class="text-light ">With the most complete source of homes for sale & real estate near you</p>
+              <div class="d-flex align-items-center cent mt-2 marg  text-light">
+                <p class="bott mx-1">Buy</p>
+                <p class="bott mx-4">sell</p>
+                <p class="bott mx-1">Rent</p>
+                <p class="bott mx-4">Pre-Approval</p>
+                <p class="bott mx-1">Just Sold</p>
+                <p class="bott mx-4">Home Value</p>
+              </div>
+      
+              <div class="border rounded-5 shadow bg-light searchbar">
+                <input type="text" class="input" placeholder="Search For Preferred Location ">
+                <button class="btn btn-danger rounded-circle search "><span class="material-symbols-outlined">
+                    search
+                  </span></button>
+              </div>
+            </div>
+          </div>
+          <h2 class="m-3">Homes around $1,400,000</h2>
+          <a class="m-3" href="#">View all in Santa Cruz, CA</a>
+          <p id="homesScreen"></p>
+
+          <h2 class="m-3">Affordable Homes</h2>
+          <a  class="m-3" href="#">View all in Santa Cruz, CA</a>
+          <p  id="Newestscreen"></p>
+          <h2 class="m-3">Upcoming Openm Houses</h2>
+          <a  class="m-3" href="#">View all in Santa Cruz, CA</a>
+          <p  id="upcoming"></p>
+          <h2 class="m-3">Newest Listings</h2>
+          <a  class="m-3" href="#">View all in Santa Cruz, CA</a>
+          <p  id="Luxury"></p>
+    </main>
+    <footer class="bg-dark text-light p-5">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-4 col-sm-12">
+              <h3>About Realtor</h3>
+              <p>Realtor is a real estate website dedicated to helping you find your dream home. Our team of expert agents
+                are committed to providing you with the best service possible.</p>
+            </div>
+            <div class="col-md-4 col-sm-12">
+              <h3>Contact Us</h3>
+              <p>123 Main Street<br>
+                Anytown, USA 12345<br>
+                Phone: (555) 555-1234<br>
+                Email: info@realtor.com</p>
+            </div>
+            <div class="col-md-4 col-sm-12">
+              <h3>Connect with Us</h3>
+              <ul class="social-media">
+                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="d-flex my-5">
+          <img class="img-fluid get" src="https://s.zillowstatic.com/pfs/static/app-store-badge.svg" alt="">
+          <img class="img-fluid get" src="https://s.zillowstatic.com/pfs/static/google-play-badge.svg" alt="">
+        </div>
+      </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/7fe2d1a9ce.js" crossorigin="anonymous"></script>
+</body>
+</html>
+<script>
+    let screen = document.getElementById("homesScreen")
+    let newest = document.getElementById("Newestscreen")
+    let upcomingscr = document.getElementById("upcoming")
+    let signeduser = JSON.parse(localStorage.getItem ("logeduser"))
+    let luxuryhomes = document.getElementById("Luxury")
+    console.log(signeduser);
+    function sigout() {
+        localStorage.removeItem("logeduser")
+        alert("Signing Out")
+     setInterval(() => {
+        window.location.href = "index.html" 
+     }, 1000);
+    }
+       let DasboardArray = [
+        {
+            image: ["https://cdn.pixabay.com/photo/2016/11/18/17/46/house-1836070__480.jpg", "https://cdn.pixabay.com/photo/2016/11/18/17/46/house-1836070__480.jpg", "https://cdn.pixabay.com/photo/2016/11/18/17/46/house-1836070__480.jpg", "https://cdn.pixabay.com/photo/2016/11/18/17/46/house-1836070__480.jpg"],
+            description: "single-family home",
+            price: "$418,503",
+            location: "Canada",
+            location2: "5967 Bella Rosa Ln"
+        },
+        {
+            image: ["https://ap.rdcpix.com/c2a64fad4f8127b3a79fa1346951e0a8l-m1838440254od-w480_h360.jpg", "https://ap.rdcpix.com/c2a64fad4f8127b3a79fa1346951e0a8l-m1838440254od-w480_h360.jpg", "https://ap.rdcpix.com/c2a64fad4f8127b3a79fa1346951e0a8l-m1838440254od-w480_h360.jpg"],
+            description: "single-family home",
+            price: "$418,503",
+            location: "Pakistan",
+            location2: "5967 Bella Rosa Ln"
+        },
+        {
+            image: ["https://ap.rdcpix.com/654ce471fed375993b57638b1a33ae65l-m2524340623od-w480_h360_x2.jpg", "https://ap.rdcpix.com/654ce471fed375993b57638b1a33ae65l-m2524340623od-w480_h360_x2.jpg", "https://ap.rdcpix.com/654ce471fed375993b57638b1a33ae65l-m2524340623od-w480_h360_x2.jpg"],
+            description: "single-family home",
+            price: "$418,503",
+            location: "Afganistan",
+            location2: "5967 Bella Rosa Ln"
+        },
+        {
+            image: ["https://ap.rdcpix.com/e06ca77a53835c607fb74301139ada4el-b673694140od-w480_h360_x2.jpg", "https://ap.rdcpix.com/e06ca77a53835c607fb74301139ada4el-b673694140od-w480_h360_x2.jpg", "https://ap.rdcpix.com/e06ca77a53835c607fb74301139ada4el-b673694140od-w480_h360_x2.jpg"],
+            description: "single-family home",
+            price: "$418,503",
+            location: "Alabama",
+            location2: "5967 Bella Rosa Ln"
+        },
+        {
+            image: ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEvJf0LqSNQIMrlp95e0P7d7rF7NNhXnkWzYmeRJSmaDVyyhEo2gQ-ie3AQ_qNwQJvQ0k&usqp=CAU", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEvJf0LqSNQIMrlp95e0P7d7rF7NNhXnkWzYmeRJSmaDVyyhEo2gQ-ie3AQ_qNwQJvQ0k&usqp=CAU", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEvJf0LqSNQIMrlp95e0P7d7rF7NNhXnkWzYmeRJSmaDVyyhEo2gQ-ie3AQ_qNwQJvQ0k&usqp=CAU"],
+            description: "single-family home",
+            price: "$418,503",
+            location: "Ohio",
+            location2: "5967 Bella Rosa Ln"
+        },
+        {
+            image: ["https://ap.rdcpix.com/4821e57cb16cc40ec119bdcb22421baal-m1217027824od-w480_h360_x2.jpg", "https://ap.rdcpix.com/4821e57cb16cc40ec119bdcb22421baal-m1217027824od-w480_h360_x2.jpg", "https://ap.rdcpix.com/4821e57cb16cc40ec119bdcb22421baal-m1217027824od-w480_h360_x2.jpg"],
+            description: "single-family home",
+            price: "$418,503",
+            location: "New York",
+            location2: "5967 Bella Rosa Ln"
+        },
+        {
+            image: ["https://ap.rdcpix.com/03b2abe6b03c56ffb945e60124b23959l-m4239461195od-w480_h360_x2.jpg", "https://ap.rdcpix.com/03b2abe6b03c56ffb945e60124b23959l-m4239461195od-w480_h360_x2.jpg", "https://ap.rdcpix.com/03b2abe6b03c56ffb945e60124b23959l-m4239461195od-w480_h360_x2.jpg"],
+            description: "single-family home",
+            price: "$418,503",
+            location: "Canada",
+            location2: "5967 Bella Rosa Ln"
+        },
+        {
+            image: ["https://ap.rdcpix.com/b33b12767f98ae150c58277b095143c0l-m4222848648od-w480_h360_x2.jpg", "https://ap.rdcpix.com/b33b12767f98ae150c58277b095143c0l-m4222848648od-w480_h360_x2.jpg", "https://ap.rdcpix.com/b33b12767f98ae150c58277b095143c0l-m4222848648od-w480_h360_x2.jpg"],
+            description: "single-family home",
+            price: "$418,503",
+            location: "Texas",
+            location2: "5967 Bella Rosa Ln"
+        },
+    ]
+    let Affordable= [
+        {
+            image: ["https://netstorage-legit.akamaized.net/images/vllkyt5iogeq5uhe1.jpg", "https://media.designcafe.com/wp-content/uploads/2020/07/23205856/home-interior-design-ideas.jpg", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXHdzhGfwYcrUl9aM5xPQs_4L3EiN-DoAYG391hY5w&s", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbsn6E66fqLFAFPl3sT3LXt6k8O54TVM99h-7Wb0BI&s"],
+            description: "single-family home",
+            price: "$418,503",
+            location: "Canada",
+            location2: "5967 Bella Rosa Ln"
+        },
+        {
+            image: ["https://www.jamesedition.com/stories/wp-content/uploads/2022/03/mansions_main_fin.jpg", "https://carehome-interiors.co.uk/wp-content/themes/yootheme/cache/8b/downstairs-lounge-8bcc8c0b.jpeg", "https://carehome-interiors.co.uk/wp-content/themes/yootheme/cache/8b/downstairs-lounge-8bcc8c0b.jpeg"],
+            description: "single-family home",
+            price: "$418,503",
+            location: "Pakistan",
+            location2: "5967 Bella Rosa Ln"
+        },
+        {
+            image: ["https://cdn.thecoolist.com/wp-content/uploads/2022/01/Types-of-Houses.png", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEbiD--vp-x3Q05jmewPWX49plRdpUi3QX2gdCLDo-j1FI4yjCkaa3P_0MoJO0_VUkaPY&usqp=CAU", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEbiD--vp-x3Q05jmewPWX49plRdpUi3QX2gdCLDo-j1FI4yjCkaa3P_0MoJO0_VUkaPY&usqp=CAU"],
+            description: "single-family home",
+            price: "$418,503",
+            location: "Afganistan",
+            location2: "5967 Bella Rosa Ln"
+        },
+        {
+            image: ["https://images.nigeriapropertycentre.com/properties/images/1526138/0636de42c83009-luxury-4bedroom-duplex-semi-detached-duplexes-for-sale-naze-owerri-north-imo.jpeg", "https://thestoreys.in/wp-content/uploads/2022/08/3d-rendering-modern-dining-room-living-room-with-luxury-decor-1300x698.jpg", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvrs8V58bOBZcZrGOtg5vMMfC4ppWzupuZHP6pt4apoP3_2C8oCp4Fe32umltUh57rnpQ&usqp=CAU"],
+            description: "single-family home",
+            price: "$418,503",
+            location: "Alabama",
+            location2: "5967 Bella Rosa Ln"
+        },
+        {
+            image: ["https://media-cdn.tripadvisor.com/media/vr-splice-j/04/c8/35/4f.jpg", "https://media-cdn.tripadvisor.com/media/vr-splice-j/04/c8/35/4f.jpg", "https://media-cdn.tripadvisor.com/media/vr-splice-j/04/c8/4c/ed.jpg"],
+            description: "single-family home",
+            price: "$418,503",
+            location: "Ohio",
+            location2: "5967 Bella Rosa Ln"
+        },
+        {
+            image: ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaQ47s5Z8ih8GIxvfNgxU9K4OE-tIJxBOUhviOHkPato7kTaYU93J3Qm-A4SXGsNUaTrE&usqp=CAU", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSP3V5uee3KJWRltlFIZvj-a8dqdxjCfUFs5HEn2cxvU9RO9dowkCpMpFdFCyB25jAdqJ0&usqp=CAU", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9d7Cx5dSgmsDor18VonhbBCV6aWTjV033Ax0iNSdzOn1ZrQhuzWiI6qx-GSfSSEAj7CA&usqp=CAU"],
+            description: "single-family home",
+            price: "$418,503",
+            location: "New York",
+            location2: "5967 Bella Rosa Ln"
+        },
+        {
+            image: ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQLhGnijp3f9JeAYVARNgdxblDfi8yl9z-4_HbGPKr8toP95LNcawJ4iovN_mT1X_J3qo&usqp=CAU", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP_2Pfp96SUPedCicceoJ5k0Viy4DhgptuAD1qAL_1ZPm8HOK4qrbrbAcw4snzrE6GQA4&usqp=CAU", "https://carehome-interiors.co.uk/wp-content/themes/yootheme/cache/21/falkland-grange1-215325d9.jpeg"],
+            description: "single-family home",
+            price: "$418,503",
+            location: "Canada",
+            location2: "5967 Bella Rosa Ln"
+        },
+        {
+            image: ["https://thumbor.forbes.com/thumbor/fit-in/900x510/https://www.forbes.com/home-improvement/wp-content/uploads/2022/07/download-23.jpg", "https://carehome-interiors.co.uk/wp-content/themes/yootheme/cache/92/Falkland8-92690fc4.jpeg", "https://graven.co.uk/wp-content/uploads/2015/09/ACCESS-Care-Homes-for-the-elderly-04.jpg"],
+            description: "single-family home",
+            price: "$418,503",
+            location: "Texas",
+            location2: "5967 Bella Rosa Ln"
+        },
+    ]
+    let upcoming= [
+        {
+            image: ["https://ap.rdcpix.com/94fa3082c2a53de7d26240df8e6ee88el-m1391377032od-w480_h360_x2.webp", "https://media.designcafe.com/wp-content/uploads/2020/07/23205856/home-interior-design-ideas.jpg", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXHdzhGfwYcrUl9aM5xPQs_4L3EiN-DoAYG391hY5w&s", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbsn6E66fqLFAFPl3sT3LXt6k8O54TVM99h-7Wb0BI&s"],
+            description: "single-family home",
+            price: "$418,503",
+            location: "Canada",
+            location2: "5967 Bella Rosa Ln"
+        },
+        {
+            image: ["https://ap.rdcpix.com/8094cabe8c274b03a6e61e8ee989ce0fl-m1133046693od-w480_h360_x2.webp", "https://carehome-interiors.co.uk/wp-content/themes/yootheme/cache/8b/downstairs-lounge-8bcc8c0b.jpeg", "https://carehome-interiors.co.uk/wp-content/themes/yootheme/cache/8b/downstairs-lounge-8bcc8c0b.jpeg"],
+            description: "single-family home",
+            price: "$418,503",
+            location: "Pakistan",
+            location2: "5967 Bella Rosa Ln"
+        },
+        {
+            image: ["https://ap.rdcpix.com/60505b4c725b4f62c75521e2e7a98b82l-m222814611od-w480_h360_x2.webp", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEbiD--vp-x3Q05jmewPWX49plRdpUi3QX2gdCLDo-j1FI4yjCkaa3P_0MoJO0_VUkaPY&usqp=CAU", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEbiD--vp-x3Q05jmewPWX49plRdpUi3QX2gdCLDo-j1FI4yjCkaa3P_0MoJO0_VUkaPY&usqp=CAU"],
+            description: "single-family home",
+            price: "$418,503",
+            location: "Afganistan",
+            location2: "5967 Bella Rosa Ln"
+        },
+        {
+            image: ["https://ap.rdcpix.com/8094cabe8c274b03a6e61e8ee989ce0fl-m1133046693od-w480_h360_x2.webp", "https://thestoreys.in/wp-content/uploads/2022/08/3d-rendering-modern-dining-room-living-room-with-luxury-decor-1300x698.jpg", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvrs8V58bOBZcZrGOtg5vMMfC4ppWzupuZHP6pt4apoP3_2C8oCp4Fe32umltUh57rnpQ&usqp=CAU"],
+            description: "single-family home",
+            price: "$418,503",
+            location: "Alabama",
+            location2: "5967 Bella Rosa Ln"
+        },
+        {
+            image: ["https://ap.rdcpix.com/7188f702d11753f1a92ec8ba712e1a9al-m127883450od-w480_h360_x2.webp", "https://media-cdn.tripadvisor.com/media/vr-splice-j/04/c8/35/4f.jpg", "https://media-cdn.tripadvisor.com/media/vr-splice-j/04/c8/4c/ed.jpg"],
+            description: "single-family home",
+            price: "$418,503",
+            location: "Ohio",
+            location2: "5967 Bella Rosa Ln"
+        },
+        {
+            image: ["https://ap.rdcpix.com/af6add5f6c876d795853f68e771febd9l-b46474391od-w480_h360_x2.webp", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSP3V5uee3KJWRltlFIZvj-a8dqdxjCfUFs5HEn2cxvU9RO9dowkCpMpFdFCyB25jAdqJ0&usqp=CAU", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9d7Cx5dSgmsDor18VonhbBCV6aWTjV033Ax0iNSdzOn1ZrQhuzWiI6qx-GSfSSEAj7CA&usqp=CAU"],
+            description: "single-family home",
+            price: "$418,503",
+            location: "New York",
+            location2: "5967 Bella Rosa Ln"
+        },
+        {
+            image: ["https://ap.rdcpix.com/8d18b01827a049ea97e42dbd25a3fdfal-m815611434od-w480_h360_x2.webp", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP_2Pfp96SUPedCicceoJ5k0Viy4DhgptuAD1qAL_1ZPm8HOK4qrbrbAcw4snzrE6GQA4&usqp=CAU", "https://carehome-interiors.co.uk/wp-content/themes/yootheme/cache/21/falkland-grange1-215325d9.jpeg"],
+            description: "single-family home",
+            price: "$418,503",
+            location: "Canada",
+            location2: "5967 Bella Rosa Ln"
+        },
+        {
+            image: ["https://ap.rdcpix.com/9c7688ea4324c303f5e9b12acdd50339l-m2694780811od-w480_h360_x2.webp", "https://carehome-interiors.co.uk/wp-content/themes/yootheme/cache/92/Falkland8-92690fc4.jpeg", "https://graven.co.uk/wp-content/uploads/2015/09/ACCESS-Care-Homes-for-the-elderly-04.jpg"],
+            description: "single-family home",
+            price: "$418,503",
+            location: "Texas",
+            location2: "5967 Bella Rosa Ln"
+        },
+    ]
+    let Luxury= [
+        {
+            image: ["https://ap.rdcpix.com/94fa3082c2a53de7d26240df8e6ee88el-m1391377032od-w480_h360_x2.webp", "https://media.designcafe.com/wp-content/uploads/2020/07/23205856/home-interior-design-ideas.jpg", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXHdzhGfwYcrUl9aM5xPQs_4L3EiN-DoAYG391hY5w&s", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbsn6E66fqLFAFPl3sT3LXt6k8O54TVM99h-7Wb0BI&s"],
+            description: "single-family home",
+            price: "$418,503",
+            location: "Canada",
+            location2: "5967 Bella Rosa Ln"
+        },
+        {
+            image: ["https://ap.rdcpix.com/8094cabe8c274b03a6e61e8ee989ce0fl-m1133046693od-w480_h360_x2.webp", "https://carehome-interiors.co.uk/wp-content/themes/yootheme/cache/8b/downstairs-lounge-8bcc8c0b.jpeg", "https://carehome-interiors.co.uk/wp-content/themes/yootheme/cache/8b/downstairs-lounge-8bcc8c0b.jpeg"],
+            description: "single-family home",
+            price: "$418,503",
+            location: "Pakistan",
+            location2: "5967 Bella Rosa Ln"
+        },
+        {
+            image: ["https://ap.rdcpix.com/60505b4c725b4f62c75521e2e7a98b82l-m222814611od-w480_h360_x2.webp", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEbiD--vp-x3Q05jmewPWX49plRdpUi3QX2gdCLDo-j1FI4yjCkaa3P_0MoJO0_VUkaPY&usqp=CAU", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEbiD--vp-x3Q05jmewPWX49plRdpUi3QX2gdCLDo-j1FI4yjCkaa3P_0MoJO0_VUkaPY&usqp=CAU"],
+            description: "single-family home",
+            price: "$418,503",
+            location: "Afganistan",
+            location2: "5967 Bella Rosa Ln"
+        },
+        {
+            image: ["https://ap.rdcpix.com/8094cabe8c274b03a6e61e8ee989ce0fl-m1133046693od-w480_h360_x2.webp", "https://thestoreys.in/wp-content/uploads/2022/08/3d-rendering-modern-dining-room-living-room-with-luxury-decor-1300x698.jpg", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvrs8V58bOBZcZrGOtg5vMMfC4ppWzupuZHP6pt4apoP3_2C8oCp4Fe32umltUh57rnpQ&usqp=CAU"],
+            description: "single-family home",
+            price: "$418,503",
+            location: "Alabama",
+            location2: "5967 Bella Rosa Ln"
+        },
+        {
+            image: ["https://ap.rdcpix.com/7188f702d11753f1a92ec8ba712e1a9al-m127883450od-w480_h360_x2.webp", "https://media-cdn.tripadvisor.com/media/vr-splice-j/04/c8/35/4f.jpg", "https://media-cdn.tripadvisor.com/media/vr-splice-j/04/c8/4c/ed.jpg"],
+            description: "single-family home",
+            price: "$418,503",
+            location: "Ohio",
+            location2: "5967 Bella Rosa Ln"
+        },
+        {
+            image: ["https://ap.rdcpix.com/af6add5f6c876d795853f68e771febd9l-b46474391od-w480_h360_x2.webp", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSP3V5uee3KJWRltlFIZvj-a8dqdxjCfUFs5HEn2cxvU9RO9dowkCpMpFdFCyB25jAdqJ0&usqp=CAU", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9d7Cx5dSgmsDor18VonhbBCV6aWTjV033Ax0iNSdzOn1ZrQhuzWiI6qx-GSfSSEAj7CA&usqp=CAU"],
+            description: "single-family home",
+            price: "$418,503",
+            location: "New York",
+            location2: "5967 Bella Rosa Ln"
+        },
+        {
+            image: ["https://ap.rdcpix.com/8d18b01827a049ea97e42dbd25a3fdfal-m815611434od-w480_h360_x2.webp", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP_2Pfp96SUPedCicceoJ5k0Viy4DhgptuAD1qAL_1ZPm8HOK4qrbrbAcw4snzrE6GQA4&usqp=CAU", "https://carehome-interiors.co.uk/wp-content/themes/yootheme/cache/21/falkland-grange1-215325d9.jpeg"],
+            description: "single-family home",
+            price: "$418,503",
+            location: "Canada",
+            location2: "5967 Bella Rosa Ln"
+        },
+        {
+            image: ["https://ap.rdcpix.com/9c7688ea4324c303f5e9b12acdd50339l-m2694780811od-w480_h360_x2.webp", "https://carehome-interiors.co.uk/wp-content/themes/yootheme/cache/92/Falkland8-92690fc4.jpeg", "https://graven.co.uk/wp-content/uploads/2015/09/ACCESS-Care-Homes-for-the-elderly-04.jpg"],
+            description: "single-family home",
+            price: "$418,503",
+            location: "Texas",
+            location2: "5967 Bella Rosa Ln"
+        },
+    ]
+    for (let index = 0; index < DasboardArray.length; index++) {
+    const element = DasboardArray[index];
+    screen.innerHTML += `
+    <div onclick = "viewhouse(${index})" class="prpt-div shadow m-3 py-2 px-3"> 
+    <img class="picx" src="${element.image[0]}">
+      <p class = ""> ${element.description} </p>
+      <p class = ""> ${element.location} </p>
+      <p class = ""> ${element.location2} </p>
+    </div>`
+} 
+    for (let index = 0; index < Affordable.length; index++) {
+    const element = Affordable[index];
+    newest.innerHTML += `
+    <div onclick = "viewhouse(${index})" class="prpt-div shadow m-3 py-2 px-3"> 
+    <img class="picx" src="${element.image[0]}">
+      <p class = ""> ${element.description} </p>
+      <p class = ""> ${element.location} </p>
+      <p class = ""> ${element.location2} </p>
+    </div>`
+} 
+    for (let index = 0; index < upcoming.length; index++) {
+    const element = upcoming[index];
+    upcomingscr.innerHTML += `
+    <div onclick = "viewhouse(${index})" class="prpt-div shadow m-3 py-2 px-3"> 
+    <img class="picx" src="${element.image[0]}">
+      <p class = ""> ${element.description} </p>
+      <p class = ""> ${element.location} </p>
+      <p class = ""> ${element.location2} </p>
+    </div>`
+} 
+    for (let index = 0; index < Luxury.length; index++) {
+    const element = Luxury[index];
+    luxuryhomes.innerHTML += `
+    <div onclick = "viewhouse(${index})" class="prpt-div shadow m-3 py-2 px-3"> 
+    <img class="picx" src="${element.image[0]}">
+      <p class = ""> ${element.description} </p>
+      <p class = ""> ${element.location} </p>
+      <p class = ""> ${element.location2} </p>
+    </div>`
+} 
+
+function viewhouse(index) {
+    let innerhome = DasboardArray[index].image;
+    let innerhome1 = Affordable[index].image;
+    let innerhome2 = upcoming[index].image;
+    let innerhome3 = Luxury[index].image;
+    localStorage.setItem("home", JSON.stringify(innerhome, innerhome1, innerhome2, innerhome3))
+    window.location.href = "showprpt.html"
+}
+
+
+</script>

@@ -358,10 +358,12 @@
             location2: "5967 Bella Rosa Ln"
         },
     ]
+   localStorage.setItem("home", JSON.stringify(DasboardArray))
+   console.log(DasboardArray);
     // console.log(DasboardArray.image);
     for (let index = 0; index < DasboardArray.length -1; index++) {
         const element = DasboardArray[index];
-        console.log(element.image);
+        // console.log(element.image);
         localStorage.setItem("images", JSON.stringify(element.image))
         screen.innerHTML = `
         <div class ="picx bg-info m-3 p-3 rounded-1 shadow  ">
@@ -376,8 +378,7 @@
 
     
    
-    localStorage.setItem("homes", JSON.stringify(DasboardArray));
-    console.log(DasboardArray);
+   
     screen2.innerHTML += `
     <div class="w-50  h-100 border shadow rounded-1 py-3 px-5 bg-dark text-light mt-5 mx-auto">
              <p>Type  of  : <input type="text" id="type" class="inps">  </p>
@@ -410,26 +411,26 @@
     let price = document.getElementById("price");
     let img = document.getElementById("img");
     // post property
-    function postprop() {
-        DasboardArray.push(
-            {
-                image: img.value,
-                description: describe.value,
-                price: price.value,
-                location: locate.value,
-                location2: address.value
-            }
-        )
-        console.log(DasboardArray)
-        localStorage.setItem("homes", JSON.stringify(DasboardArray));
+    // function postprop() {
+    //     DasboardArray.push(
+    //         {
+    //             image: img.value,
+    //             description: describe.value,
+    //             price: price.value,
+    //             location: locate.value,
+    //             location2: address.value
+    //         }
+    //     )
+    //     console.log(DasboardArray)
+    //     localStorage.setItem("home", JSON.stringify(DasboardArray));
 
-        locate.value = ""
-        describe.value = ""
-        price.value = ""
-        location.value = ""
-        address.value = ""
-        alert("Property posted successfully")
-        window.location.href ="index.html"
-    }
+    //     locate.value = ""
+    //     describe.value = ""
+    //     price.value = ""
+    //     location.value = ""
+    //     address.value = ""
+    //     alert("Property posted successfully")
+    //     window.location.href ="index.html"
+    // }
 
 </script>

@@ -13,46 +13,57 @@
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 <style>
-  .screen::-webkit-scrollbar-thumb {
-    height: 10px;
-    background-color: black;
-  }
 
-  #screen::-webkit-scrollbar-track {
-    height: 10px;
-  }
-
-  #screen::-webkit-scrollbar-button {
-    display: none;
-  }
 </style>
 
 <body>
-  <div class="w-25">
-    <h4>Schedule a tour</h4>
-    <div class="d-flex justify-content-between">
-      <span class="material-symbols-outlined">
-        calendar_today
-      </span>
-      <p id="datescr"></p>
-      <a href="#">change</a>
-    </div>
-    <p>We'll call to connect you with a local agent to tour. Calls often take around 10 minutes.</p>
-    <label for="Phone">Phone</label>
-    <input type="text" placeholder="(xxx) xxx-xxxx">
-          <p>Cancel anytime. We’ll coordinate schedules for anyone else you wish to attend.</p>
-          <button>Request tour</button>
-          <small>By proceeding, you consent to receive calls and texts at the number you provided, including marketing by autodialer and prerecorded and artificial voice, and email, from realtor.com and others about your inquiry and other home-related matters, but not as a condition of any purchase. More...</small>
-  </div>
-</body>
+  <p class="fw-bold fs-1">Signup</p>
+  <input id="name" type="text" name="" id="" placeholder="name">
+  <input id="pas" type="text" name="" id="" placeholder="password">
+<button onclick="signup()" class="btn btn-danger">signup</button>
 
+  <p class="fw-bold fs-1 m-5">login</p>
+  <input id="logname"  type="text" name="" id=""  placeholder="name">
+  <input id="paspas" type="text" name="" id=""  placeholder="password">
+  <button onclick="login()" class="btn btn-success">login</button>
+</body>
+<script>
+  let checked = JSON.parse(localStorage.getItem ("userdata"))
+  console.log(checked);
+  let username = document.getElementById("name")
+  let password = document.getElementById("pas")
+  let anArray = []
+ function signup() {
+   if (checked == null) {
+      checked = []
+      checked.push({
+    name : username.value,
+    pascode : password.value
+   })
+   console.log(checked);
+   localStorage.setItem("userdata", JSON.stringify(checked))
+   }else{
+    checked.push({
+    name : username.value,
+    pascode : password.value
+   })
+   console.log(checked);
+   localStorage.setItem("userdata", JSON.stringify(checked))
+   }
+ }
+let logname = document.getElementById("logname")
+let logpas = document.getElementById("paspas")
+ let collect = JSON.parse(localStorage.getItem("userdata"))
+ console.log(collect);
+ function login() {
+  let found = collect.find((current)=> current.name == logname.value && current.pascode == logpas.value)
+  if (found) {
+    alert("login successfully")
+  }else{
+    alert("invalid details")
+  }
+ }
+</script>
 </html>
 <script>
-  let date = new Date();
-  let options = {
-    month: 'short', day: 'short', date: 'numeric'
-  }
-  let newdate = date.toDateString(options)
-  console.log(newdate);
-  document.getElementById("datescr").innerHTML = newdate;
 </script>
