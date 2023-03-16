@@ -29,7 +29,7 @@
   }
 
   #calendarscreen {
-    width: 400px;
+    width: 100%;
     height: 120px;
     display: flex;
     flex-wrap: nowrap;
@@ -87,20 +87,89 @@
     color: grey;
     margin-top: -30px;
   }
-  .star{
+
+  .star {
     border: none;
     background: none;
     outline: none;
     font-size: 20px;
   }
-  .agentinfo{
-   padding-bottom: 40px;
+
+  .agentinfo {
+    padding-bottom: 40px;
   }
 
+  .change:hover {
+    border-bottom: 1px solid rgb(64, 64, 220);
+    cursor: pointer;
+  }
+  .side1{
+    width: 75%;
+  }
+  .side2{
+    width: 25%;
+  }
+
+  @media (max-width : 1029px) {
+    .shows {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .carousel {
+      width: 100%;
+    }
+
+    .schedule {
+      width: 90%;
+      margin: 20px auto;
+    }
+
+    .twobed {
+      width: 100%;
+    }
+    .side1{
+      width: 90%;
+      margin: auto;
+    }
+    .side2{
+      width: 100%;
+    }
+    body{
+      overflow-x: hidden;
+    }
+    #modal{
+      display: none;
+    }
+    .show_container{
+      width: 100%;
+    }
+  }
+
+  .rent {
+    width: fit-content;
+    height: 30px;
+    background-color: rgb(170, 211, 170);
+    color: green;
+  }
+
+  .exist {
+    width: fit-content;
+    background-color: rgb(224, 70, 70);
+    color: white;
+    height: 30px;
+  }
+  .vicinity{
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .email{
+    width: 100%;
+  }
 </style>
 
 <body>
-  <nav id="nav" class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
       <a class="navbar-brand fw-bolder fs-4" href="#">
         Realtor<span class="text-danger">.com®</span>
@@ -113,7 +182,7 @@
         <ul class="navbar-nav ms-auto">
           <div class="d-flex align-items-center item-div">
             <li class="nav-item">
-              <a class="nav-link" href="index.html">Buy</a>
+              <a class="nav-link" href="#">Buy</a>
             </li>
             <li class="nav-item ">
               <a onclick="sell()" class="nav-link" href="sell.html">Sell</a>
@@ -136,153 +205,11 @@
               <button class="btn butt btn-outline-secondary mx-2">Manage Rentals</button>
             </li>
             <li class="nav-item">
-              <button class="btn butt btn-danger mx-2">Advertise</button>
+              <button class="btn butt btn-outline-secondary mx-2">Advertise</button>
             </li>
             <li class="nav-item">
-              <button onclick="login(event)" class="btn butt btn-outline-secondary mx-2">Login</button>
-              <div id="modal" class="login">
-                <form class="form_container mx-auto">
-                  <button onclick="hidemodal(event)" class="btn cancel btn text-dark fs-3">&times;</button>
-                  <div class="title_container">
-                    <p class="title">Login to your Account</p>
-                    <span class="subtitle">Get started with our app, just create an account and enjoy the
-                      experience.</span>
-                  </div>
-                  <br>
-                  <div class="input_container">
-                    <label class="input_label" for="email_field">Email</label>
-                    <svg fill="none" viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg"
-                      class="icon">
-                      <path stroke-linejoin="round" stroke-linecap="round" stroke-width="1.5" stroke="#141B34"
-                        d="M7 8.5L9.94202 10.2394C11.6572 11.2535 12.3428 11.2535 14.058 10.2394L17 8.5"></path>
-                      <path stroke-linejoin="round" stroke-width="1.5" stroke="#141B34"
-                        d="M2.01577 13.4756C2.08114 16.5412 2.11383 18.0739 3.24496 19.2094C4.37608 20.3448 5.95033 20.3843 9.09883 20.4634C11.0393 20.5122 12.9607 20.5122 14.9012 20.4634C18.0497 20.3843 19.6239 20.3448 20.7551 19.2094C21.8862 18.0739 21.9189 16.5412 21.9842 13.4756C22.0053 12.4899 22.0053 11.5101 21.9842 10.5244C21.9189 7.45886 21.8862 5.92609 20.7551 4.79066C19.6239 3.65523 18.0497 3.61568 14.9012 3.53657C12.9607 3.48781 11.0393 3.48781 9.09882 3.53656C5.95033 3.61566 4.37608 3.65521 3.24495 4.79065C2.11382 5.92608 2.08114 7.45885 2.01576 10.5244C1.99474 11.5101 1.99475 12.4899 2.01577 13.4756Z">
-                      </path>
-                    </svg>
-                    <input placeholder="name@mail.com" title="Inpit title" name="input-name" type="text"
-                      class="input_field" id="email_field">
-                  </div>
-                  <div class="input_container">
-                    <label class="input_label" for="password_field">Password</label>
-                    <svg fill="none" viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg"
-                      class="icon">
-                      <path stroke-linecap="round" stroke-width="1.5" stroke="#141B34"
-                        d="M18 11.0041C17.4166 9.91704 16.273 9.15775 14.9519 9.0993C13.477 9.03404 11.9788 9 10.329 9C8.67911 9 7.18091 9.03404 5.70604 9.0993C3.95328 9.17685 2.51295 10.4881 2.27882 12.1618C2.12602 13.2541 2 14.3734 2 15.5134C2 16.6534 2.12602 17.7727 2.27882 18.865C2.51295 20.5387 3.95328 21.8499 5.70604 21.9275C6.42013 21.9591 7.26041 21.9834 8 22">
-                      </path>
-                      <path stroke-linejoin="round" stroke-linecap="round" stroke-width="1.5" stroke="#141B34"
-                        d="M6 9V6.5C6 4.01472 8.01472 2 10.5 2C12.9853 2 15 4.01472 15 6.5V9"></path>
-                      <path fill="#141B34"
-                        d="M21.2046 15.1045L20.6242 15.6956V15.6956L21.2046 15.1045ZM21.4196 16.4767C21.7461 16.7972 22.2706 16.7924 22.5911 16.466C22.9116 16.1395 22.9068 15.615 22.5804 15.2945L21.4196 16.4767ZM18.0228 15.1045L17.4424 14.5134V14.5134L18.0228 15.1045ZM18.2379 18.0387C18.5643 18.3593 19.0888 18.3545 19.4094 18.028C19.7299 17.7016 19.7251 17.1771 19.3987 16.8565L18.2379 18.0387ZM14.2603 20.7619C13.7039 21.3082 12.7957 21.3082 12.2394 20.7619L11.0786 21.9441C12.2794 23.1232 14.2202 23.1232 15.4211 21.9441L14.2603 20.7619ZM12.2394 20.7619C11.6914 20.2239 11.6914 19.358 12.2394 18.82L11.0786 17.6378C9.86927 18.8252 9.86927 20.7567 11.0786 21.9441L12.2394 20.7619ZM12.2394 18.82C12.7957 18.2737 13.7039 18.2737 14.2603 18.82L15.4211 17.6378C14.2202 16.4587 12.2794 16.4587 11.0786 17.6378L12.2394 18.82ZM14.2603 18.82C14.8082 19.358 14.8082 20.2239 14.2603 20.7619L15.4211 21.9441C16.6304 20.7567 16.6304 18.8252 15.4211 17.6378L14.2603 18.82ZM20.6242 15.6956L21.4196 16.4767L22.5804 15.2945L21.785 14.5134L20.6242 15.6956ZM15.4211 18.82L17.8078 16.4767L16.647 15.2944L14.2603 17.6377L15.4211 18.82ZM17.8078 16.4767L18.6032 15.6956L17.4424 14.5134L16.647 15.2945L17.8078 16.4767ZM16.647 16.4767L18.2379 18.0387L19.3987 16.8565L17.8078 15.2945L16.647 16.4767ZM21.785 14.5134C21.4266 14.1616 21.0998 13.8383 20.7993 13.6131C20.4791 13.3732 20.096 13.1716 19.6137 13.1716V14.8284C19.6145 14.8284 19.619 14.8273 19.6395 14.8357C19.6663 14.8466 19.7183 14.8735 19.806 14.9391C19.9969 15.0822 20.2326 15.3112 20.6242 15.6956L21.785 14.5134ZM18.6032 15.6956C18.9948 15.3112 19.2305 15.0822 19.4215 14.9391C19.5091 14.8735 19.5611 14.8466 19.5879 14.8357C19.6084 14.8273 19.6129 14.8284 19.6137 14.8284V13.1716C19.1314 13.1716 18.7483 13.3732 18.4281 13.6131C18.1276 13.8383 17.8008 14.1616 17.4424 14.5134L18.6032 15.6956Z">
-                      </path>
-                    </svg>
-                    <input placeholder="Password" title="Inpit title" name="input-name" type="password"
-                      class="input_field" id="password_field">
-                  </div>
-                  <button title="Sign In" type="submit" class="sign-in_btn">
-                    <span>Sign In</span>
-                  </button>
-
-                  <div class="separator">
-                    <hr class="line">
-                    <span>Or</span>
-                    <hr class="line">
-                  </div>
-                  <button title="Sign In" type="submit" class="sign-in_ggl">
-                    <svg height="18" width="18" viewBox="0 0 32 32" xmlns:xlink="http://www.w3.org/1999/xlink"
-                      xmlns="http://www.w3.org/2000/svg">
-                      <defs>
-                        <path
-                          d="M44.5 20H24v8.5h11.8C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22c11 0 21-8 21-22 0-1.3-.2-2.7-.5-4z"
-                          id="A"></path>
-                      </defs>
-                      <clipPath id="B">
-
-                      </clipPath>
-                      <g transform="matrix(.727273 0 0 .727273 -.954545 -1.45455)">
-                        <path fill="#fbbc05" clip-path="url(#B)" d="M0 37V11l17 13z"></path>
-                        <path fill="#ea4335" clip-path="url(#B)" d="M0 11l17 13 7-6.1L48 14V0H0z"></path>
-                        <path fill="#34a853" clip-path="url(#B)" d="M0 37l30-23 7.9 1L48 0v48H0z"></path>
-                        <path fill="#4285f4" clip-path="url(#B)" d="M48 48L17 24l-4-3 35-10z"></path>
-                      </g>
-                    </svg>
-                    <span>Sign In with Google</span>
-                  </button>
-                  <p class="note">Terms of use &amp; Conditions</p>
-                </form>
-              </div>
-            </li>
-            <li class="nav-item">
-              <button onclick="signup()" class="btn butt btn-danger mx-2">Sign Up</button>
-              <div id="modal2" class="login2">
-                <form class="form_container2 mx-auto">
-                  <button onclick="hidemodal(event)" class="btn cancel btn text-dark fs-3">&times;</button>
-                  <div class="title_container">
-                    <p class="title">Create your Realtor Account</p>
-                    <span class="subtitle">Get started with our app, just create an account and enjoy the
-                      experience.</span>
-                  </div>
-                  <br>
-                  <div class="input_container">
-                    <label class="input_label" for="email_field">Username</label>
-                    <svg fill="none" viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg"
-                      class="icon">
-                      <path stroke-linejoin="round" stroke-linecap="round" stroke-width="1.5" stroke="#141B34"
-                        d="M7 8.5L9.94202 10.2394C11.6572 11.2535 12.3428 11.2535 14.058 10.2394L17 8.5"></path>
-                      <path stroke-linejoin="round" stroke-width="1.5" stroke="#141B34"
-                        d="M2.01577 13.4756C2.08114 16.5412 2.11383 18.0739 3.24496 19.2094C4.37608 20.3448 5.95033 20.3843 9.09883 20.4634C11.0393 20.5122 12.9607 20.5122 14.9012 20.4634C18.0497 20.3843 19.6239 20.3448 20.7551 19.2094C21.8862 18.0739 21.9189 16.5412 21.9842 13.4756C22.0053 12.4899 22.0053 11.5101 21.9842 10.5244C21.9189 7.45886 21.8862 5.92609 20.7551 4.79066C19.6239 3.65523 18.0497 3.61568 14.9012 3.53657C12.9607 3.48781 11.0393 3.48781 9.09882 3.53656C5.95033 3.61566 4.37608 3.65521 3.24495 4.79065C2.11382 5.92608 2.08114 7.45885 2.01576 10.5244C1.99474 11.5101 1.99475 12.4899 2.01577 13.4756Z">
-                      </path>
-                    </svg>
-                    <input placeholder="input your name" title="Inpit title" name="input-name" type="text"
-                      class="input_field shadow" id="name_field">
-                  </div>
-                  <div class="input_container">
-                    <label class="input_label" for="email_field">Nmae</label>
-                    <svg fill="none" viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg"
-                      class="icon">
-                      <path stroke-linejoin="round" stroke-linecap="round" stroke-width="1.5" stroke="#141B34"
-                        d="M7 8.5L9.94202 10.2394C11.6572 11.2535 12.3428 11.2535 14.058 10.2394L17 8.5"></path>
-                      <path stroke-linejoin="round" stroke-width="1.5" stroke="#141B34"
-                        d="M2.01577 13.4756C2.08114 16.5412 2.11383 18.0739 3.24496 19.2094C4.37608 20.3448 5.95033 20.3843 9.09883 20.4634C11.0393 20.5122 12.9607 20.5122 14.9012 20.4634C18.0497 20.3843 19.6239 20.3448 20.7551 19.2094C21.8862 18.0739 21.9189 16.5412 21.9842 13.4756C22.0053 12.4899 22.0053 11.5101 21.9842 10.5244C21.9189 7.45886 21.8862 5.92609 20.7551 4.79066C19.6239 3.65523 18.0497 3.61568 14.9012 3.53657C12.9607 3.48781 11.0393 3.48781 9.09882 3.53656C5.95033 3.61566 4.37608 3.65521 3.24495 4.79065C2.11382 5.92608 2.08114 7.45885 2.01576 10.5244C1.99474 11.5101 1.99475 12.4899 2.01577 13.4756Z">
-                      </path>
-                    </svg>
-                    <input placeholder="Input your username" title="Inpit title" name="input-name" type="text"
-                      class="input_field shadow" id="email_field">
-                  </div>
-                  <div class="input_container">
-                    <label class="input_label" for="email_field">Email</label>
-                    <svg fill="none" viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg"
-                      class="icon">
-                      <path stroke-linejoin="round" stroke-linecap="round" stroke-width="1.5" stroke="#141B34"
-                        d="M7 8.5L9.94202 10.2394C11.6572 11.2535 12.3428 11.2535 14.058 10.2394L17 8.5"></path>
-                      <path stroke-linejoin="round" stroke-width="1.5" stroke="#141B34"
-                        d="M2.01577 13.4756C2.08114 16.5412 2.11383 18.0739 3.24496 19.2094C4.37608 20.3448 5.95033 20.3843 9.09883 20.4634C11.0393 20.5122 12.9607 20.5122 14.9012 20.4634C18.0497 20.3843 19.6239 20.3448 20.7551 19.2094C21.8862 18.0739 21.9189 16.5412 21.9842 13.4756C22.0053 12.4899 22.0053 11.5101 21.9842 10.5244C21.9189 7.45886 21.8862 5.92609 20.7551 4.79066C19.6239 3.65523 18.0497 3.61568 14.9012 3.53657C12.9607 3.48781 11.0393 3.48781 9.09882 3.53656C5.95033 3.61566 4.37608 3.65521 3.24495 4.79065C2.11382 5.92608 2.08114 7.45885 2.01576 10.5244C1.99474 11.5101 1.99475 12.4899 2.01577 13.4756Z">
-                      </path>
-                    </svg>
-                    <input placeholder="name@mail.com" title="Inpit title" name="input-name" type="text"
-                      class="input_field shadow" id="email_field">
-                  </div>
-                  <div class="input_container">
-                    <label class="input_label" for="password_field">Password</label>
-                    <svg fill="none" viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg"
-                      class="icon">
-                      <path stroke-linecap="round" stroke-width="1.5" stroke="#141B34"
-                        d="M18 11.0041C17.4166 9.91704 16.273 9.15775 14.9519 9.0993C13.477 9.03404 11.9788 9 10.329 9C8.67911 9 7.18091 9.03404 5.70604 9.0993C3.95328 9.17685 2.51295 10.4881 2.27882 12.1618C2.12602 13.2541 2 14.3734 2 15.5134C2 16.6534 2.12602 17.7727 2.27882 18.865C2.51295 20.5387 3.95328 21.8499 5.70604 21.9275C6.42013 21.9591 7.26041 21.9834 8 22">
-                      </path>
-                      <path stroke-linejoin="round" stroke-linecap="round" stroke-width="1.5" stroke="#141B34"
-                        d="M6 9V6.5C6 4.01472 8.01472 2 10.5 2C12.9853 2 15 4.01472 15 6.5V9"></path>
-                      <path fill="#141B34"
-                        d="M21.2046 15.1045L20.6242 15.6956V15.6956L21.2046 15.1045ZM21.4196 16.4767C21.7461 16.7972 22.2706 16.7924 22.5911 16.466C22.9116 16.1395 22.9068 15.615 22.5804 15.2945L21.4196 16.4767ZM18.0228 15.1045L17.4424 14.5134V14.5134L18.0228 15.1045ZM18.2379 18.0387C18.5643 18.3593 19.0888 18.3545 19.4094 18.028C19.7299 17.7016 19.7251 17.1771 19.3987 16.8565L18.2379 18.0387ZM14.2603 20.7619C13.7039 21.3082 12.7957 21.3082 12.2394 20.7619L11.0786 21.9441C12.2794 23.1232 14.2202 23.1232 15.4211 21.9441L14.2603 20.7619ZM12.2394 20.7619C11.6914 20.2239 11.6914 19.358 12.2394 18.82L11.0786 17.6378C9.86927 18.8252 9.86927 20.7567 11.0786 21.9441L12.2394 20.7619ZM12.2394 18.82C12.7957 18.2737 13.7039 18.2737 14.2603 18.82L15.4211 17.6378C14.2202 16.4587 12.2794 16.4587 11.0786 17.6378L12.2394 18.82ZM14.2603 18.82C14.8082 19.358 14.8082 20.2239 14.2603 20.7619L15.4211 21.9441C16.6304 20.7567 16.6304 18.8252 15.4211 17.6378L14.2603 18.82ZM20.6242 15.6956L21.4196 16.4767L22.5804 15.2945L21.785 14.5134L20.6242 15.6956ZM15.4211 18.82L17.8078 16.4767L16.647 15.2944L14.2603 17.6377L15.4211 18.82ZM17.8078 16.4767L18.6032 15.6956L17.4424 14.5134L16.647 15.2945L17.8078 16.4767ZM16.647 16.4767L18.2379 18.0387L19.3987 16.8565L17.8078 15.2945L16.647 16.4767ZM21.785 14.5134C21.4266 14.1616 21.0998 13.8383 20.7993 13.6131C20.4791 13.3732 20.096 13.1716 19.6137 13.1716V14.8284C19.6145 14.8284 19.619 14.8273 19.6395 14.8357C19.6663 14.8466 19.7183 14.8735 19.806 14.9391C19.9969 15.0822 20.2326 15.3112 20.6242 15.6956L21.785 14.5134ZM18.6032 15.6956C18.9948 15.3112 19.2305 15.0822 19.4215 14.9391C19.5091 14.8735 19.5611 14.8466 19.5879 14.8357C19.6084 14.8273 19.6129 14.8284 19.6137 14.8284V13.1716C19.1314 13.1716 18.7483 13.3732 18.4281 13.6131C18.1276 13.8383 17.8008 14.1616 17.4424 14.5134L18.6032 15.6956Z">
-                      </path>
-                    </svg>
-                    <input placeholder="Password" title="Inpit title" name="input-name" type="password"
-                      class="input_field shadow" id="password_field">
-                  </div>
-                  <button onclick="signup()" title="Sign In" type="submit" class="sign-in_btn">
-                    <span>Sign Up</span>
-                  </button>
-                  <p class="note">Terms of use &amp; Conditions</p>
-                </form>
-              </div>
+              <button onclick="sigout()" class="btn butt btn-danger mx-2">Sign Out<i
+                  class="fa-solid fa-user"></i></button>
             </li>
           </div>
         </ul>
@@ -291,32 +218,32 @@
   </nav>
 
   <main>
-    <div class="d-flex">
-      <div>
+    <div class="d-flex shows">
+      <div class="present">
         <p class="mx-3">Presented by: <br>
           <span class="fw-bold">Erin Heath with Russell E. Gross Real Estate</span>
         <p id="showscreen"></p>
-        <div class="d-flex justify-content-around">
-          <div>
-            <button class="btn btn-success px-3">Rent</button>
-            <button class="btn btn-warning">Existing</button>
+        <div class="row">
+          <div class="d-flex flessn col-12 col-md-4 ">
+            <div class=" rent  px-3 mx-3">Rent</div>
+            <div class="exist px-3">Existing</div>
           </div>
-          <p class="d-flex align-items-center"><span class="material-symbols-outlined">
+          <p class="d-flex align-items-center col-12 col-md-4"><span class="material-symbols-outlined">
               calendar_month
             </span>2023-03-12 18:39:59.000</p>
 
-          <p class="d-flex align-items-center"><span class="material-symbols-outlined">
+          <p class="d-flex align-items-center col-12 col-md-4"><span class="material-symbols-outlined">
               visibility
             </span> 20 Views</p>
         </div>
       </div>
-      <div id="schedule" class="border schedule shadow">
+      <div id="schedule" class="border col-5 schedule shadow">
       </div>
     </div>
     <div class="container">
       <div class="row my-4">
-        <div class="side1 w-75 h-100 border rounded-2 shadow col-8 p-3">
-          <div class="d-flex justify-content-between">
+        <div class="side1  h-100 border rounded-2 shadow col-12 col-sm-7 p-3">
+          <div class="d-flex justify-content-between flex-wrap">
             <p class="fw-300 fs-3">2Bedroom Flat Block A and C are available</p>
             <div>
               <h3 class="text-danger fw-bolder">$100, 000 </h3>
@@ -333,9 +260,9 @@
             2,168 square feet
             0.75acre lot</p>
 
-          <h5 class="m-3">property details (Nereby)</h5>
-          <div class="row">
-            <div class="col-3">
+          <h5 class="m-3 fw-bold">property details (Nereby)</h5>
+          <div class="d-flex flex-wrap">
+            <div class="mx-3">
               <p class="d-flex align-items-center"><span class="material-symbols-outlined">
                   done
                 </span> Mosque</p>
@@ -346,7 +273,7 @@
                   done
                 </span> Resturant</p>
             </div>
-            <div class="col-3">
+            <div class="mx-3">
               <p class="d-flex align-items-center"><span class="material-symbols-outlined">
                   done
                 </span> Church</p>
@@ -357,7 +284,7 @@
                   done
                 </span> Hotel & garden</p>
             </div>
-            <div class="col-3">
+            <div class="mx-3">
               <p class="d-flex align-items-center"><span class="material-symbols-outlined">
                   done
                 </span> stadium</p>
@@ -368,7 +295,7 @@
                   done
                 </span> market</p>
             </div>
-            <div class="col-3">
+            <div class="mx-3">
               <p class="d-flex align-items-center"><span class="material-symbols-outlined">
                   done
                 </span> Nridge</p>
@@ -381,8 +308,8 @@
             </div>
           </div>
           <h5 class="fw-bold m-3">Amenities</h5>
-          <div class="row">
-            <div class="col-3">
+          <div class="d-flex flex-wrap">
+            <div class="mx-3">
               <p class="d-flex align-items-center"><span class="material-symbols-outlined">
                   done
                 </span> Smart Home</p>
@@ -390,7 +317,7 @@
                   done
                 </span> Electricity </p>
             </div>
-            <div class="col-3">
+            <div class="mx-3">
               <p class="d-flex align-items-center"><span class="material-symbols-outlined">
                   done
                 </span> Furnished kitchen</p>
@@ -398,7 +325,7 @@
                   done
                 </span> Electricity </p>
             </div>
-            <div class="col-3">
+            <div class="mx-3">
               <p class="d-flex align-items-center"><span class="material-symbols-outlined">
                   done
                 </span> Water Supply</p>
@@ -406,7 +333,7 @@
                   done
                 </span> Walk In Closet </p>
             </div>
-            <div class="col-3">
+            <div class="mx-3">
               <p class="d-flex align-items-center"><span class="material-symbols-outlined">
                   done
                 </span> Tile Flooring</p>
@@ -415,77 +342,71 @@
                 </span> Good Roads </p>
             </div>
           </div>
-          <h6 class="m-3"> Customers Review</h6>
-          <h6>Review This property</h6>
-          <button onclick="star()" class="star"><i class="fa-regular fa-star"></i></button>
-          <button onclick="star()" class="star"><i class="fa-regular fa-star"></i></button>
-          <button onclick="star()" class="star"><i class="fa-regular fa-star"></i></button>
-          <button onclick="star()" class="star"><i class="fa-regular fa-star"></i></button>
-          <button onclick="star()" class="star"><i class="fa-regular fa-star"></i></button>
+          <h6 class="m-3 fs-4 fw-bold"> Customers Review</h6>
+          <h6 class="fs-5 fw-200">Review This property</h6>
+          <p id="starredscreen"></p>
+          <div class="w-100 bg-light p-2">
+            <textarea class="p-2 wdt" name="" id="" cols="30" rows="1" placeholder="Type Your comment Here"></textarea>
+            <button class="btn btn-danger m-3">Submit Review</button>
+          </div>
         </div>
 
-        <div class="side2 w-25 h-100 col-4">
-          <div class="w=-100 rounded-2 h-25 shadow agentinfo">
-            <button class="btn btn-danger  w-100">AGENT INFORMATION</button>
+        <div class="side2  h-100 ">
+          <div class="w=-100 rounded-2 h-25 my-2 shadow agentinfo">
+            <button class="btn btn-danger info  w-100">AGENT INFORMATION</button>
             <img class="img-fluid agent" src="./mark.png" alt="">
             <small class="d-flex align-items-center text-danger"> <i class="fa-solid fa-phone"></i> 08132577114 </small>
             <small class="d-flex align-items-center text-danger"><i class="fa-brands fa-whatsapp"></i>
               0903855512</small>
             <small class="text-danger"><i class="fa-solid fa-envelope"></i>adewaleagbolahan025@gmail.com </small>
           </div>
-          <divclass="w=-100 rounded-2 h-25 shadow agentinfo>
-            <button class="btn btn-light">Request a Tour</button>
-            <div class="login-box">
-                 <input type="text" name="" required="">
-                 <label>Username</label>
-               </div>
-               <div class="user-box">
-                 <input type="password" name="" required="">
-                 <label>Password</label>
-               </div><center>
-               <a href="#">
-                      SEND
-                  <span></span>
-               </a></center>
-       </div>
+          <div class="w=-100 rounded-2 h-25 my-5 shadow agentinfo">
+            <button class="btn btn-secondary  w-100">Request A Tour</button>
+            <input  id="reqname" type="text" class="wdt p-2 " placeholder="Name">
+            <input id="reqphonenum" type="number" class="wdt p-2 " placeholder="Phone">
+            <input id="reqemail" type="email" class="wdt p-2 " placeholder="Email">
+            <textarea id="reqmessae" class="p-2 wdt" name="" id="" cols="30" rows="1" placeholder="Message"></textarea>
+            <button onclick="sendrequest" class="btn btn-danger w-75 mx-auto mt-3">Send Request</button>
+          </div>
         </div>
 
-        
+
       </div>
     </div>
 
   </main>
 
-  <!-- <footer class="bg-dark text-light p-5">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-4 col-sm-12">
-              <h3>About Realtor</h3>
-              <p>Realtor is a real estate website dedicated to helping you find your dream home. Our team of expert agents are committed to providing you with the best service possible.</p>
-            </div>
-            <div class="col-md-4 col-sm-12">
-              <h3>Contact Us</h3>
-              <p>123 Main Street<br>
-              Anytown, USA 12345<br>
-              Phone: (555) 555-1234<br>
-              Email: info@realtor.com</p>
-            </div>
-            <div class="col-md-4 col-sm-12">
-              <h3>Connect with Us</h3>
-              <ul class="social-media">
-                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                <li><a href="#"><i class="fa fa-youtube"></i></a></li>
-              </ul>
-            </div>
-          </div>
+  <footer class="bg-dark text-light p-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 col-sm-12">
+          <h3>About Realtor</h3>
+          <p>Realtor is a real estate website dedicated to helping you find your dream home. Our team of expert agents
+            are committed to providing you with the best service possible.</p>
         </div>
-        <div class="d-flex my-5">
-            <img class="img-fluid get" src="https://s.zillowstatic.com/pfs/static/app-store-badge.svg" alt="">
-            <img class="img-fluid get" src="https://s.zillowstatic.com/pfs/static/google-play-badge.svg" alt="">
-           </div>
-      </footer> -->
+        <div class="col-md-4 col-sm-12">
+          <h3>Contact Us</h3>
+          <p>123 Main Street<br>
+            Anytown, USA 12345<br>
+            Phone: (555) 555-1234<br>
+            Email: info@realtor.com</p>
+        </div>
+        <div class="col-md-4 col-sm-12">
+          <h3>Connect with Us</h3>
+          <ul class="social-media">
+            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+            <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="d-flex my-5">
+      <img class="img-fluid get" src="https://s.zillowstatic.com/pfs/static/app-store-badge.svg" alt="">
+      <img class="img-fluid get" src="https://s.zillowstatic.com/pfs/static/google-play-badge.svg" alt="">
+    </div>
+  </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
@@ -495,7 +416,8 @@
 
 </html>`
 <script>
-  let checked = JSON.parse(localStorage.getItem("home"));
+  let innerhome = JSON.parse(localStorage.getItem("innerhome"));
+
   function defaulttor() {
     document.getElementById("schedule").innerHTML += `
     <h4>Schedule a tour</h4>
@@ -556,12 +478,12 @@
               <div class="inp-di border rounded-2 shadow d-flex align-items-center px-2">
                 <i class="fa-regular fa-calendar mx-3"></i>
                 <input placeholder="dd/mm/2023" title="Inpit title" name="input-name" type="number"
-                  class="input_field" id="password_field">
+                  class="input_field" id="date">
 
               </div>
             </div>
             <small>message</small>
-            <textarea class="p-2" name="" id="" cols="10" rows="4"
+            <textarea class="p-2" name="" id="message" cols="10" rows="4"
               placeholder="">I am interested in Anderson Christie Real Estate.</textarea>
             <button onclick="emailpropt(event)" class="btn btn-danger rounded-5 w-100 shadow my-2">Email Prorperty</button>
             <small>By proceeding, you consent to receive calls and texts at the number you provided, including marketing
@@ -576,30 +498,37 @@
         </p>
     `
   } defaulttor();
-
   document.getElementById("showscreen").innerHTML = `
-  <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+  <div id="carouselExampleInterval1" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active" data-bs-interval="10000">
-        <img src="${checked[0]}" class="d-block w-100 currentimg" alt="...">
+        <img src="${innerhome[0]}" class="d-block w-100 currentimg" alt="...">
       </div>
       <div class="carousel-item" data-bs-interval="2000">
-        <img src="${checked[1]}" class="d-block w-100 currentimg" alt="...">
+        <img src="${innerhome[1]}" class="d-block w-100 currentimg" alt="...">
       </div>
       <div class="carousel-item">
-        <img src="${checked[2]}" class="d-block w-100 currentimg" alt="...">
+        <img src="${innerhome[2]}" class="d-block w-100 currentimg" alt="...">
       </div>
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval1" data-bs-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Previous</span>
     </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval1" data-bs-slide="next">
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Next</span>
     </button>
   </div>
 `;
+
+let username = document.getElementById("name")
+let useremail = document.getElementById("email")
+let userphonenum = document.getElementById("phonenum")
+let movindate = document.getElementById("date")
+let message = document.getElementById("message")
+
+
   let calendarArray = [
     {
       day: "mon",
@@ -717,7 +646,7 @@
         calendar_today
       </span>
       <p id="datescr" class="scrtt"> Mon, 13 Mar, 2023 </p>
-      <p onclick="changedate()" class="text-primary">change</p>
+      <p onclick="changedate()" class="text-primary change">change</p>
     </div>
     <p>We'll call to connect you with a local agent to tour. Calls often take around 10 minutes.</p>
     <div class="my-1">
@@ -726,7 +655,7 @@
     </div>
        <div class="d-grid">
         <p>Cancel anytime. We’ll coordinate schedules for anyone else you wish to attend.</p>
-          <button onclick = "gotour()" class="btn btn-danger rounded-5 w-50">Request tour</button> <br>
+          <button onclick = "gotour()" class="btn btn-danger rounded-5 w-50">Contact agent</button> <br>
           <small class="mtop">By proceeding, you consent to receive calls and texts at the number you provided, including marketing by autodialer and prerecorded and artificial voice, and email, from realtor.com and others about your inquiry and other home-related matters, but not as a condition of any purchase. More...</small>
         </div>
     `
@@ -736,6 +665,7 @@
   function changedate() {
     document.getElementById("schedule").innerHTML = ""
     defaulttor();
+    window.location.reload();
   }
 
 
@@ -755,7 +685,7 @@
 
   document.getElementById("title").innerHTML += `
 <div> 
- <img class= "getmore img-fluid" src="${checked[0]}" >  
+ <img class= "getmore img-fluid" src="${innerhome[0]}" >  
 </div>
 `
   function emailanagent() {
@@ -770,7 +700,7 @@
   function propt(event) {
     event.prreventDefault();
   }
-
+  let usercontact = document.getElementById("tourinput").value
   let phonenum = document.getElementById("tourinput")
   function gotour() {
     if (document.getElementById("tourinput").value == "") {
@@ -781,7 +711,8 @@
       return;
     }
     else if (document.getElementById("tourinput").value.startsWith("0") && document.getElementById("tourinput").value.length == 11) {
-      alert("Request sent successfully")
+      alert("Contact sent successfully")
+      localStorage.setItem("usercontact", JSON.stringify(usercontact))
 
     } else if (document.getElementById("tourinput").value.length < 11) {
       alert("input a valid phone number")
@@ -818,9 +749,41 @@
     }
 
   }
-  function star() {
-    document.querySelectorAll(".star").style.backgroundColor = "yellow"
+
+  let starredarray = [
+    {
+      star1: ` <i class="fa-regular fa-star text-secondary fs-3"></i>`,
+      star2: ` <i class="fa-regular fa-star text-secondary fs-3"></i>`,
+      star3: ` <i class="fa-regular fa-star text-secondary fs-3"></i>`,
+      star4: ` <i class="fa-regular fa-star text-secondary fs-3"></i>`,
+      star5: ` <i class="fa-regular fa-star text-secondary fs-3"></i>`,
+    }
+  ]
+  let i = 0
+
+  for (let index = 0; index < starredarray.length; index++) {
+    const element = starredarray[index];
+    starredscreen.innerHTML += `
+    <button onclick="star(${index})" id="star" class="star">${element.star1}</button>
+    <button onclick="star1(${index})" id="star1" class="star">${element.star2}</button>
+    <button onclick="star2(${index})" id="star2" class="star">${element.star3}</button>
+    <button onclick="star(${index})" id="star" class="star">${element.star4}</button>
+    <button onclick="star(${index})" id="star" class="star">${element.star5}</button>
+  `;
   }
+  function star(index) {
+    console.log(index);
+    document.getElementById("star").style.backgroundColor = "yellow"
+  }
+  function star1(index) {
+    console.log(index);
+    document.getElementById("star1").style.backgroundColor = "yellow"
+  }
+  function star2(index) {
+    console.log(index);
+    document.getElementById("star2").style.backgroundColor = "yellow"
+  }
+
 
 
 </script>

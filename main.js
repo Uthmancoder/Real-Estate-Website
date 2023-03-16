@@ -45,3 +45,10 @@ function browse() {
     window.location.href = "homes.html"
    }
 }
+function sell() {
+   if (!signeduser) {
+    window.location.href = "signup.html"
+   }else{
+    window.location.href = "sell.html"
+   }
+}

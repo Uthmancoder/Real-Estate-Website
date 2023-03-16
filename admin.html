@@ -2,435 +2,591 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="stylesheet" href="style.css">
 </head>
 <style>
-    .admin-image {
-        position: relative;
-    }
+  .admin-image {
+    position: relative;
+  }
 
-    .aside {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 25%;
-        height: 100%;
-        background-color: rgb(71, 69, 69);
-    }
+  .aside {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 25%;
+    height: 100vh;
+    background-color: rgb(71, 69, 69);
+  }
 
-    .current-properties {
-        position: absolute;
-        top: 0;
-        left: 25%;
-        width: 75%;
-        height: 100%;
-    }
+  .current-properties {
+    position: absolute;
+    top: 0;
+    left: 25%;
+    width: 75%;
+    height: 100%;
+    overflow-y: scroll;
+  }
 
-    .prpt-div {
-        width: 250px;
-        height: 275px;
-        border-radius: 10px;
-        border: 1px solid lightgray;
-    }
+  .prpt-div {
+    width: 250px;
+    height: 275px;
+    border-radius: 10px;
+    border: 1px solid lightgray;
+  }
 
-    .picx {
-        width: 300px;
-        height: 200px;
-    }
+  .picx {
+    width: 300px;
+    height: 200px;
+  }
 
-    #current-prpt-screen {
-        width: 100%;
-        display: flex;
-        flex-wrap: wrap;
-        overflow-y: scroll;
-        height: 74vh;
+  #current-prpt-screen {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%;
 
-    }
+  }
 
-    #current-prpt-screen::-webkit-scrollbar {
-        display: none;
-    }
+  .current-properties::-webkit-scrollbar {
+    display: none;
+  }
 
-    .view:hover {
-        color: black;
-        font-weight: bold;
-    }
+  #current-screen {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+  }
 
-    .inps {
-        outline: none;
-        background-color: transparent;
-        color: white;
-    }
+  .view:hover {
+    color: black;
+    font-weight: bold;
+  }
+
+  .inps {
+    outline: none;
+    background-color: transparent;
+    color: white;
+  }
+  .biy{
+    position: relative;
+  }
+  .del{
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+
+  }
 </style>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-          <a class="navbar-brand fw-bolder fs-4" href="#">
-            Realtor<span class="text-danger">.com®</span>
-          </a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-              <div class="d-flex align-items-center item-div">
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Buy</a>
-                </li>
-                <li class="nav-item ">
-                  <a onclick="sell()" class="nav-link" href="#">Sell</a>
-                </li>
-                <li class="nav-item ">
-                  <a class="nav-link" href="rent.html">Rent</a>
-                </li>
-                <li class="nav-item ">
-                  <a class="nav-link" href="#">Mortgage</a>
-                </li>
-                <li class="nav-item ">
-                  <a class="nav-link" href="#">Find Realtors</a>
-                </li>
-                <li class="nav-item ">
-                  <a class="nav-link" href="#">My Home</a>
-                </li>
-              </div>
-              <div class="d-flex sec-div align-items-center">
-                <li class="nav-item">
-                  <button class="btn butt btn-outline-secondary mx-2">Manage Rentals</button>
-                </li>
-                <li class="nav-item">
-                  <button class="btn butt btn-danger mx-2">Advertise</button>
-                </li>
-                <li class="nav-item">
-                  <button onclick="login()" class="btn butt btn-outline-secondary mx-2">Login</button>
-                  <div id="modal" class="login">
-                    <form class="form_container mx-auto">
-                      <button onclick="hidemodal()" class="btn cancel btn text-dark fs-3">&times;</button>
-                      <div class="title_container">
-                        <p class="title">Login to your Account</p>
-                        <span class="subtitle">Get started with our app, just create an account and enjoy the
-                          experience.</span>
-                      </div>
-                      <br>
-                      <div class="input_container">
-                        <label class="input_label" for="email_field">Email</label>
-                        <svg fill="none" viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg"
-                          class="icon">
-                          <path stroke-linejoin="round" stroke-linecap="round" stroke-width="1.5" stroke="#141B34"
-                            d="M7 8.5L9.94202 10.2394C11.6572 11.2535 12.3428 11.2535 14.058 10.2394L17 8.5"></path>
-                          <path stroke-linejoin="round" stroke-width="1.5" stroke="#141B34"
-                            d="M2.01577 13.4756C2.08114 16.5412 2.11383 18.0739 3.24496 19.2094C4.37608 20.3448 5.95033 20.3843 9.09883 20.4634C11.0393 20.5122 12.9607 20.5122 14.9012 20.4634C18.0497 20.3843 19.6239 20.3448 20.7551 19.2094C21.8862 18.0739 21.9189 16.5412 21.9842 13.4756C22.0053 12.4899 22.0053 11.5101 21.9842 10.5244C21.9189 7.45886 21.8862 5.92609 20.7551 4.79066C19.6239 3.65523 18.0497 3.61568 14.9012 3.53657C12.9607 3.48781 11.0393 3.48781 9.09882 3.53656C5.95033 3.61566 4.37608 3.65521 3.24495 4.79065C2.11382 5.92608 2.08114 7.45885 2.01576 10.5244C1.99474 11.5101 1.99475 12.4899 2.01577 13.4756Z">
-                          </path>
-                        </svg>
-                        <input placeholder="name@mail.com" title="Inpit title" name="input-name" type="text"
-                          class="input_field" id="email_field">
-                      </div>
-                      <div class="input_container">
-                        <label class="input_label" for="password_field">Password</label>
-                        <svg fill="none" viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg"
-                          class="icon">
-                          <path stroke-linecap="round" stroke-width="1.5" stroke="#141B34"
-                            d="M18 11.0041C17.4166 9.91704 16.273 9.15775 14.9519 9.0993C13.477 9.03404 11.9788 9 10.329 9C8.67911 9 7.18091 9.03404 5.70604 9.0993C3.95328 9.17685 2.51295 10.4881 2.27882 12.1618C2.12602 13.2541 2 14.3734 2 15.5134C2 16.6534 2.12602 17.7727 2.27882 18.865C2.51295 20.5387 3.95328 21.8499 5.70604 21.9275C6.42013 21.9591 7.26041 21.9834 8 22">
-                          </path>
-                          <path stroke-linejoin="round" stroke-linecap="round" stroke-width="1.5" stroke="#141B34"
-                            d="M6 9V6.5C6 4.01472 8.01472 2 10.5 2C12.9853 2 15 4.01472 15 6.5V9"></path>
-                          <path fill="#141B34"
-                            d="M21.2046 15.1045L20.6242 15.6956V15.6956L21.2046 15.1045ZM21.4196 16.4767C21.7461 16.7972 22.2706 16.7924 22.5911 16.466C22.9116 16.1395 22.9068 15.615 22.5804 15.2945L21.4196 16.4767ZM18.0228 15.1045L17.4424 14.5134V14.5134L18.0228 15.1045ZM18.2379 18.0387C18.5643 18.3593 19.0888 18.3545 19.4094 18.028C19.7299 17.7016 19.7251 17.1771 19.3987 16.8565L18.2379 18.0387ZM14.2603 20.7619C13.7039 21.3082 12.7957 21.3082 12.2394 20.7619L11.0786 21.9441C12.2794 23.1232 14.2202 23.1232 15.4211 21.9441L14.2603 20.7619ZM12.2394 20.7619C11.6914 20.2239 11.6914 19.358 12.2394 18.82L11.0786 17.6378C9.86927 18.8252 9.86927 20.7567 11.0786 21.9441L12.2394 20.7619ZM12.2394 18.82C12.7957 18.2737 13.7039 18.2737 14.2603 18.82L15.4211 17.6378C14.2202 16.4587 12.2794 16.4587 11.0786 17.6378L12.2394 18.82ZM14.2603 18.82C14.8082 19.358 14.8082 20.2239 14.2603 20.7619L15.4211 21.9441C16.6304 20.7567 16.6304 18.8252 15.4211 17.6378L14.2603 18.82ZM20.6242 15.6956L21.4196 16.4767L22.5804 15.2945L21.785 14.5134L20.6242 15.6956ZM15.4211 18.82L17.8078 16.4767L16.647 15.2944L14.2603 17.6377L15.4211 18.82ZM17.8078 16.4767L18.6032 15.6956L17.4424 14.5134L16.647 15.2945L17.8078 16.4767ZM16.647 16.4767L18.2379 18.0387L19.3987 16.8565L17.8078 15.2945L16.647 16.4767ZM21.785 14.5134C21.4266 14.1616 21.0998 13.8383 20.7993 13.6131C20.4791 13.3732 20.096 13.1716 19.6137 13.1716V14.8284C19.6145 14.8284 19.619 14.8273 19.6395 14.8357C19.6663 14.8466 19.7183 14.8735 19.806 14.9391C19.9969 15.0822 20.2326 15.3112 20.6242 15.6956L21.785 14.5134ZM18.6032 15.6956C18.9948 15.3112 19.2305 15.0822 19.4215 14.9391C19.5091 14.8735 19.5611 14.8466 19.5879 14.8357C19.6084 14.8273 19.6129 14.8284 19.6137 14.8284V13.1716C19.1314 13.1716 18.7483 13.3732 18.4281 13.6131C18.1276 13.8383 17.8008 14.1616 17.4424 14.5134L18.6032 15.6956Z">
-                          </path>
-                        </svg>
-                        <input placeholder="Password" title="Inpit title" name="input-name" type="password"
-                          class="input_field" id="password_field">
-                      </div>
-                      <button title="Sign In" type="submit" class="sign-in_btn">
-                        <span>Sign In</span>
-                      </button>
-    
-                      <div class="separator">
-                        <hr class="line">
-                        <span>Or</span>
-                        <hr class="line">
-                      </div>
-                      <button title="Sign In" type="submit" class="sign-in_ggl">
-                        <svg height="18" width="18" viewBox="0 0 32 32" xmlns:xlink="http://www.w3.org/1999/xlink"
-                          xmlns="http://www.w3.org/2000/svg">
-                          <defs>
-                            <path
-                              d="M44.5 20H24v8.5h11.8C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22c11 0 21-8 21-22 0-1.3-.2-2.7-.5-4z"
-                              id="A"></path>
-                          </defs>
-                          <clipPath id="B">
-    
-                          </clipPath>
-                          <g transform="matrix(.727273 0 0 .727273 -.954545 -1.45455)">
-                            <path fill="#fbbc05" clip-path="url(#B)" d="M0 37V11l17 13z"></path>
-                            <path fill="#ea4335" clip-path="url(#B)" d="M0 11l17 13 7-6.1L48 14V0H0z"></path>
-                            <path fill="#34a853" clip-path="url(#B)" d="M0 37l30-23 7.9 1L48 0v48H0z"></path>
-                            <path fill="#4285f4" clip-path="url(#B)" d="M48 48L17 24l-4-3 35-10z"></path>
-                          </g>
-                        </svg>
-                        <span>Sign In with Google</span>
-                      </button>
-                      <p class="note">Terms of use &amp; Conditions</p>
-                    </form>
-                  </div>
-                </li>
-                <li class="nav-item">
-                  <button onclick="signup()" class="btn butt btn-danger mx-2">Sign Up</button>
-                  <div id="modal2" class="login2">
-                    <form class="form_container2 mx-auto">
-                      <button onclick="hidemodal()" class="btn cancel btn text-dark fs-3">&times;</button>
-                      <div class="title_container">
-                        <p class="title">Create your Realtor Account</p>
-                        <span class="subtitle">Get started with our app, just create an account and enjoy the
-                          experience.</span>
-                      </div>
-                      <br>
-                      <div class="input_container">
-                        <label class="input_label" for="email_field">Username</label>
-                        <svg fill="none" viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg"
-                          class="icon">
-                          <path stroke-linejoin="round" stroke-linecap="round" stroke-width="1.5" stroke="#141B34"
-                            d="M7 8.5L9.94202 10.2394C11.6572 11.2535 12.3428 11.2535 14.058 10.2394L17 8.5"></path>
-                          <path stroke-linejoin="round" stroke-width="1.5" stroke="#141B34"
-                            d="M2.01577 13.4756C2.08114 16.5412 2.11383 18.0739 3.24496 19.2094C4.37608 20.3448 5.95033 20.3843 9.09883 20.4634C11.0393 20.5122 12.9607 20.5122 14.9012 20.4634C18.0497 20.3843 19.6239 20.3448 20.7551 19.2094C21.8862 18.0739 21.9189 16.5412 21.9842 13.4756C22.0053 12.4899 22.0053 11.5101 21.9842 10.5244C21.9189 7.45886 21.8862 5.92609 20.7551 4.79066C19.6239 3.65523 18.0497 3.61568 14.9012 3.53657C12.9607 3.48781 11.0393 3.48781 9.09882 3.53656C5.95033 3.61566 4.37608 3.65521 3.24495 4.79065C2.11382 5.92608 2.08114 7.45885 2.01576 10.5244C1.99474 11.5101 1.99475 12.4899 2.01577 13.4756Z">
-                          </path>
-                        </svg>
-                        <input placeholder="input your name" title="Inpit title" name="input-name" type="text"
-                          class="input_field shadow" id="name_field">
-                      </div>
-                      <div class="input_container">
-                        <label class="input_label" for="email_field">Nmae</label>
-                        <svg fill="none" viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg"
-                          class="icon">
-                          <path stroke-linejoin="round" stroke-linecap="round" stroke-width="1.5" stroke="#141B34"
-                            d="M7 8.5L9.94202 10.2394C11.6572 11.2535 12.3428 11.2535 14.058 10.2394L17 8.5"></path>
-                          <path stroke-linejoin="round" stroke-width="1.5" stroke="#141B34"
-                            d="M2.01577 13.4756C2.08114 16.5412 2.11383 18.0739 3.24496 19.2094C4.37608 20.3448 5.95033 20.3843 9.09883 20.4634C11.0393 20.5122 12.9607 20.5122 14.9012 20.4634C18.0497 20.3843 19.6239 20.3448 20.7551 19.2094C21.8862 18.0739 21.9189 16.5412 21.9842 13.4756C22.0053 12.4899 22.0053 11.5101 21.9842 10.5244C21.9189 7.45886 21.8862 5.92609 20.7551 4.79066C19.6239 3.65523 18.0497 3.61568 14.9012 3.53657C12.9607 3.48781 11.0393 3.48781 9.09882 3.53656C5.95033 3.61566 4.37608 3.65521 3.24495 4.79065C2.11382 5.92608 2.08114 7.45885 2.01576 10.5244C1.99474 11.5101 1.99475 12.4899 2.01577 13.4756Z">
-                          </path>
-                        </svg>
-                        <input placeholder="Input your username" title="Inpit title" name="input-name" type="text"
-                          class="input_field shadow" id="email_field">
-                      </div>
-                      <div class="input_container">
-                        <label class="input_label" for="email_field">Email</label>
-                        <svg fill="none" viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg"
-                          class="icon">
-                          <path stroke-linejoin="round" stroke-linecap="round" stroke-width="1.5" stroke="#141B34"
-                            d="M7 8.5L9.94202 10.2394C11.6572 11.2535 12.3428 11.2535 14.058 10.2394L17 8.5"></path>
-                          <path stroke-linejoin="round" stroke-width="1.5" stroke="#141B34"
-                            d="M2.01577 13.4756C2.08114 16.5412 2.11383 18.0739 3.24496 19.2094C4.37608 20.3448 5.95033 20.3843 9.09883 20.4634C11.0393 20.5122 12.9607 20.5122 14.9012 20.4634C18.0497 20.3843 19.6239 20.3448 20.7551 19.2094C21.8862 18.0739 21.9189 16.5412 21.9842 13.4756C22.0053 12.4899 22.0053 11.5101 21.9842 10.5244C21.9189 7.45886 21.8862 5.92609 20.7551 4.79066C19.6239 3.65523 18.0497 3.61568 14.9012 3.53657C12.9607 3.48781 11.0393 3.48781 9.09882 3.53656C5.95033 3.61566 4.37608 3.65521 3.24495 4.79065C2.11382 5.92608 2.08114 7.45885 2.01576 10.5244C1.99474 11.5101 1.99475 12.4899 2.01577 13.4756Z">
-                          </path>
-                        </svg>
-                        <input placeholder="name@mail.com" title="Inpit title" name="input-name" type="text"
-                          class="input_field shadow" id="email_field">
-                      </div>
-                      <div class="input_container">
-                        <label class="input_label" for="password_field">Password</label>
-                        <svg fill="none" viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg"
-                          class="icon">
-                          <path stroke-linecap="round" stroke-width="1.5" stroke="#141B34"
-                            d="M18 11.0041C17.4166 9.91704 16.273 9.15775 14.9519 9.0993C13.477 9.03404 11.9788 9 10.329 9C8.67911 9 7.18091 9.03404 5.70604 9.0993C3.95328 9.17685 2.51295 10.4881 2.27882 12.1618C2.12602 13.2541 2 14.3734 2 15.5134C2 16.6534 2.12602 17.7727 2.27882 18.865C2.51295 20.5387 3.95328 21.8499 5.70604 21.9275C6.42013 21.9591 7.26041 21.9834 8 22">
-                          </path>
-                          <path stroke-linejoin="round" stroke-linecap="round" stroke-width="1.5" stroke="#141B34"
-                            d="M6 9V6.5C6 4.01472 8.01472 2 10.5 2C12.9853 2 15 4.01472 15 6.5V9"></path>
-                          <path fill="#141B34"
-                            d="M21.2046 15.1045L20.6242 15.6956V15.6956L21.2046 15.1045ZM21.4196 16.4767C21.7461 16.7972 22.2706 16.7924 22.5911 16.466C22.9116 16.1395 22.9068 15.615 22.5804 15.2945L21.4196 16.4767ZM18.0228 15.1045L17.4424 14.5134V14.5134L18.0228 15.1045ZM18.2379 18.0387C18.5643 18.3593 19.0888 18.3545 19.4094 18.028C19.7299 17.7016 19.7251 17.1771 19.3987 16.8565L18.2379 18.0387ZM14.2603 20.7619C13.7039 21.3082 12.7957 21.3082 12.2394 20.7619L11.0786 21.9441C12.2794 23.1232 14.2202 23.1232 15.4211 21.9441L14.2603 20.7619ZM12.2394 20.7619C11.6914 20.2239 11.6914 19.358 12.2394 18.82L11.0786 17.6378C9.86927 18.8252 9.86927 20.7567 11.0786 21.9441L12.2394 20.7619ZM12.2394 18.82C12.7957 18.2737 13.7039 18.2737 14.2603 18.82L15.4211 17.6378C14.2202 16.4587 12.2794 16.4587 11.0786 17.6378L12.2394 18.82ZM14.2603 18.82C14.8082 19.358 14.8082 20.2239 14.2603 20.7619L15.4211 21.9441C16.6304 20.7567 16.6304 18.8252 15.4211 17.6378L14.2603 18.82ZM20.6242 15.6956L21.4196 16.4767L22.5804 15.2945L21.785 14.5134L20.6242 15.6956ZM15.4211 18.82L17.8078 16.4767L16.647 15.2944L14.2603 17.6377L15.4211 18.82ZM17.8078 16.4767L18.6032 15.6956L17.4424 14.5134L16.647 15.2945L17.8078 16.4767ZM16.647 16.4767L18.2379 18.0387L19.3987 16.8565L17.8078 15.2945L16.647 16.4767ZM21.785 14.5134C21.4266 14.1616 21.0998 13.8383 20.7993 13.6131C20.4791 13.3732 20.096 13.1716 19.6137 13.1716V14.8284C19.6145 14.8284 19.619 14.8273 19.6395 14.8357C19.6663 14.8466 19.7183 14.8735 19.806 14.9391C19.9969 15.0822 20.2326 15.3112 20.6242 15.6956L21.785 14.5134ZM18.6032 15.6956C18.9948 15.3112 19.2305 15.0822 19.4215 14.9391C19.5091 14.8735 19.5611 14.8466 19.5879 14.8357C19.6084 14.8273 19.6129 14.8284 19.6137 14.8284V13.1716C19.1314 13.1716 18.7483 13.3732 18.4281 13.6131C18.1276 13.8383 17.8008 14.1616 17.4424 14.5134L18.6032 15.6956Z">
-                          </path>
-                        </svg>
-                        <input placeholder="Password" title="Inpit title" name="input-name" type="password"
-                          class="input_field shadow" id="password_field">
-                      </div>
-                      <button title="Sign In" type="submit" class="sign-in_btn">
-                        <span>Sign Up</span>
-                      </button>
-                      <p class="note">Terms of use &amp; Conditions</p>
-                    </form>
-                  </div>
-                </li>
-              </div>
-            </ul>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand fw-bolder fs-4" href="#">
+        Realtor<span class="text-danger">.com®</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <div class="d-flex align-items-center item-div">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Buy</a>
+            </li>
+            <li class="nav-item ">
+              <a onclick="sell()" class="nav-link" href="#">Sell</a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link" href="rent.html">Rent</a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link" href="#">Mortgage</a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link" href="#">Find Realtors</a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link" href="#">My Home</a>
+            </li>
           </div>
+          <div class="d-flex sec-div align-items-center">
+            <li class="nav-item">
+              <button class="btn butt btn-outline-secondary mx-2">Manage Rentals</button>
+            </li>
+            <li class="nav-item">
+              <button class="btn butt btn-danger mx-2">Advertise</button>
+            </li>
+            <li class="nav-item">
+              <button onclick="login()" class="btn butt btn-outline-secondary mx-2">Login</button>
+            </li>
+            <li class="nav-item">
+              <button onclick="signup()" class="btn butt btn-danger mx-2">Sign Up</button>
+            </li>
+          </div>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <main>
+    <div class="admin-image">
+      <img class="w-100  img-fluid background"
+        src="https://cdn.pixabay.com/photo/2016/05/05/02/37/sunset-1373171__480.jpg" alt="">
+      <div class="aside py-5">
+        <aside>
+          <button onclick="mydashboard()" class="btn btn-light shadow w-75 rounded-5 my-2 mx-4">Dasboard</button>
+          <button class="btn btn-light shadow w-75 rounded-5 my-2 mx-4">Agents</button>
+          <button class="btn btn-light shadow w-75 rounded-5 my-2 mx-4">Buyers</button>
+          <button class="btn btn-light shadow w-75 rounded-5 my-2 mx-4">Reviews</button>
+          <button class="btn btn-light shadow w-75 rounded-5 my-2 mx-4">Post New Properties</button>
+          <button class="btn btn-light shadow w-75 rounded-5 my-2 mx-4">Requests</button>
+          <button class="btn btn-light shadow w-75 rounded-5 my-2 mx-4">Payments</button>
+          <button class="btn btn-light shadow w-75 rounded-5 my-2 mx-4">Mails</button>
+        </aside>
+      </div>
+      <div class="current-properties">
+        <h1 class="text-light fw-bolder m-3"> Dashboard control panel </h1>
+        <div id="current-prpt-screen">
+          <p id="current-screen"></p>
+          <p id="currentscreen2"> </p>
         </div>
-      </nav>
-    <main>
-        <div class="admin-image">
-            <img class="w-100  img-fluid background"
-                src="https://cdn.pixabay.com/photo/2016/05/05/02/37/sunset-1373171__480.jpg" alt="">
-            <div class="aside py-5">
-                <aside>
-                    <button class="btn btn-light shadow w-75 rounded-5 my-2 mx-4">Dasboard</button>
-                    <button class="btn btn-light shadow w-75 rounded-5 my-2 mx-4">Agent</button>
-                    <button class="btn btn-light shadow w-75 rounded-5 my-2 mx-4">Buyer</button>
-                    <button class="btn btn-light shadow w-75 rounded-5 my-2 mx-4">Find Retailers</button>
-                    <button class="btn btn-light shadow w-75 rounded-5 my-2 mx-4">Post New Properties</button>
-                    <button class="btn btn-light shadow w-75 rounded-5 my-2 mx-4">Advertise</button>
-                    <button class="btn btn-light shadow w-75 rounded-5 my-2 mx-4">Payments</button>
-                </aside>
-            </div>
-            <div class="current-properties">
-                <h1 class="text-light fw-bolder m-3"> Dashboard control panel </h1>
-                <div id="current-prpt-screen">
-                    <p id="current-screen"></p>
-                    <p id="currentscreen2"> </p>
-                </div>
-
-
-
-            </div>
-        </div>
-    </main>
+      </div>
+    </div>
+  </main>
 </body>
 
 </html>
 <script>
-    // let DasboardArray = JSON.parse(localStorage.getItem("homes"))
-    // console.log(DasboardArray)
-    // if(DasboardArray == null){
-    //     DasboardArray=[]
-    // }
-    let screen = document.getElementById("current-screen")
-    let screen2 = document.getElementById("currentscreen2")
-    let DasboardArray = [
-        {
-            image: ["https://cdn.pixabay.com/photo/2016/11/18/17/46/house-1836070__480.jpg", "https://cdn.pixabay.com/photo/2016/11/18/17/46/house-1836070__480.jpg", "https://cdn.pixabay.com/photo/2016/11/18/17/46/house-1836070__480.jpg", "https://cdn.pixabay.com/photo/2016/11/18/17/46/house-1836070__480.jpg"],
-            description: "single-family home",
-            price: "$418,503",
-            location: "Canada",
-            location2: "5967 Bella Rosa Ln"
-        },
-        {
-            image: ["https://ap.rdcpix.com/c2a64fad4f8127b3a79fa1346951e0a8l-m1838440254od-w480_h360.jpg", "https://ap.rdcpix.com/c2a64fad4f8127b3a79fa1346951e0a8l-m1838440254od-w480_h360.jpg", "https://ap.rdcpix.com/c2a64fad4f8127b3a79fa1346951e0a8l-m1838440254od-w480_h360.jpg"],
-            description: "single-family home",
-            price: "$418,503",
-            location: "Pakistan",
-            location2: "5967 Bella Rosa Ln"
-        },
-        {
-            image: ["https://ap.rdcpix.com/654ce471fed375993b57638b1a33ae65l-m2524340623od-w480_h360_x2.jpg", "https://ap.rdcpix.com/654ce471fed375993b57638b1a33ae65l-m2524340623od-w480_h360_x2.jpg", "https://ap.rdcpix.com/654ce471fed375993b57638b1a33ae65l-m2524340623od-w480_h360_x2.jpg"],
-            description: "single-family home",
-            price: "$418,503",
-            location: "Afganistan",
-            location2: "5967 Bella Rosa Ln"
-        },
-        {
-            image: ["https://ap.rdcpix.com/e06ca77a53835c607fb74301139ada4el-b673694140od-w480_h360_x2.jpg", "https://ap.rdcpix.com/e06ca77a53835c607fb74301139ada4el-b673694140od-w480_h360_x2.jpg", "https://ap.rdcpix.com/e06ca77a53835c607fb74301139ada4el-b673694140od-w480_h360_x2.jpg"],
-            description: "single-family home",
-            price: "$418,503",
-            location: "Alabama",
-            location2: "5967 Bella Rosa Ln"
-        },
-        {
-            image: ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEvJf0LqSNQIMrlp95e0P7d7rF7NNhXnkWzYmeRJSmaDVyyhEo2gQ-ie3AQ_qNwQJvQ0k&usqp=CAU", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEvJf0LqSNQIMrlp95e0P7d7rF7NNhXnkWzYmeRJSmaDVyyhEo2gQ-ie3AQ_qNwQJvQ0k&usqp=CAU", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEvJf0LqSNQIMrlp95e0P7d7rF7NNhXnkWzYmeRJSmaDVyyhEo2gQ-ie3AQ_qNwQJvQ0k&usqp=CAU"],
-            description: "single-family home",
-            price: "$418,503",
-            location: "Ohio",
-            location2: "5967 Bella Rosa Ln"
-        },
-        {
-            image: ["https://ap.rdcpix.com/4821e57cb16cc40ec119bdcb22421baal-m1217027824od-w480_h360_x2.jpg", "https://ap.rdcpix.com/4821e57cb16cc40ec119bdcb22421baal-m1217027824od-w480_h360_x2.jpg", "https://ap.rdcpix.com/4821e57cb16cc40ec119bdcb22421baal-m1217027824od-w480_h360_x2.jpg"],
-            description: "single-family home",
-            price: "$418,503",
-            location: "New York",
-            location2: "5967 Bella Rosa Ln"
-        },
-        {
-            image: ["https://ap.rdcpix.com/03b2abe6b03c56ffb945e60124b23959l-m4239461195od-w480_h360_x2.jpg", "https://ap.rdcpix.com/03b2abe6b03c56ffb945e60124b23959l-m4239461195od-w480_h360_x2.jpg", "https://ap.rdcpix.com/03b2abe6b03c56ffb945e60124b23959l-m4239461195od-w480_h360_x2.jpg"],
-            description: "single-family home",
-            price: "$418,503",
-            location: "Canada",
-            location2: "5967 Bella Rosa Ln"
-        },
-        {
-            image: ["https://ap.rdcpix.com/b33b12767f98ae150c58277b095143c0l-m4222848648od-w480_h360_x2.jpg", "https://ap.rdcpix.com/b33b12767f98ae150c58277b095143c0l-m4222848648od-w480_h360_x2.jpg", "https://ap.rdcpix.com/b33b12767f98ae150c58277b095143c0l-m4222848648od-w480_h360_x2.jpg"],
-            description: "single-family home",
-            price: "$418,503",
-            location: "Texas",
-            location2: "5967 Bella Rosa Ln"
-        },
-    ]
-   localStorage.setItem("home", JSON.stringify(DasboardArray))
-   console.log(DasboardArray);
-    // console.log(DasboardArray.image);
-    for (let index = 0; index < DasboardArray.length -1; index++) {
-        const element = DasboardArray[index];
-        // console.log(element.image);
-        localStorage.setItem("images", JSON.stringify(element.image))
-        screen.innerHTML = `
-        <div class ="picx bg-info m-3 p-3 rounded-1 shadow  ">
-         <h1 class="fs-1 fw-bolder text-light" >  ${DasboardArray.length} </h1 >  
-           <p class = "text-light fs-5  fw-bold"> Total homes around $368,950 </p>
+  let screen = document.getElementById("current-screen")
+  let screen2 = document.getElementById("currentscreen2")
 
-           <button class ="btn btn-outline-light  view"> view more </button>
+  let DasboardArray = [
+    {
+      image: ["https://cdn.pixabay.com/photo/2016/11/18/17/46/house-1836070__480.jpg", "https://media.designcafe.com/wp-content/uploads/2022/07/15170350/luxury-home-design-on-budget.jpg", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ39UtkIoXM6K5vjsRpi-pvd7G7forUwnMhR15FNd1gAThr-p2JVC62qVRBreyieMj6kcg&usqp=CAU"],
+      description: "single-family home",
+      price: "$418,503",
+      location: "Canada",
+      location2: "5967 Bella Rosa Ln"
+    },
+    {
+      image: ["https://ap.rdcpix.com/c2a64fad4f8127b3a79fa1346951e0a8l-m1838440254od-w480_h360.jpg", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPwSIhumpRfrEsIsmcPYeQkvJfuyf62HOdRJEA47mmT_ut9GWNiaDpcGi831HowyVs4Zs&usqp=CAU", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqRJvjFALG6e5FyBXV8DJLvlmorahI6d1GuOdDyYq-wARMz4d4o4gDqueqhDFTv8d2Hpo&usqp=CAU"],
+      description: "single-family home",
+      price: "$418,503",
+      location: "Pakistan",
+      location2: "5967 Bella Rosa Ln"
+    },
+    {
+      image: ["https://ap.rdcpix.com/654ce471fed375993b57638b1a33ae65l-m2524340623od-w480_h360_x2.jpg", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSULIpWznkN6VMxk4EFF5srh5gw6Dt-Npi8krwsiMEMMtkgq6OlD7aXql75KtHa9QrbRlE&usqp=CAU", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTu5rqViECjRG_MMvyhtAvkLwHM2KxQYzwCxXi394euVL3JzBtRQ_so5mTvU5x3SkRQBSs&usqp=CAU"],
+      description: "single-family home",
+      price: "$418,503",
+      location: "Afganistan",
+      location2: "5967 Bella Rosa Ln"
+    },
+    {
+      image: ["https://ap.rdcpix.com/e06ca77a53835c607fb74301139ada4el-b673694140od-w480_h360_x2.jpg", "https://www.decorilla.com/online-decorating/wp-content/uploads/2019/03/home-interior-design-color-scheme.jpg", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-kVEX3KupNRHtvYi-KItGbia7EpCme82lODtrS-mTiwgZuSh5vy-iJ5vCZw6l8WALeS4&usqp=CAU"],
+      description: "single-family home",
+      price: "$418,503",
+      location: "Alabama",
+      location2: "5967 Bella Rosa Ln"
+    },
+    {
+      image: ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEvJf0LqSNQIMrlp95e0P7d7rF7NNhXnkWzYmeRJSmaDVyyhEo2gQ-ie3AQ_qNwQJvQ0k&usqp=CAU", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-kVEX3KupNRHtvYi-KItGbia7EpCme82lODtrS-mTiwgZuSh5vy-iJ5vCZw6l8WALeS4&usqp=CAU", "https://assets.architecturaldigest.in/photos/60190f002814797e457e5e04/4:3/w_1703,h_1277,c_limit/How%20to%20create%20healing%20home%20interiors.jpg"],
+      description: "single-family home",
+      price: "$418,503",
+      location: "Ohio",
+      location2: "5967 Bella Rosa Ln"
+    },
+    {
+      image: ["https://ap.rdcpix.com/4821e57cb16cc40ec119bdcb22421baal-m1217027824od-w480_h360_x2.jpg", "https://www.decorilla.com/online-decorating/wp-content/uploads/2019/02/spring-interior-design-trends.jpg", "https://ap.rdcpix.com/4821e57cb16cc40ec119bdcb22421baal-m1217027824od-w480_h360_x2.jpg"],
+      description: "single-family home",
+      price: "$418,503",
+      location: "New York",
+      location2: "5967 Bella Rosa Ln"
+    },
+    {
+      image: ["https://ap.rdcpix.com/03b2abe6b03c56ffb945e60124b23959l-m4239461195od-w480_h360_x2.jpg", "https://ap.rdcpix.com/03b2abe6b03c56ffb945e60124b23959l-m4239461195od-w480_h360_x2.jpg", "https://ap.rdcpix.com/03b2abe6b03c56ffb945e60124b23959l-m4239461195od-w480_h360_x2.jpg"],
+      description: "single-family home",
+      price: "$418,503",
+      location: "Canada",
+      location2: "5967 Bella Rosa Ln"
+    },
+    {
+      image: ["https://ap.rdcpix.com/b33b12767f98ae150c58277b095143c0l-m4222848648od-w480_h360_x2.jpg", "https://ap.rdcpix.com/b33b12767f98ae150c58277b095143c0l-m4222848648od-w480_h360_x2.jpg", "https://ap.rdcpix.com/b33b12767f98ae150c58277b095143c0l-m4222848648od-w480_h360_x2.jpg"],
+      description: "single-family home",
+      price: "$418,503",
+      location: "Texas",
+      location2: "5967 Bella Rosa Ln"
+    },
+  ]
+
+  localStorage.setItem("dashboard", JSON.stringify(DasboardArray))
+
+  let Affordable = [
+    {
+      image: ["https://netstorage-legit.akamaized.net/images/vllkyt5iogeq5uhe1.jpg", "https://media.designcafe.com/wp-content/uploads/2020/07/23205856/home-interior-design-ideas.jpg", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXHdzhGfwYcrUl9aM5xPQs_4L3EiN-DoAYG391hY5w&s", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbsn6E66fqLFAFPl3sT3LXt6k8O54TVM99h-7Wb0BI&s"],
+      description: "single-family home",
+      price: "$418,503",
+      location: "Canada",
+      location2: "5967 Bella Rosa Ln"
+    },
+    {
+      image: ["https://www.jamesedition.com/stories/wp-content/uploads/2022/03/mansions_main_fin.jpg", "https://carehome-interiors.co.uk/wp-content/themes/yootheme/cache/8b/downstairs-lounge-8bcc8c0b.jpeg", "https://carehome-interiors.co.uk/wp-content/themes/yootheme/cache/8b/downstairs-lounge-8bcc8c0b.jpeg"],
+      description: "single-family home",
+      price: "$418,503",
+      location: "Pakistan",
+      location2: "5967 Bella Rosa Ln"
+    },
+    {
+      image: ["https://cdn.thecoolist.com/wp-content/uploads/2022/01/Types-of-Houses.png", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEbiD--vp-x3Q05jmewPWX49plRdpUi3QX2gdCLDo-j1FI4yjCkaa3P_0MoJO0_VUkaPY&usqp=CAU", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEbiD--vp-x3Q05jmewPWX49plRdpUi3QX2gdCLDo-j1FI4yjCkaa3P_0MoJO0_VUkaPY&usqp=CAU"],
+      description: "single-family home",
+      price: "$418,503",
+      location: "Afganistan",
+      location2: "5967 Bella Rosa Ln"
+    },
+    {
+      image: ["https://images.nigeriapropertycentre.com/properties/images/1526138/0636de42c83009-luxury-4bedroom-duplex-semi-detached-duplexes-for-sale-naze-owerri-north-imo.jpeg", "https://thestoreys.in/wp-content/uploads/2022/08/3d-rendering-modern-dining-room-living-room-with-luxury-decor-1300x698.jpg", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvrs8V58bOBZcZrGOtg5vMMfC4ppWzupuZHP6pt4apoP3_2C8oCp4Fe32umltUh57rnpQ&usqp=CAU"],
+      description: "single-family home",
+      price: "$418,503",
+      location: "Alabama",
+      location2: "5967 Bella Rosa Ln"
+    },
+    {
+      image: ["https://media-cdn.tripadvisor.com/media/vr-splice-j/04/c8/35/4f.jpg", "https://media-cdn.tripadvisor.com/media/vr-splice-j/04/c8/35/4f.jpg", "https://media-cdn.tripadvisor.com/media/vr-splice-j/04/c8/4c/ed.jpg"],
+      description: "single-family home",
+      price: "$418,503",
+      location: "Ohio",
+      location2: "5967 Bella Rosa Ln"
+    },
+    {
+      image: ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaQ47s5Z8ih8GIxvfNgxU9K4OE-tIJxBOUhviOHkPato7kTaYU93J3Qm-A4SXGsNUaTrE&usqp=CAU", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSP3V5uee3KJWRltlFIZvj-a8dqdxjCfUFs5HEn2cxvU9RO9dowkCpMpFdFCyB25jAdqJ0&usqp=CAU", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9d7Cx5dSgmsDor18VonhbBCV6aWTjV033Ax0iNSdzOn1ZrQhuzWiI6qx-GSfSSEAj7CA&usqp=CAU"],
+      description: "single-family home",
+      price: "$418,503",
+      location: "New York",
+      location2: "5967 Bella Rosa Ln"
+    },
+    {
+      image: ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQLhGnijp3f9JeAYVARNgdxblDfi8yl9z-4_HbGPKr8toP95LNcawJ4iovN_mT1X_J3qo&usqp=CAU", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP_2Pfp96SUPedCicceoJ5k0Viy4DhgptuAD1qAL_1ZPm8HOK4qrbrbAcw4snzrE6GQA4&usqp=CAU", "https://carehome-interiors.co.uk/wp-content/themes/yootheme/cache/21/falkland-grange1-215325d9.jpeg"],
+      description: "single-family home",
+      price: "$418,503",
+      location: "Canada",
+      location2: "5967 Bella Rosa Ln"
+    },
+    {
+      image: ["https://thumbor.forbes.com/thumbor/fit-in/900x510/https://www.forbes.com/home-improvement/wp-content/uploads/2022/07/download-23.jpg", "https://carehome-interiors.co.uk/wp-content/themes/yootheme/cache/92/Falkland8-92690fc4.jpeg", "https://graven.co.uk/wp-content/uploads/2015/09/ACCESS-Care-Homes-for-the-elderly-04.jpg"],
+      description: "single-family home",
+      price: "$418,503",
+      location: "Texas",
+      location2: "5967 Bella Rosa Ln"
+    },
+  ]
+  localStorage.setItem("affordable", JSON.stringify(Affordable))
+
+
+  let upcoming = [
+    {
+      image: ["https://ap.rdcpix.com/94fa3082c2a53de7d26240df8e6ee88el-m1391377032od-w480_h360_x2.webp", "https://media.designcafe.com/wp-content/uploads/2020/07/23205856/home-interior-design-ideas.jpg", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXHdzhGfwYcrUl9aM5xPQs_4L3EiN-DoAYG391hY5w&s", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbsn6E66fqLFAFPl3sT3LXt6k8O54TVM99h-7Wb0BI&s"],
+      description: "single-family home",
+      price: "$418,503",
+      location: "Canada",
+      location2: "5967 Bella Rosa Ln"
+    },
+    {
+      image: ["https://ap.rdcpix.com/8094cabe8c274b03a6e61e8ee989ce0fl-m1133046693od-w480_h360_x2.webp", "https://carehome-interiors.co.uk/wp-content/themes/yootheme/cache/8b/downstairs-lounge-8bcc8c0b.jpeg", "https://carehome-interiors.co.uk/wp-content/themes/yootheme/cache/8b/downstairs-lounge-8bcc8c0b.jpeg"],
+      description: "single-family home",
+      price: "$418,503",
+      location: "Pakistan",
+      location2: "5967 Bella Rosa Ln"
+    },
+    {
+      image: ["https://ap.rdcpix.com/60505b4c725b4f62c75521e2e7a98b82l-m222814611od-w480_h360_x2.webp", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEbiD--vp-x3Q05jmewPWX49plRdpUi3QX2gdCLDo-j1FI4yjCkaa3P_0MoJO0_VUkaPY&usqp=CAU", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEbiD--vp-x3Q05jmewPWX49plRdpUi3QX2gdCLDo-j1FI4yjCkaa3P_0MoJO0_VUkaPY&usqp=CAU"],
+      description: "single-family home",
+      price: "$418,503",
+      location: "Afganistan",
+      location2: "5967 Bella Rosa Ln"
+    },
+    {
+      image: ["https://ap.rdcpix.com/8094cabe8c274b03a6e61e8ee989ce0fl-m1133046693od-w480_h360_x2.webp", "https://thestoreys.in/wp-content/uploads/2022/08/3d-rendering-modern-dining-room-living-room-with-luxury-decor-1300x698.jpg", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvrs8V58bOBZcZrGOtg5vMMfC4ppWzupuZHP6pt4apoP3_2C8oCp4Fe32umltUh57rnpQ&usqp=CAU"],
+      description: "single-family home",
+      price: "$418,503",
+      location: "Alabama",
+      location2: "5967 Bella Rosa Ln"
+    },
+    {
+      image: ["https://ap.rdcpix.com/7188f702d11753f1a92ec8ba712e1a9al-m127883450od-w480_h360_x2.webp", "https://media-cdn.tripadvisor.com/media/vr-splice-j/04/c8/35/4f.jpg", "https://media-cdn.tripadvisor.com/media/vr-splice-j/04/c8/4c/ed.jpg"],
+      description: "single-family home",
+      price: "$418,503",
+      location: "Ohio",
+      location2: "5967 Bella Rosa Ln"
+    },
+    {
+      image: ["https://ap.rdcpix.com/af6add5f6c876d795853f68e771febd9l-b46474391od-w480_h360_x2.webp", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSP3V5uee3KJWRltlFIZvj-a8dqdxjCfUFs5HEn2cxvU9RO9dowkCpMpFdFCyB25jAdqJ0&usqp=CAU", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9d7Cx5dSgmsDor18VonhbBCV6aWTjV033Ax0iNSdzOn1ZrQhuzWiI6qx-GSfSSEAj7CA&usqp=CAU"],
+      description: "single-family home",
+      price: "$418,503",
+      location: "New York",
+      location2: "5967 Bella Rosa Ln"
+    },
+    {
+      image: ["https://ap.rdcpix.com/8d18b01827a049ea97e42dbd25a3fdfal-m815611434od-w480_h360_x2.webp", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP_2Pfp96SUPedCicceoJ5k0Viy4DhgptuAD1qAL_1ZPm8HOK4qrbrbAcw4snzrE6GQA4&usqp=CAU", "https://carehome-interiors.co.uk/wp-content/themes/yootheme/cache/21/falkland-grange1-215325d9.jpeg"],
+      description: "single-family home",
+      price: "$418,503",
+      location: "Canada",
+      location2: "5967 Bella Rosa Ln"
+    },
+    {
+      image: ["https://ap.rdcpix.com/9c7688ea4324c303f5e9b12acdd50339l-m2694780811od-w480_h360_x2.webp", "https://carehome-interiors.co.uk/wp-content/themes/yootheme/cache/92/Falkland8-92690fc4.jpeg", "https://graven.co.uk/wp-content/uploads/2015/09/ACCESS-Care-Homes-for-the-elderly-04.jpg"],
+      description: "single-family home",
+      price: "$418,503",
+      location: "Texas",
+      location2: "5967 Bella Rosa Ln"
+    },
+  ]
+  localStorage.setItem("upcoming", JSON.stringify(upcoming))
+
+  let Luxury = [
+    {
+      image: ["https://ap.rdcpix.com/94fa3082c2a53de7d26240df8e6ee88el-m1391377032od-w480_h360_x2.webp", "https://media.designcafe.com/wp-content/uploads/2020/07/23205856/home-interior-design-ideas.jpg", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXHdzhGfwYcrUl9aM5xPQs_4L3EiN-DoAYG391hY5w&s", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbsn6E66fqLFAFPl3sT3LXt6k8O54TVM99h-7Wb0BI&s"],
+      description: "single-family home",
+      price: "$418,503",
+      location: "Canada",
+      location2: "5967 Bella Rosa Ln"
+    },
+    {
+      image: ["https://ap.rdcpix.com/8094cabe8c274b03a6e61e8ee989ce0fl-m1133046693od-w480_h360_x2.webp", "https://carehome-interiors.co.uk/wp-content/themes/yootheme/cache/8b/downstairs-lounge-8bcc8c0b.jpeg", "https://carehome-interiors.co.uk/wp-content/themes/yootheme/cache/8b/downstairs-lounge-8bcc8c0b.jpeg"],
+      description: "single-family home",
+      price: "$418,503",
+      location: "Pakistan",
+      location2: "5967 Bella Rosa Ln"
+    },
+    {
+      image: ["https://ap.rdcpix.com/60505b4c725b4f62c75521e2e7a98b82l-m222814611od-w480_h360_x2.webp", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEbiD--vp-x3Q05jmewPWX49plRdpUi3QX2gdCLDo-j1FI4yjCkaa3P_0MoJO0_VUkaPY&usqp=CAU", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEbiD--vp-x3Q05jmewPWX49plRdpUi3QX2gdCLDo-j1FI4yjCkaa3P_0MoJO0_VUkaPY&usqp=CAU"],
+      description: "single-family home",
+      price: "$418,503",
+      location: "Afganistan",
+      location2: "5967 Bella Rosa Ln"
+    },
+    {
+      image: ["https://ap.rdcpix.com/8094cabe8c274b03a6e61e8ee989ce0fl-m1133046693od-w480_h360_x2.webp", "https://thestoreys.in/wp-content/uploads/2022/08/3d-rendering-modern-dining-room-living-room-with-luxury-decor-1300x698.jpg", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvrs8V58bOBZcZrGOtg5vMMfC4ppWzupuZHP6pt4apoP3_2C8oCp4Fe32umltUh57rnpQ&usqp=CAU"],
+      description: "single-family home",
+      price: "$418,503",
+      location: "Alabama",
+      location2: "5967 Bella Rosa Ln"
+    },
+    {
+      image: ["https://ap.rdcpix.com/7188f702d11753f1a92ec8ba712e1a9al-m127883450od-w480_h360_x2.webp", "https://media-cdn.tripadvisor.com/media/vr-splice-j/04/c8/35/4f.jpg", "https://media-cdn.tripadvisor.com/media/vr-splice-j/04/c8/4c/ed.jpg"],
+      description: "single-family home",
+      price: "$418,503",
+      location: "Ohio",
+      location2: "5967 Bella Rosa Ln"
+    },
+    {
+      image: ["https://ap.rdcpix.com/af6add5f6c876d795853f68e771febd9l-b46474391od-w480_h360_x2.webp", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSP3V5uee3KJWRltlFIZvj-a8dqdxjCfUFs5HEn2cxvU9RO9dowkCpMpFdFCyB25jAdqJ0&usqp=CAU", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9d7Cx5dSgmsDor18VonhbBCV6aWTjV033Ax0iNSdzOn1ZrQhuzWiI6qx-GSfSSEAj7CA&usqp=CAU"],
+      description: "single-family home",
+      price: "$418,503",
+      location: "New York",
+      location2: "5967 Bella Rosa Ln"
+    },
+    {
+      image: ["https://ap.rdcpix.com/8d18b01827a049ea97e42dbd25a3fdfal-m815611434od-w480_h360_x2.webp", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP_2Pfp96SUPedCicceoJ5k0Viy4DhgptuAD1qAL_1ZPm8HOK4qrbrbAcw4snzrE6GQA4&usqp=CAU", "https://carehome-interiors.co.uk/wp-content/themes/yootheme/cache/21/falkland-grange1-215325d9.jpeg"],
+      description: "single-family home",
+      price: "$418,503",
+      location: "Canada",
+      location2: "5967 Bella Rosa Ln"
+    },
+    {
+      image: ["https://ap.rdcpix.com/9c7688ea4324c303f5e9b12acdd50339l-m2694780811od-w480_h360_x2.webp", "https://carehome-interiors.co.uk/wp-content/themes/yootheme/cache/92/Falkland8-92690fc4.jpeg", "https://graven.co.uk/wp-content/uploads/2015/09/ACCESS-Care-Homes-for-the-elderly-04.jpg"],
+      description: "single-family home",
+      price: "$418,503",
+      location: "Texas",
+      location2: "5967 Bella Rosa Ln"
+    },
+  ]
+  localStorage.setItem("newest", JSON.stringify(Luxury))
+
+  function mydashboard() {
+    window.location.reload();
+  }
+
+  for (let index = 0; index < DasboardArray.length - 1; index++) {
+    const element = DasboardArray[index];
+    localStorage.setItem("images", JSON.stringify(element.image))
+    screen.innerHTML = `
+        <div onclick="dashboard()" class ="picx bg-info m-3 p-3 rounded-1 shadow  ">
+         <h1 class="fs-1 fw-bolder text-light" >  ${DasboardArray.length} </h1 >  
+           <p class = "text-light fs-5  fw-bold"> Total Homes around $1,400,000 </p>
+
+           <button class ="btn btn-outline-light  view"> view all </button>
         </div>
  `
-    }
+  }
 
+  screen.innerHTML += `
+        <div onclick="viewafford()" class ="picx bg-danger m-3 p-3 rounded-1 shadow  ">
+         <h1 class="fs-1 fw-bolder text-light" >  ${Affordable.length} </h1 >  
+           <p class = "text-light fs-5  fw-bold"> Affordable homes  around $3128,950 </p>
 
-    
-   
-   
-    screen2.innerHTML += `
-    <div class="w-50  h-100 border shadow rounded-1 py-3 px-5 bg-dark text-light mt-5 mx-auto">
-             <p>Type  of  : <input type="text" id="type" class="inps">  </p>
-             <p>Location : <input type="text" id="location" class="inps">  </p>
-             <p>Address : <input type="text" id="Address" class="inps"> </p>
-             <p>price : <input type="text" id="price" class="inps"> </p>
-            <input type="file" onchange="pickfile(event)" name="" id="">
-            <img src="" alt="" id="img" width="300px" height="300px">
-
-            <button onclick="postprop()" class="btn btn-danger rounded-5 mx-5 w-50 mt-4">Post Property</button>
+           <button class ="btn btn-outline-light  view"> view all </button>
         </div>
-    `
-    let reader = new FileReader()
-    function pickfile(ev) {
-        let file = ev.target.files[0]
-        console.log(file);
-        reader.onload = (file) => {
-            console.log(reader.result);
-            document.getElementById("img").src = reader.result
-            // reader.readAsDataURL(file)
-        }
+ `
+  screen.innerHTML += `
+        <div onclick="viewupcoming()" class ="picx bg-success m-3 p-3 rounded-1 shadow  ">
+         <h1 class="fs-1 fw-bolder text-light" >  ${upcoming.length} </h1 >  
+           <p class = "text-light fs-5  fw-bold"> Upcoming Open Houses </p>
 
-        if (file) {
-            let data = reader.readAsDataURL(file);
-        }
+           <button class ="btn btn-outline-light  view"> view all </button>
+        </div>
+ `
+  screen.innerHTML += `
+        <div onclick="viewluxury()" class ="picx bg-primary m-3 p-3 rounded-1 shadow  ">
+         <h1 class="fs-1 fw-bolder text-light" >  ${Luxury.length} </h1 >  
+           <p class = "text-light fs-5  fw-bold">Newest ListingsW2 </p>
+           <button class ="btn btn-outline-light  view"> view all </button>
+        </div>
+ `
+
+
+
+
+
+
+  // screen2.innerHTML += `
+  // <div class="w-50  h-100 border shadow rounded-1 py-3 px-5 bg-dark text-light mt-5 mx-auto">
+  //          <p>Type  of  : <input type="text" id="type" class="inps">  </p>
+  //          <p>Location : <input type="text" id="location" class="inps">  </p>
+  //          <p>Address : <input type="text" id="Address" class="inps"> </p>
+  //          <p>price : <input type="text" id="price" class="inps"> </p>
+  //         <input type="file" onchange="pickfile(event)" name="" id="">
+  //         <img src="" alt="" id="img" width="300px" height="300px">
+
+  //         <button onclick="postprop()" class="btn btn-danger rounded-5 mx-5 w-50 mt-4">Post Property</button>
+  //     </div>
+  // `
+  let reader = new FileReader()
+  function pickfile(ev) {
+    let file = ev.target.files[0]
+    console.log(file);
+    reader.onload = (file) => {
+      console.log(reader.result);
+      document.getElementById("img").src = reader.result
+      // reader.readAsDataURL(file)
     }
-    let locate = document.getElementById("location");
-    let describe = document.getElementById("type");
-    let address = document.getElementById("Address");
-    let price = document.getElementById("price");
-    let img = document.getElementById("img");
-    // post property
-    // function postprop() {
-    //     DasboardArray.push(
-    //         {
-    //             image: img.value,
-    //             description: describe.value,
-    //             price: price.value,
-    //             location: locate.value,
-    //             location2: address.value
-    //         }
-    //     )
-    //     console.log(DasboardArray)
-    //     localStorage.setItem("home", JSON.stringify(DasboardArray));
 
-    //     locate.value = ""
-    //     describe.value = ""
-    //     price.value = ""
-    //     location.value = ""
-    //     address.value = ""
-    //     alert("Property posted successfully")
-    //     window.location.href ="index.html"
-    // }
+    if (file) {
+      let data = reader.readAsDataURL(file);
+    }
+  }
+  let locate = document.getElementById("location");
+  let describe = document.getElementById("type");
+  let address = document.getElementById("Address");
+  let price = document.getElementById("price");
+  let img = document.getElementById("img");
+  // post property
+  // function postprop() {
+  //     DasboardArray.push(
+  //         {
+  //             image: img.value,
+  //             description: describe.value,
+  //             price: price.value,
+  //             location: locate.value,
+  //             location2: address.value
+  //         }
+  //     )
+  //     console.log(DasboardArray)
+  //     localStorage.setItem("home", JSON.stringify(DasboardArray));
+
+  //     locate.value = ""
+  //     describe.value = ""
+  //     price.value = ""
+  //     location.value = ""
+  //     address.value = ""
+  //     alert("Property posted successfully")
+  //     window.location.href ="index.html"
+  // }
+  function dashboard() {
+    screen.innerHTML = ""
+    for (let index = 0; index < DasboardArray.length; index++) {
+      const element = DasboardArray[index];
+      screen.innerHTML += `
+    <div class="d-flex align-items-center biy">
+     <div class="prpt-div bg-secondary shadow m-3 py-2 px-3"> 
+    <img class="pix" src="${element.image[0]}">
+      <p class = ""> ${element.description} </p>
+      <p class = ""> ${element.location} </p>
+      <p class = ""> ${element.location2} </p>
+     
+    </div>
+    <button onclick="del(${index})" class="btn btn-danger text-light del">del </button>  
+    </div> 
+         `
+    }
+  }
+  function viewafford() {
+    screen.innerHTML = ""
+    for (let index = 0; index < Affordable.length; index++) {
+      const element = Affordable[index];
+      screen.innerHTML += `
+    <div class="d-flex align-items-center biy">
+     <div class="prpt-div bg-secondary shadow m-3 py-2 px-3"> 
+    <img class="pix" src="${element.image[0]}">
+      <p class = ""> ${element.description} </p>
+      <p class = ""> ${element.location} </p>
+      <p class = ""> ${element.location2} </p>
+     
+    </div>
+    <button onclick="del(${index})" class="btn btn-danger text-light del">del </button>  
+    </div> 
+         `
+    }
+  }
+  function viewupcoming() {
+    screen.innerHTML = ""
+    for (let index = 0; index < upcoming.length; index++) {
+      const element = upcoming[index];
+      screen.innerHTML += `
+    <div class="d-flex align-items-center biy">
+     <div class="prpt-div bg-secondary shadow m-3 py-2 px-3"> 
+    <img class="pix" src="${element.image[0]}">
+      <p class = ""> ${element.description} </p>
+      <p class = ""> ${element.location} </p>
+      <p class = ""> ${element.location2} </p>
+     
+    </div>
+    <button onclick="del(${index})" class="btn btn-danger text-light del">del </button>  
+    </div> 
+         `
+    }
+  }
+  function viewluxury() {
+    screen.innerHTML = ""
+    for (let index = 0; index < Luxury.length; index++) {
+      const element = Luxury[index];
+      screen.innerHTML += `
+    <div class="d-flex align-items-center biy">
+     <div class="prpt-div bg-secondary shadow m-3 py-2 px-3"> 
+    <img class="pix" src="${element.image[0]}">
+      <p class = ""> ${element.description} </p>
+      <p class = ""> ${element.location} </p>
+      <p class = ""> ${element.location2} </p>
+     
+    </div>
+    <button onclick="del(${index})" class="btn btn-danger text-light del">del </button>  
+    </div> 
+         `
+    }
+  }
+
+  function del(index) {
+  DasboardArray.splice(index, 1);
+  dashboard();
+  localStorage.removeItem(DasboardArray[index])
+}
 
 </script>

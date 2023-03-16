@@ -407,6 +407,10 @@ nav {
     width: 250px;
     height: 200px;
 }
+.pix{
+    width: 220px;
+    height: 160px;
+}
 .buyin{
     display: flex;
     align-items: center;
@@ -593,16 +597,21 @@ nav {
     width: 300px;
     height: 40px;
 }
-.carousel{
-    width: 800px;
-}
 .schedule{
     width: 35%;
-    margin: 5px;
+    margin: 15px;
     border-radius: 10px;
     padding: 20px;
-    height: 100vh;
+    height: 100%;
     background-color: white;
     position: sticky;
     top: 20px;
+}
+.wdt{
+    width: 80%;
+    margin: auto;
+    border: none;
+    background: none;
+    outline: none;
+    border-bottom:  1px solid lightslategrey;
 }
