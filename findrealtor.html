@@ -45,6 +45,35 @@
         width: 100px;
         height: 100px;
     }
+
+    .mag {
+        /* width: 80%; */
+        padding: 6px;
+    }
+
+    .magg {
+        padding: 5px;
+        outline: none;
+    }
+
+    .abs3 {
+        position: absolute;
+        top: 30%;
+        left: 25%;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .result {
+        display: none;
+    }
+    .hom{
+        width: 40px;
+        height: 40px;
+    }
 </style>
 
 <body>
@@ -76,7 +105,7 @@
                             <a class="nav-link" href="findrealtor.html">Find Realtors</a>
                         </li>
                         <li class="nav-item ">
-                            <a class="nav-link" href="home.html">My Home</a>
+                            <a class="nav-link" href="#">My Home</a>
                         </li>
                     </div>
                     <div class="d-flex sec-div align-items-center">
@@ -98,11 +127,27 @@
     <main>
         <div>
             <img id="buybackground" class="backgroundimg"
-                src="https://ap.rdcpix.com/1236348613/706c7bd8256ba4138309c60b512d243eg-c0od-w1024_h768_q100.webp"
+                src="https://images.ctfassets.net/bxq7a6k69auc/4OFHMwu0tKjTcbClbJbciZ/50bd738f485e5d9425ab2f839445dc5a/1263-_-Buying-a-house-without-a-real-estate-agent.jpg"
                 alt="">
-            <div class="abs2">
-                <h1 class="text-light size my-4">Sell your home with confidence</h1>
-                <p class="text-light fs-5">Zillow is making it simpler to sell your home and move forward.</p>
+            <div class="abs3">
+                <h1 class="text-light size ">Find a REALTOR®</h1>
+                <p class="text-light fs-5">Search for your agent from more than 1 million REALTORS®nationwide</p>
+                <p class="my-2 text-light fw-bold">Enter a location and/or name</p>
+                <div class="d-flex align-items-center flex-wrap">
+                    <select class="mag" name="Agent" id="agent">
+                        <option value="agent">Agent</option>
+                        <option value="team">Team</option>
+                        <option value="company">Company</option>
+                    </select>
+                    <div>
+                        <input class="magg mx-2" type="text" name="city" id="city" placeholder="City or Zip">
+                    </div>
+                    <div>
+                        <input class="magg mx-1" type="text" name="city" id="city" placeholder="Agent Name">
+                    </div>
+                    <button class="btn btn-danger">Search</button>
+                </div>
+                <P class="w-100 h-25 p-3 rounded-3 bg-light my-2 result"></P>
             </div>
         </div>
     </main>
@@ -111,41 +156,48 @@
             <span class="visually-hidden">Loading...</span>
         </div>
     </div>
-    <section class="bg-light">
-        <h1 class="fs-1 fw-bolder p-5">Post your home for sale</h1>
-        <div class="row">
-            <div class="col-12 col-md-6">
-                <div class="w-75 mx-auto py-3 px-5 bg-light shadow border my-3 rounded-2">
-                    <h4 class="fs-4 fw-bolder mx-2">Description</h4>
-                    <textarea name="" id="description" class="w-100 non" cols="30" rows="2"></textarea>
-                </div>
-                <div class="w-75 mx-auto py-3 px-5 bg-light shadow border my-3 rounded-2">
-                    <h4 class="fs-4 fw-bolder mx-2">Adress</h4>
-                    <input class="w-100 my-2 non bord" id="city" placeholder="City" type="text">
-                    <input class="w-100 non bord" id="state" placeholder="State" type="text">
-                </div>
-                <div class="w-75 mx-auto py-3 px-5 bg-light shadow border my-3 rounded-2">
-                    <h4 class="fs-4 fw-bolder mx-2">Details & price</h4>
-                    <input class="w-100 my-2 non bord" id="details" placeholder="Details" type="text">
-                    <input class="w-100 non bord" id="price" placeholder="Price" type="text">
-                </div>
-                <div class="w-75 mx-auto py-3 px-5 bg-light shadow border my-3 rounded-2">
-                    <h4 class="fs-4 fw-bolder mx-2">Feactures</h4>
-                    <textarea name="" id="feactures" class="w-100 non" cols="30" rows="2"></textarea>
-                </div>
+
+    <section>
+        <h1 class="fw-bolder fs-1 m-5">Make sure your dreams are in trusted hands.</h1>
+        <div class="row d-flex align-items-center">
+            <div class="col-12 col-sm-6 p-5">
+                <h2 class="fs-2 fw-bolder">The REALTOR® difference</h2>
+                <p>Buying a home is the biggest investment most people will ever make, but not all real estate agents
+                    are equal. Find out how the experience and training of a REALTOR® can help you get into your dream
+                    home.</p>
+
+                    <p class="text-primary my-2">Why use Realtor?</p>
+                    <p class="text-primary my-2" >What the code of ethnics means for you</p>
             </div>
-
-            <div class="col-12 col-md-6">
-                <h1 class="fs-1 fw-bolder">Add your Home Image</h1>
-                <input onclick="pickfile(event)" type="file" name="home" id="home" class="">
-                <img class="image img-fluid" src="" alt="" id="img">
-
-
-                <button onclick="postforsale()" class="btn btn-danger rounded-5 m-5 py-2 px-4">Post Home For
-                    Sale</button>
+            <div class="col-12 col-sm-6">
+                <img class="img-fluid" src="https://i0.wp.com/rentalbeast.blog/wp-content/uploads/2019/08/cropped-pexels-photo-842554.jpeg?fit=1880%2C1058&ssl=1" alt="">
             </div>
         </div>
-
+        <div class="row d-flex align-items-center my-5">
+            <div class="col-12 col-sm-6">
+                <img class="img-fluid" src="https://www.rebgv.org/content/dam/rebgv_org_content/images/heros/price-home-older-couple-770.png" alt="">
+            </div>
+            <div class="col-12 col-sm-6 p-5">
+                <h2 class="fs-2 fw-bolder">Consumer advocacy
+                </h2>
+                <p>The National Association of REALTORS®advocates on behalf of home buyers to support vibrant communities where we live and work.</p>
+                    <p class="text-primary my-2" >Learn about federal and local proposals affecting you</p>
+            </div>
+        </div>
+        <h1 class="fs-1 fw-bold mx-3">Some benefits of using a REALTOR®</h1>
+        <div class="d-flex align-items-center m-3">
+            <img class="img-fluid hom" src="https://assets-far.rdc.moveaws.com/static/assets/images/home/benefitSectionIcon1.svg" alt="">
+            <p class="w-75 fs-5 mx-3 mt-3">A REALTOR® is a client advocate, the market expert and the negotiating tiger all wrapped up into one independent contractor.</p>
+        </div>
+        <div class="d-flex align-items-center m-3">
+            <img class="img-fluid hom" src="https://assets-far.rdc.moveaws.com/static/assets/images/home/benefitSectionIcon2.svg" alt="">
+            <p class="w-75 fs-5 mx-3 mt-3">
+                REALTORS® stay on top of rapidly changing market dynamics and pass along their expertise to their clients..</p>
+        </div>
+        <div class="d-flex align-items-center m-3">
+            <img class="img-fluid hom" src="https://assets-far.rdc.moveaws.com/static/assets/images/home/benefitSectionIcon3.svg" alt="">
+            <p class="w-75 fs-5 mx-3 mt-3">A REALTOR® is an unbiased voice of reason, offering an objective perspective during transactions.</p>
+        </div>
     </section>
 
     <footer class="bg-dark text-light p-5">
@@ -189,67 +241,3 @@
 </body>
 
 </html>
-<script>
-   let reader = new FileReader();
-
-function pickfile(ev) {
-  let file = ev.target.files[0];
-  console.log(file);
-  reader.onload = (event) => {
-    let imageData = event.target.result;
-    document.getElementById("img").src = imageData;
-    let homeinfo = {
-      description: description.value,
-      city: city.value,
-      state: state.value,
-      details: details.value,
-      price: price.value,
-      feactures: feactures.value,
-      homeimage: imageData
-    };
-    localStorage.setItem("homeinfo", JSON.stringify(homeinfo));
-  };
-  if (file) {
-    reader.readAsDataURL(file);
-  }
-}
-    let description = document.getElementById("description");
-    let city = document.getElementById("city");
-    let state = document.getElementById("state");
-    let details = document.getElementById("details");
-    let price = document.getElementById("price")
-    let feactures = document.getElementById("feactures")
-    let homeimage = document.getElementById("img")
-     let posthomearray = JSON.parse(localStorage.getItem("posthome"))
-    console.log(posthomearray);
-
-    if (posthomearray == null) {
-        posthomearray = []
-    }
-    function postforsale() {
-        if (description.value == "" || city.value == "" || state.value == "" || price.value == "" || feactures.value == "") {
-            alert("input your home details as listed correctly")
-            return;
-        } else {
-            document.querySelector(".spinn").style.display = "block"
-            setTimeout(() => {
-                document.querySelector(".spinn").style.display = "block"
-                window.location.href = "homes.html"
-            }, 4000);
-            let homeinfo = {
-                city: city.value,
-                state: state.value,
-                details: details.value,
-                price: price.value,
-                feactures: feactures.value,
-                homeimage : homeimage.value
-            }
-            posthomearray.push(homeinfo)
-            localStorage.setItem("posthome", JSON.stringify(posthomearray))
-            console.log(posthomearray);
-        }
-    }
-
-
-
-</script>

@@ -45,6 +45,34 @@
         width: 100px;
         height: 100px;
     }
+
+    .abss {
+        position: absolute;
+        top: 20%;
+        width: 70%;
+        left: 13%;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .sear{
+        width: 60%;
+        margin-left: 2%;
+    }
+    .get{
+        width: 34%;
+        height: 92%;
+        margin: 3px;
+    }
+    .homi{
+        width: 70px;
+        height: 70px;
+    }
+    .wit{
+        width: 97%;
+    }
 </style>
 
 <body>
@@ -98,11 +126,13 @@
     <main>
         <div>
             <img id="buybackground" class="backgroundimg"
-                src="https://ap.rdcpix.com/1236348613/706c7bd8256ba4138309c60b512d243eg-c0od-w1024_h768_q100.webp"
-                alt="">
-            <div class="abs2">
-                <h1 class="text-light size my-4">Sell your home with confidence</h1>
-                <p class="text-light fs-5">Zillow is making it simpler to sell your home and move forward.</p>
+                src="https://static.rdc.moveaws.com/images/myhome-web/Hero/mh-hero-1440.webp" alt="">
+            <div class="abss">
+                <h1 class="text-light size">Track your home value with multiple estimates</h1>
+                <div class="border rounded-5 shadow sear bg-light searchbar">
+                    <input type="text" class="input px-4" placeholder="Enter your home adress ">
+                    <button class="btn btn-danger rounded-5 get ">Get started</button>
+                  </div>
             </div>
         </div>
     </main>
@@ -111,42 +141,42 @@
             <span class="visually-hidden">Loading...</span>
         </div>
     </div>
-    <section class="bg-light">
-        <h1 class="fs-1 fw-bolder p-5">Post your home for sale</h1>
-        <div class="row">
-            <div class="col-12 col-md-6">
-                <div class="w-75 mx-auto py-3 px-5 bg-light shadow border my-3 rounded-2">
-                    <h4 class="fs-4 fw-bolder mx-2">Description</h4>
-                    <textarea name="" id="description" class="w-100 non" cols="30" rows="2"></textarea>
-                </div>
-                <div class="w-75 mx-auto py-3 px-5 bg-light shadow border my-3 rounded-2">
-                    <h4 class="fs-4 fw-bolder mx-2">Adress</h4>
-                    <input class="w-100 my-2 non bord" id="city" placeholder="City" type="text">
-                    <input class="w-100 non bord" id="state" placeholder="State" type="text">
-                </div>
-                <div class="w-75 mx-auto py-3 px-5 bg-light shadow border my-3 rounded-2">
-                    <h4 class="fs-4 fw-bolder mx-2">Details & price</h4>
-                    <input class="w-100 my-2 non bord" id="details" placeholder="Details" type="text">
-                    <input class="w-100 non bord" id="price" placeholder="Price" type="text">
-                </div>
-                <div class="w-75 mx-auto py-3 px-5 bg-light shadow border my-3 rounded-2">
-                    <h4 class="fs-4 fw-bolder mx-2">Feactures</h4>
-                    <textarea name="" id="feactures" class="w-100 non" cols="30" rows="2"></textarea>
-                </div>
-            </div>
-
-            <div class="col-12 col-md-6">
-                <h1 class="fs-1 fw-bolder">Add your Home Image</h1>
-                <input onclick="pickfile(event)" type="file" name="home" id="home" class="">
-                <img class="image img-fluid" src="" alt="" id="img">
-
-
-                <button onclick="postforsale()" class="btn btn-danger rounded-5 m-5 py-2 px-4">Post Home For
-                    Sale</button>
-            </div>
+    <section>
+        <h1 class="fs-1 fw-bolder m-5">My Home</h1>
+        <div class="wit h-50 border rounded-2  text-center m-3 p-5">
+           <div class="d-flex align-items-center text-center justify-content-center">
+            <img class="img-fluid homi" src="https://static.rdc.moveaws.com/images/myhome-web/claimed-homes-loader.svg" alt="">
+            <h6 class="text-secondary">Your home will appear here</h6>
+           </div>
         </div>
 
+        <div class="row my-5 mx-1">
+            <div class="col-12 col-sm-6 col-md-3 text-center">
+                <img class="img-fluid" src="https://static.rdc.moveaws.com/images/myhome-web/Hero/desktop-mweb%20illustration/home_value_v2.svg" alt="">
+                <h4>Get real-time home value reports</h4>
+                <p>Stay on top of your home value and the latest real estate trends.</p>
+            </div>
+            <div class="col-12 col-sm-6 col-md-3 text-center">
+                <img class="img-fluid" src="https://static.rdc.moveaws.com/images/myhome-web/Hero/desktop-mweb%20illustration/home_value_v2.svg" alt="">
+                <h4>Get real-time home value reports</h4>
+                <p>Stay on top of your home value and the latest real estate trends.</p>
+            </div>
+            <div class="col-12 col-sm-6 col-md-3 text-center">
+                <img class="img-fluid" src="https://static.rdc.moveaws.com/images/myhome-web/Hero/desktop-mweb%20illustration/home_value_v2.svg" alt="">
+                <h4>Get real-time home value reports</h4>
+                <p>Stay on top of your home value and the latest real estate trends.</p>
+            </div>
+            <div class="col-12 col-sm-6 col-md-3 text-center">
+                <img class="img-fluid" src="https://static.rdc.moveaws.com/images/myhome-web/Hero/desktop-mweb%20illustration/home_value_v2.svg" alt="">
+                <h4>Get real-time home value reports</h4>
+                <p>Stay on top of your home value and the latest real estate trends.</p>
+            </div>
+        </div>
+        <hr>
+
+        <h4 class="fw-bold m-3">Explore Off market listings</h4>
     </section>
+   
 
     <footer class="bg-dark text-light p-5">
         <div class="container">
@@ -167,16 +197,16 @@
                     <h3>Connect with Us</h3>
                     <div class="social-media my-3">
                         <button class="btn btn-light text-danger "><i class="fa fa-facebook"></i></button>
-                    <button class="btn btn-light text-danger mx-2"><i class="fa fa-twitter"></i></button>
-                    <button class="btn btn-light text-danger"><i class="fa fa-instagram"></i></button>
-                    <button class="btn btn-light text-danger mx-2"><i class="fa fa-youtube"></i></button>
+                        <button class="btn btn-light text-danger mx-2"><i class="fa fa-twitter"></i></button>
+                        <button class="btn btn-light text-danger"><i class="fa fa-instagram"></i></button>
+                        <button class="btn btn-light text-danger mx-2"><i class="fa fa-youtube"></i></button>
                     </div>
                 </div>
             </div>
         </div>
         <div class="d-flex my-5">
-            <img class="img-fluid get" src="https://s.zillowstatic.com/pfs/static/app-store-badge.svg" alt="">
-            <img class="img-fluid get" src="https://s.zillowstatic.com/pfs/static/google-play-badge.svg" alt="">
+            <img class="img-fluid " src="https://s.zillowstatic.com/pfs/static/app-store-badge.svg" alt="">
+            <img class="img-fluid mx-4" src="https://s.zillowstatic.com/pfs/static/google-play-badge.svg" alt="">
         </div>
     </footer>
 
@@ -189,67 +219,3 @@
 </body>
 
 </html>
-<script>
-   let reader = new FileReader();
-
-function pickfile(ev) {
-  let file = ev.target.files[0];
-  console.log(file);
-  reader.onload = (event) => {
-    let imageData = event.target.result;
-    document.getElementById("img").src = imageData;
-    let homeinfo = {
-      description: description.value,
-      city: city.value,
-      state: state.value,
-      details: details.value,
-      price: price.value,
-      feactures: feactures.value,
-      homeimage: imageData
-    };
-    localStorage.setItem("homeinfo", JSON.stringify(homeinfo));
-  };
-  if (file) {
-    reader.readAsDataURL(file);
-  }
-}
-    let description = document.getElementById("description");
-    let city = document.getElementById("city");
-    let state = document.getElementById("state");
-    let details = document.getElementById("details");
-    let price = document.getElementById("price")
-    let feactures = document.getElementById("feactures")
-    let homeimage = document.getElementById("img")
-     let posthomearray = JSON.parse(localStorage.getItem("posthome"))
-    console.log(posthomearray);
-
-    if (posthomearray == null) {
-        posthomearray = []
-    }
-    function postforsale() {
-        if (description.value == "" || city.value == "" || state.value == "" || price.value == "" || feactures.value == "") {
-            alert("input your home details as listed correctly")
-            return;
-        } else {
-            document.querySelector(".spinn").style.display = "block"
-            setTimeout(() => {
-                document.querySelector(".spinn").style.display = "block"
-                window.location.href = "homes.html"
-            }, 4000);
-            let homeinfo = {
-                city: city.value,
-                state: state.value,
-                details: details.value,
-                price: price.value,
-                feactures: feactures.value,
-                homeimage : homeimage.value
-            }
-            posthomearray.push(homeinfo)
-            localStorage.setItem("posthome", JSON.stringify(posthomearray))
-            console.log(posthomearray);
-        }
-    }
-
-
-
-</script>

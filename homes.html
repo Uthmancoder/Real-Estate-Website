@@ -2,175 +2,177 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 <style>
-  .dec{
+  .dec {
     margin-top: -10px;
   }
-  
 </style>
+
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-            <a class="navbar-brand fw-bolder fs-4" href="#">
-                Realtor<span class="text-danger">.com®</span>
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <div class="d-flex align-items-center item-div">
-                        <li class="nav-item">
-                            <a class="nav-link" href="index.html">Buy</a>
-                        </li>
-                        <li class="nav-item ">
-                            <a onclick="sell()" class="nav-link" href="sell.html">Sell</a>
-                        </li>
-                        <li class="nav-item ">
-                            <a class="nav-link" href="rent.html">Rent</a>
-                        </li>
-                        <li class="nav-item ">
-                            <a class="nav-link" href="mortgage.html">Mortgage</a>
-                        </li>
-                        <li class="nav-item ">
-                            <a class="nav-link" href="#">Find Realtors</a>
-                        </li>
-                        <li class="nav-item ">
-                            <a class="nav-link" href="#">My Home</a>
-                        </li>
-                    </div>
-                    <div class="d-flex sec-div align-items-center">
-                        <li class="nav-item">
-                            <button class="btn butt btn-outline-secondary mx-2">Manage Rentals</button>
-                        </li>
-                        <li class="nav-item">
-                            <button class="btn butt btn-outline-secondary mx-2">Advertise</button>
-                        </li>
-                        <li class="nav-item">
-                            <button onclick="sigout()" class="btn butt btn-danger mx-2">Sign Out<i class="fa-solid fa-user"></i></button>
-                        </li>
-                    </div>
-                </ul>
-            </div>
-        </div>
-    </nav>
-  
-
-    <main>
-        <div>
-            <img id="buybackground" class="backgroundimg"
-              src="https://static.rdc.moveaws.com/images/hero/default/2021-11/jpg/hp-hero-desktop.jpg" alt="">
-            <div class="abs">
-              <h1 class="text-light size my-4">Get yourself a perfect home</h1>
-              <p class="text-light ">With the most complete source of homes for sale & real estate near you</p>
-              <div class="d-flex align-items-center cent mt-2 marg  text-light">
-                <p class="bott mx-1">Buy</p>
-                <p class="bott mx-4">sell</p>
-                <p class="bott mx-1">Rent</p>
-                <p class="bott mx-4">Pre-Approval</p>
-                <p class="bott mx-1">Just Sold</p>
-                <p class="bott mx-4">Home Value</p>
-              </div>
-      
-              <div class="border rounded-5 shadow bg-light searchbar">
-                <input type="text" class="input" placeholder="Search For Preferred Location ">
-                <button class="btn btn-danger rounded-circle search "><span class="material-symbols-outlined">
-                    search
-                  </span></button>
-              </div>
-            </div>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand fw-bolder fs-4" href="#">
+        Realtor<span class="text-danger">.com®</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <div class="d-flex align-items-center item-div">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Buy</a>
+            </li>
+            <li class="nav-item ">
+              <a onclick="sell()" class="nav-link" href="sell.html">Sell</a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link" href="rent.html">Rent</a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link" href="mortgage.html">Mortgage</a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link" href="findrealtor.html">Find Realtors</a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link" href="home.html">My Home</a>
+            </li>
           </div>
-          <h2 class="m-3">Homes around $1,400,000</h2>
-          <a class="m-3" href="#">View all in Santa Cruz, CA</a>
-          <p id="homesScreen"></p>
+          <div class="d-flex sec-div align-items-center">
+            <li class="nav-item">
+              <button onclick="manage()" class="btn butt btn-outline-secondary mx-2">Manage Rentals</button>
+            </li>
+            <li class="nav-item">
+              <button class="btn butt btn-outline-secondary mx-2">Advertise</button>
+            </li>
+            <li class="nav-item">
+              <button onclick="sigout()" class="btn butt btn-danger mx-2">Sign Out<i
+                  class="fa-solid fa-user"></i></button>
+            </li>
+          </div>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-          <h2 class="m-3">Affordable Homes</h2>
-          <a  class="m-3" href="#">View all in Santa Cruz, CA</a>
-          <p  id="Newestscreen"></p>
-          <h2 class="m-3">Upcoming Open Houses</h2>
-          <a  class="m-3" href="#">View all in Santa Cruz, CA</a>
-          <p  id="upcoming"></p>
-          <h2 class="m-3">Newest Listings</h2>
-          <a  class="m-3" href="#">View all in Santa Cruz, CA</a>
-          <p  id="Luxury"></p>
-    </main>
-    <footer class="bg-dark text-light p-5">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-4 col-sm-12">
-              <h3>About Realtor</h3>
-              <p>Realtor is a real estate website dedicated to helping you find your dream home. Our team of expert agents
-                are committed to providing you with the best service possible.</p>
-            </div>
-            <div class="col-md-4 col-sm-12">
-              <h3>Contact Us</h3>
-              <p>123 Main Street<br>
-                Anytown, USA 12345<br>
-                Phone: (555) 555-1234<br>
-                Email: info@realtor.com</p>
-            </div>
-            <div class="col-md-4 col-sm-12">
-              <h3>Connect with Us</h3>
-              <ul class="social-media">
-                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                <li><a href="#"><i class="fa fa-youtube"></i></a></li>
-              </ul>
-            </div>
+
+  <main>
+    <div>
+      <img id="buybackground" class="backgroundimg"
+        src="https://static.rdc.moveaws.com/images/hero/default/2021-11/jpg/hp-hero-desktop.jpg" alt="">
+      <div class="abs">
+        <h1 class="text-light size my-4">Get yourself a perfect home</h1>
+        <p class="text-light ">With the most complete source of homes for sale & real estate near you</p>
+        <div class="d-flex align-items-center cent mt-2 marg  text-light">
+          <p class="bott mx-1">Buy</p>
+          <p class="bott mx-4">sell</p>
+          <p class="bott mx-1">Rent</p>
+          <p class="bott mx-4">Pre-Approval</p>
+          <p class="bott mx-1">Just Sold</p>
+          <p class="bott mx-4">Home Value</p>
+        </div>
+
+        <div class="border rounded-5 shadow bg-light searchbar">
+          <input type="text" class="input" placeholder="Search For Preferred Location ">
+          <button class="btn btn-danger rounded-circle search "><span class="material-symbols-outlined">
+              search
+            </span></button>
+        </div>
+      </div>
+    </div>
+    <h2 class="m-3">Homes around $1,400,000</h2>
+    <a class="m-3" href="#">View all in Santa Cruz, CA</a>
+    <p id="homesScreen"></p>
+
+    <h2 class="m-3">Affordable Homes</h2>
+    <a class="m-3" href="#">View all in Santa Cruz, CA</a>
+    <p id="Newestscreen"></p>
+    <h2 class="m-3">Upcoming Open Houses</h2>
+    <a class="m-3" href="#">View all in Santa Cruz, CA</a>
+    <p id="upcoming"></p>
+    <h2 class="m-3">Newest Listings</h2>
+    <a class="m-3" href="#">View all in Santa Cruz, CA</a>
+    <p id="Luxury"></p>
+  </main>
+  <footer class="bg-dark text-light p-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 col-sm-12">
+          <h3>About Realtor</h3>
+          <p>Realtor is a real estate website dedicated to helping you find your dream home. Our team of expert agents
+            are committed to providing you with the best service possible.</p>
+        </div>
+        <div class="col-md-4 col-sm-12">
+          <h3>Contact Us</h3>
+          <p>123 Main Street<br>
+            Anytown, USA 12345<br>
+            Phone: (555) 555-1234<br>
+            Email: info@realtor.com</p>
+        </div>
+        <div class="col-md-4 col-sm-12">
+          <h3>Connect with Us</h3>
+          <div class="social-media my-3">
+            <button class="btn btn-light text-danger "><i class="fa fa-facebook"></i></button>
+            <button class="btn btn-light text-danger mx-2"><i class="fa fa-twitter"></i></button>
+            <button class="btn btn-light text-danger"><i class="fa fa-instagram"></i></button>
+            <button class="btn btn-light text-danger mx-2"><i class="fa fa-youtube"></i></button>
           </div>
         </div>
-        <div class="d-flex my-5">
-          <img class="img-fluid get" src="https://s.zillowstatic.com/pfs/static/app-store-badge.svg" alt="">
-          <img class="img-fluid get" src="https://s.zillowstatic.com/pfs/static/google-play-badge.svg" alt="">
-        </div>
-      </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-        crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/7fe2d1a9ce.js" crossorigin="anonymous"></script>
+      </div>
+    </div>
+    <div class="d-flex my-5">
+      <img class="img-fluid get" src="https://s.zillowstatic.com/pfs/static/app-store-badge.svg" alt="">
+      <img class="img-fluid get" src="https://s.zillowstatic.com/pfs/static/google-play-badge.svg" alt="">
+    </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/7fe2d1a9ce.js" crossorigin="anonymous"></script>
 </body>
+
 </html>
 <script>
-    let screen = document.getElementById("homesScreen")
-    let newest = document.getElementById("Newestscreen")
-    let upcomingscr = document.getElementById("upcoming")
-    let signeduser = JSON.parse(localStorage.getItem ("logeduser"))
-    let luxuryhomes = document.getElementById("Luxury")
-    console.log(signeduser);
-    function sigout() {
-        localStorage.removeItem("logeduser")
-        alert("Signing Out")
-     setInterval(() => {
-        window.location.href = "index.html" 
-     }, 1000);
-    }
+  let screen = document.getElementById("homesScreen")
+  let newest = document.getElementById("Newestscreen")
+  let upcomingscr = document.getElementById("upcoming")
+  let signeduser = JSON.parse(localStorage.getItem("logeduser"))
+  let luxuryhomes = document.getElementById("Luxury")
+  console.log(signeduser);
+  function sigout() {
+    localStorage.removeItem("logeduser")
+    alert("Signing Out")
+    setInterval(() => {
+      window.location.href = "index.html"
+    }, 1000);
+  }
 
 
-    let DasboardArray = JSON.parse(localStorage.getItem("dashboard"))
-   console.log(DasboardArray);
-  
-   let Affordable = JSON.parse(localStorage.getItem("affordable"))
-   console.log(Affordable);
+  let DasboardArray = JSON.parse(localStorage.getItem("dashboard"))
+  console.log(DasboardArray);
 
-    let upcomingHomes = JSON.parse(localStorage.getItem("upcoming"))
-   console.log(upcomingHomes);
+  let Affordable = JSON.parse(localStorage.getItem("affordable"))
+  console.log(Affordable);
 
-   let newestHome = JSON.parse(localStorage.getItem("newest"))
-   console.log(newestHome);
+  let upcomingHomes = JSON.parse(localStorage.getItem("upcoming"))
+  console.log(upcomingHomes);
 
-    for (let index = 0; index < DasboardArray.length; index++) {
+  let newestHome = JSON.parse(localStorage.getItem("newest"))
+  console.log(newestHome);
+
+  for (let index = 0; index < DasboardArray.length; index++) {
     const element = DasboardArray[index];
     screen.innerHTML += `
     <div onclick = "viewhouse(${index})" class="prpt-div shadow m-3 py-2 px-3"> 
@@ -180,8 +182,8 @@
       <p class = "dec"> ${element.location} </p>
       <p class = "dec"> ${element.location2} </p>
     </div>`
-} 
-    for (let index = 0; index < Affordable.length; index++) {
+  }
+  for (let index = 0; index < Affordable.length; index++) {
     const element = Affordable[index];
     newest.innerHTML += `
     <div onclick = "viewhouse2(${index})" class="prpt-div shadow m-3 py-2 px-3"> 
@@ -191,8 +193,8 @@
       <p class = "fw-bolder dec"> ${element.price} </p>
       <p class = "dec"> ${element.location2} </p>
     </div>`
-} 
-    for (let index = 0; index < upcomingHomes.length; index++) {
+  }
+  for (let index = 0; index < upcomingHomes.length; index++) {
     const element = upcomingHomes[index];
     upcomingscr.innerHTML += `
     <div onclick = "viewhouse3(${index})" class="prpt-div shadow m-3 py-2 px-3"> 
@@ -202,8 +204,8 @@
       <p class = "dec"> ${element.location} </p>
       <p class = "dec"> ${element.location2} </p>
     </div>`
-} 
-    for (let index = 0; index < newestHome.length; index++) {
+  }
+  for (let index = 0; index < newestHome.length; index++) {
     const element = newestHome[index];
     luxuryhomes.innerHTML += `
     <div onclick = "viewhouse4(${index})" class="prpt-div shadow m-3 py-2 px-3"> 
@@ -213,65 +215,65 @@
       <p class = "dec"> ${element.location} </p>
       <p class = "dec"> ${element.location2} </p>
     </div>`
-} 
+  }
 
-function viewhouse(index) {
+  function viewhouse(index) {
     console.log(index);
     let innerhome = DasboardArray[index].image;
     localStorage.setItem("innerhome", JSON.stringify(innerhome));
     window.location.href = "showprpt.html";
-}
-function viewhouse2(index) {
+  }
+  function viewhouse2(index) {
     let innerhome = Affordable[index].image;
     console.log(Affordable[index].image);
     localStorage.setItem("innerhome", JSON.stringify(innerhome));
     window.location.href = "showprpt.html";
-}
-function viewhouse3(index) {
+  }
+  function viewhouse3(index) {
     console.log(index);
     let innerhome = upcoming[index].image;
     localStorage.setItem("innerhome", JSON.stringify(innerhome));
     window.location.href = "showprpt.html";
-}
-function viewhouse4(index) {
+  }
+  function viewhouse4(index) {
     console.log(index);
     let innerhome = newestHome[index].image;
     localStorage.setItem("innerhome", JSON.stringify(innerhome));
     window.location.href = "showprpt.html";
-}
-// let newhomes = JSON.parse(localStorage.getItem("posthome"))
-let homeinfo = JSON.parse(localStorage.getItem("homeinfo"));
-if (homeinfo) {
-  let img = new Image();
-  img.onload = () => {
-    let canvas = document.createElement("canvas");
-    let ctx = canvas.getContext("2d");
+  }
+  // let newhomes = JSON.parse(localStorage.getItem("posthome"))
+  let homeinfo = JSON.parse(localStorage.getItem("homeinfo"));
+  if (homeinfo) {
+    let img = new Image();
+    img.onload = () => {
+      let canvas = document.createElement("canvas");
+      let ctx = canvas.getContext("2d");
 
-    // calculate the new width and height of the image
-    let max_width = 250;
-    let max_height = 300;
-    let width = img.width;
-    let height = img.height;
-    if (width > max_width) {
-      height *= max_width / width;
-      width = max_width;
-    }
-    if (height > max_height) {
-      width *= max_height / height;
-      height = max_height;
-    }
+      // calculate the new width and height of the image
+      let max_width = 250;
+      let max_height = 300;
+      let width = img.width;
+      let height = img.height;
+      if (width > max_width) {
+        height *= max_width / width;
+        width = max_width;
+      }
+      if (height > max_height) {
+        width *= max_height / height;
+        height = max_height;
+      }
 
-    // resize the image
-    canvas.width = width;
-    canvas.height = height;
-    ctx.drawImage(img, 0, 0, width, height);
-    let resizedDataURL = canvas.toDataURL("image/jpeg");
+      // resize the image
+      canvas.width = width;
+      canvas.height = height;
+      ctx.drawImage(img, 0, 0, width, height);
+      let resizedDataURL = canvas.toDataURL("image/jpeg");
 
-    // create a new image element with the resized data URL
-    let imageDisplay = document.createElement("img");
-    imageDisplay.src = resizedDataURL;
-    // document.body.appendChild(imageDisplay)
-    luxuryhomes.innerHTML += `
+      // create a new image element with the resized data URL
+      let imageDisplay = document.createElement("img");
+      imageDisplay.src = resizedDataURL;
+      // document.body.appendChild(imageDisplay)
+      luxuryhomes.innerHTML += `
     <div onclick = "viewhouse4()" class="prpt-div shadow m-3 py-2 px-3"> 
     <img class="picx" src="${resizedDataURL}">
       <p class = ""> ${homeinfo.city} </p>
@@ -279,9 +281,12 @@ if (homeinfo) {
       <p class = "dec"> ${homeinfo.price} </p>
       <p class = "dec"> ${homeinfo.feactures} </p>
     </div>`
-  };
-  img.src = homeinfo.homeimage;
-}
+    };
+    img.src = homeinfo.homeimage;
+  }
+  function manage() {
+    window.location.href = "manage.html"
+  }
 
 
 

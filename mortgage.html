@@ -29,12 +29,46 @@
         justify-content: center;
         flex-direction: column;
     }
-   .cols{
-    position: absolute;
-    top: 10%;
-    left: 29%;
-    text-align: center;
-   }
+
+    .cols {
+        position: absolute;
+        top: 10%;
+        left: 29%;
+        text-align: center;
+    }
+
+    .cacul {
+        width: 50px;
+        height: 50px;
+        border-radius: 100%;
+    }
+
+    .mort {
+        width: 30%;
+        margin: 10px;
+    }
+    .mortt {
+        width: 40%;
+        margin: 10px;
+    }
+    .font{
+        font-size: 17px;
+        color: rgb(137, 137, 227);
+        text-decoration: none;
+    }
+    .font:hover{
+        text-decoration: underline;
+    }
+    .rel{
+        position: relative;
+    }
+    .abb{
+        position: absolute;
+        top: 7%;
+        left: 20%;
+        text-align: center;
+        width: 50%;
+    }
 </style>
 
 <body>
@@ -51,7 +85,7 @@
                 <ul class="navbar-nav ms-auto">
                     <div class="d-flex align-items-center item-div">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Buy</a>
+                            <a class="nav-link" href="index.html">Buy</a>
                         </li>
                         <li class="nav-item ">
                             <a onclick="sell()" class="nav-link" href="sell.html">Sell</a>
@@ -60,13 +94,13 @@
                             <a class="nav-link" href="rent.html">Rent</a>
                         </li>
                         <li class="nav-item ">
-                            <a class="nav-link" href="#">Mortgage</a>
+                            <a class="nav-link" href="mortgage.html">Mortgage</a>
                         </li>
                         <li class="nav-item ">
-                            <a class="nav-link" href="#">Find Realtors</a>
+                            <a class="nav-link" href="findrealtor.html">Find Realtors</a>
                         </li>
                         <li class="nav-item ">
-                            <a class="nav-link" href="#">My Home</a>
+                            <a class="nav-link" href="home.html">My Home</a>
                         </li>
                     </div>
                     <div class="d-flex sec-div  align-items-center">
@@ -77,7 +111,8 @@
                             <button class="btn butt btn-outline-secondary mx-2">Advertise</button>
                         </li>
                         <li class="nav-item">
-                            <button onclick="sigout()" class="btn butt btn-danger mx-2">Sign Out<i class="fa-solid fa-user"></i></button>
+                            <button onclick="sigout()" class="btn butt btn-danger mx-2">Sign Out<i
+                                    class="fa-solid fa-user"></i></button>
                         </li>
                     </div>
                 </ul>
@@ -93,13 +128,13 @@
             <div class="cols topp ">
                 <h1 class="text-light size my-4">Get Pre-Approved®</h1>
                 <p class="text-light ">Find a lender who can offer you competitive mortgage rates</p>
-                <div class="d-flex align-items-center cent mt-2 marg  text-light">
-                    <p class="bott mx-1">Buy</p>
-                    <p class="bott mx-4">sell</p>
-                    <p class="bott mx-1">Rent</p>
-                    <p class="bott mx-4">Pre-Approval</p>
-                    <p class="bott mx-1">Just Sold</p>
-                    <p class="bott mx-4">Home Value</p>
+                <div class="d-flex w-100 align-items-center cent mt-2 marg  text-light">
+                    <a href="index.html" class="bott mx-1">Buy</a>
+                    <a href="sell.html" class="bott mx-4">sell</a>
+                    <a href="rent.html" class="bott mx-1">Rent</a>
+                    <a href="approve.html" class="bott mx-4">pre-Aaaroval</a>
+                    <a href="sold.html" class="bott mx-1">Just Sold</a>
+                    <a href="value.html" class="bott mx-4">Home Value</a>
                 </div>
 
                 <div class="border rounded-5 shadow bg-light searchbar">
@@ -110,79 +145,212 @@
                 </div>
             </div>
         </div>
-
-
-
-        <div class="my-3 mx-5">
-            <h1 class="fw-bold fs-3 my-1">Newest listings</h1>
-            <a href="#">View all in Vero Beach, FL</a>
+        <div class="container">
+            <h1 class="fs-1 fw-bolder m-3">Tools</h1>
+            <div class="row">
+                <div class="border shadow bg-light rounded-2 d-flex p-3  col-12 col-sm-6 col-md-4 mort ">
+                    <div>
+                        <img class="img-fluid cacul"
+                            src="https://static-mortgage.rdc.moveaws.com/static/images/homepage/mlp-2020-03/glyphs/SVG/pie-chart.svg"
+                            alt="">
+                    </div>
+                    <div>
+                        <h5>Mortgage Caculator</h5>
+                        <p>Caculate your monthly payment</p>
+                    </div>
+                </div>
+                <div class="border shadow bg-light rounded-2 d-flex p-3  col-12 col-sm-6 col-md-4 mort">
+                    <div>
+                        <img class="img-fluid cacul"
+                            src="https://static-mortgage.rdc.moveaws.com/static/images/homepage/mlp-2020-03/glyphs/SVG/piggy-bank.svg"
+                            alt="">
+                    </div>
+                    <div>
+                        <h5>Affordability Caculator</h5>
+                        <p>Caculate the price of home you can afford</p>
+                    </div>
+                </div>
+                <div class="border shadow bg-light rounded-2 d-flex p-3  col-12 col-sm-6 col-md-4 mort ">
+                    <div>
+                        <img class="img-fluid cacul"
+                            src="https://static-mortgage.rdc.moveaws.com/static/images/homepage/mlp-2020-03/glyphs/SVG/directional-arrows.svg"
+                            alt="">
+                    </div>
+                    <div>
+                        <h5>Rent or buy Caculator</h5>
+                        <p>Estimate when it make sense to buy or rent home</p>
+                    </div>
+                </div>
+                <div class="border shadow bg-light rounded-2 d-flex p-3  col-12 col-sm-6 col-md-4 mort ">
+                    <div>
+                        <img class="img-fluid cacul"
+                            src="https://static-mortgage.rdc.moveaws.com/static/images/homepage/mlp-2020-03/glyphs/SVG/refinance-coins.svg"
+                            alt="">
+                    </div>
+                    <div>
+                        <h5>Refinance Caculator</h5>
+                        <p>Decide if mortgage refinancing is right for you</p>
+                    </div>
+                </div>
+                <div class="border shadow bg-light rounded-2 d-flex p-3  col-12 col-sm-6 col-md-4 mort ">
+                    <div>
+                        <img class="img-fluid cacul"
+                            src="https://static-mortgage.rdc.moveaws.com/static/images/homepage/mlp-2020-03/glyphs/SVG/price-tags.svg"
+                            alt="">
+                    </div>
+                    <div>
+                        <h5>Sellers Marketplace</h5>
+                        <p>Explore your selling options and get instant offers</p>
+                    </div>
+                </div>
+                <div class="border shadow bg-light rounded-2 d-flex p-3  col-12 col-sm-6 col-md-4 mort ">
+                    <div>
+                        <img class="img-fluid cacul"
+                            src="https://static-mortgage.rdc.moveaws.com/static/images/homepage/mlp-2020-03/glyphs/SVG/pie-chart.svg"
+                            alt="">
+                    </div>
+                    <div>
+                        <h5>My Home</h5>
+                        <p>Get your home value and the latest market trends</p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <p id="homesScreen"></p>
-        <h3 class="my-3 mx-2">Explore Santa Cruz, CA</h3>
-         <a class="mx-2" href="#">View all Pet-Friendly Rentals in Santa Cruz, CA</a>
-         <p id="rentalscreen"></p>
 
-        <div class="w-100 d-flex">
-            <div onclick = "viewhouse(index)" class="prpt-div shadow m-3 py-2 px-3"> 
-                <img class="picx" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRE-RLRCe866lKfpyAVW1vGyzHoV3Vif8NkZQ&usqp=CAU">
-                  <p class = "fw-bolder"> $1,700 </p>
-                  <p class = ""> Studio+ bed 1 bath 290 sqft </p>
-                  <p class = ""> Santa Crus, CA 95060 </p>
-            </div>
-             <div onclick = "viewhouse(index)" class="prpt-div shadow m-3 py-2 px-3"> 
-                <img class="picx" src="https://ap.rdcpix.com/06a5bc5591c79bd87d4a7a44a3412147l-m2150310693od-w480_h360_x2.webp">
-                  <p class = "fw-bolder"> $1,700 </p>
-                  <p class = ""> Studio+ bed 1 bath 290 sqft </p>
-                  <p class = ""> Santa Crus, CA 95060 </p>
-            </div>
-             <div onclick = "viewhouse(index)" class="prpt-div shadow m-3 py-2 px-3"> 
-                <img class="picx" src="https://ar.rdcpix.com/00968d9d386eaa1defe5227cf7760ceac-f3577265312od-w480_h360_x2.webp">
-                  <p class = "fw-bolder"> $1,700 </p>
-                  <p class = ""> Studio+ bed 1 bath 290 sqft </p>
-                  <p class = ""> Santa Crus, CA 95060 </p>
-            </div>
-             <div onclick = "viewhouse(index)" class="prpt-div shadow m-3 py-2 px-3"> 
-                <img class="picx" src="https://ap.rdcpix.com/0a53958b33f699c27ab774905342a603l-m3916264541od-w480_h360_x2.webp">
-                  <p class = "fw-bolder"> $1,700 </p>
-                  <p class = ""> Studio+ bed 1 bath 290 sqft </p>
-                  <p class = ""> Santa Crus, CA 95060 </p>
+        <div class="w-100 h-100 bg-light my-3 p-3">
+            <div class="container ">
+                <h1 class="fs-1 fw-bolder ">Rates</h1>
+                <p>
+                    Compare up-to-date mortgage rates and find one that's right for you.</p>
+                    <div class="row">
+                        <div class="border shadow bg-light rounded-2 d-flex p-3  col-12 col-sm-6 col-md-4 mort ">
+                            <div class="d-flex align-items-center">
+                                <h5>30-Years Fixed <i class="fa-solid fa-angle-right mx-2"></i> </h5>
+                                <h3 class="fw-bolder mx-3">6.84%</h3>
+                            </div>
+                        </div>
+                        <div class="border shadow bg-light rounded-2 d-flex p-3  col-12 col-sm-6 col-md-4 mort ">
+                            <div class="d-flex align-items-center">
+                                <h5>30-Years Fixed <i class="fa-solid fa-angle-right mx-2"></i> </h5>
+                                <h3 class="fw-bolder mx-3">6.84%</h3>
+                            </div>
+                        </div>
+                        <div class="border shadow bg-light rounded-2 d-flex p-3  col-12 col-sm-6 col-md-4 mort ">
+                            <div class="d-flex align-items-center">
+                                <h5>30-Years Fixed  <i class="fa-solid fa-angle-right mx-2"></i></h5>
+                                <h3 class="fw-bolder mx-3">6.84%</h3>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-outline-danger w-25 rounded-5 m-3">Find all Mortages in SantacruiseCa</button>
+                    </div>
+                   <div class="my-5">
+                    <a class="text-dark" href="#">Advertising Disclosure</a> <br>
+                    <small>Average rates data provided by Icanbuy, LLC. <a class="text-dark" href="#">for more information on rates and product details</a>.</small>
+                   </div>
+                   <hr>
+                   <div class="my-3">
+                      <h6 class="fw-bolder">Thinking of refinancing or using the equity in your home?</h6>
+                      <div class="row">
+                        <div class="border shadow bg-light rounded-2 d-flex p-3  col-12 col-sm-6 col-md-4 mortt ">
+                            <div>
+                                <img class="img-fluid cacul"
+                                    src="https://static-mortgage.rdc.moveaws.com/static/images/homepage/mlp-2020-03/glyphs/SVG/refinance-rates.svg"
+                                    alt="">
+                            </div>
+                            <div>
+                                <h5>Refinance Rate</h5>
+                                <p>Compare your home rate against your current mortgage</p>
+                            </div>
+                        </div>
+                        <div class="border shadow bg-light rounded-2 d-flex p-3  col-12 col-sm-6 col-md-4 mortt ">
+                            <div>
+                                <img class="img-fluid cacul"
+                                    src="https://static-mortgage.rdc.moveaws.com/static/images/homepage/mlp-2020-03/glyphs/SVG/home-with-dollar-sign.svg"
+                                    alt="">
+                            </div>
+                            <div>
+                                <h5>Home equality rates</h5>
+                                <p>Compare rates based on your desired loan amount</p>
+                            </div>
+                        </div>
+
+                        <h1 class="fw-bolder fs-2 m-3">Connect with a lender</h1>
+
+                        <div class="row">
+                            <div class="border shadow bg-light rounded-2 d-flex p-3  col-12 col-sm-6 col-md-4 mort ">
+                                <div>
+                                    <img class="img-fluid cacul"
+                                        src="https://static-mortgage.rdc.moveaws.com/static/images/homepage/mlp-2022-08/glyphs/SVG/home-purchase.svg"
+                                        alt="">
+                                </div>
+                                <div>
+                                    <h5>My Home</h5>
+                                    <p>Get your home value and the latest market trends</p>
+                                </div>
+                            </div>
+                            <div class="border shadow bg-light rounded-2 d-flex p-3  col-12 col-sm-6 col-md-4 mort ">
+                                <div>
+                                    <img class="img-fluid cacul"
+                                        src="https://static-mortgage.rdc.moveaws.com/static/images/homepage/mlp-2022-08/glyphs/SVG/refi.svg"
+                                        alt="">
+                                </div>
+                                <div>
+                                    <h5>My Home</h5>
+                                    <p>Get your home value and the latest market trends</p>
+                                </div>
+                            </div>
+                            <div class="border shadow bg-light rounded-2 d-flex p-3  col-12 col-sm-6 col-md-4 mort ">
+                                <div>
+                                    <img class="img-fluid cacul"
+                                        src="https://static-mortgage.rdc.moveaws.com/static/images/homepage/mlp-2022-08/glyphs/SVG/home-equity.svg"
+                                        alt="">
+                                </div>
+                                <div>
+                                    <h5>My Home</h5>
+                                    <p>Get your home value and the latest market trends</p>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+                   </div>
             </div>
         </div>
-        <div class="man">
-            <h4>What a Renter Needs to Know About a <br> Landlord Checking Their Credit</h4>
-            <button class="btn btn-outline-light rounded-5 ">Read More</button>
+        <div class="container">
+            <h1 class="fs-1 fw-bolder">Articles</h1>
+            <h6>Common questions</h6>
+          <div class="my-3">
+            <h4 class="">“The gold standard for a down payment is 20%, but if you don’t have the cash, there are plenty of ways to put down less and still get a house.”</h4 >
+                <a class="font text-primary" href="#"><i class="fa-solid fa-book"></i> 5-most common questions  about mortgage - answered</a>
+          </div>
+          <div class="my-5">
+            <h4 class="">“The comparatively lower restrictions on these loans [FHA] make them ideal for first-time homebuyers. You might want to consider these loans if you don’t have enough money saved up for a large down payment...”</h4 >
+                <a class="font text-primary" href="#"><i class="fa-solid fa-book"></i> FHA First-time home buyer loans: the pros vs. the cons
+
+                </a>
+          </div>
+
+          <h5 class="my-2">Common questions</h5>
+          <p class="mt-2 text-primary font"><i class="fa-sharp fa-solid fa-book"></i>  The stress-free guide to getting a mortgage</p>
+          <p class="my-1 text-primary font"><i class="fa-sharp fa-solid fa-book"></i>  Learning the lingo: mortgages explained from ARMS to Points</p>
+          <p class="my-1 text-primary font"><i class="fa-sharp fa-solid fa-book"></i>  How to buy a home with bad credit (Yes, you can)</p>
         </div>
-        <div id="Preapproved" class="row container-fluid p-2">
-            <div class="col-12  col-sm-6">
-                <img class="img-fluid " src="https://static.rdc.moveaws.com/images/hero/hp-hero-mortgage-desktop.jpg"
-                    alt="">
-            </div>
-            <div class=" col-12 col-sm-6 fam bg-light">
-                <h1 class=" fw-bolder fs-2">Need a home loan? Get pre-approved</h1>
-                <p class="fs-5">Find a lender who can offer competitive mortgage rates and help you with pre-approval.
-                </p>
-                <button class="btn btn-danger rounded-5 px-3">Get Pre-approved Now</button>
-                <small> <a href="Advertising disclosure"></a></small>
-            </div>
-        </div>
-        <div id="homeimprovement" class="row container-fluid p-2">
-            <div class=" col-12 col-sm-6 fam bg-light">
-                <h1 class=" fw-bolder fs-2">Get Local Info</h1>
-                <p class="fs-5">Does it have pet-friendly rentals? How are the schools? Get important local information
-                    on the
-                    area you're most interested in..</p>
-                <div class="border rounded-5 shadow bg-light searchdiv">
+        <div class="my-5 rel">
+            <img id="buybackground" class="backgroundimg img-fluid"
+                src="https://static-mortgage.rdc.moveaws.com/static/images/homepage/mlp-2020-03/pre-approve/SVG/city-background-illustration-desktop-xl.svg"
+                alt="">
+                <div class="abb">
+                    <h1 class="fs-1 fw-bolder ">Get Pre-Approved</h1>
+                <p class="fs-5">Find a lender who can offer competitive mortgage rates and help you with pre-approval</p>
+                <div class="border rounded-5 shadow bg-light searchbar">
                     <input type="text" class="input" placeholder="Search For Preferred Location ">
                     <button class="btn btn-danger rounded-circle search "><span class="material-symbols-outlined">
                             search
                         </span></button>
                 </div>
-            </div>
-            <div class="col-12  col-sm-6">
-                <img class="img-fluid " src="https://static.rdc.moveaws.com/images/hero/hp-local-desktop.jpg" alt="">
+                </div>
             </div>
         </div>
-
     </main>
 
     <footer class="bg-dark text-light p-5">
@@ -203,12 +371,12 @@
                 </div>
                 <div class="col-md-4 col-sm-12">
                     <h3>Connect with Us</h3>
-                    <ul class="social-media">
-                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                        <li><a href="#"><i class="fa fa-youtube"></i></a></li>
-                    </ul>
+                    <div class="social-media my-3">
+                        <button class="btn btn-light text-danger "><i class="fa fa-facebook"></i></button>
+                    <button class="btn btn-light text-danger mx-2"><i class="fa fa-twitter"></i></button>
+                    <button class="btn btn-light text-danger"><i class="fa fa-instagram"></i></button>
+                    <button class="btn btn-light text-danger mx-2"><i class="fa fa-youtube"></i></button>
+                    </div>
                 </div>
             </div>
         </div>

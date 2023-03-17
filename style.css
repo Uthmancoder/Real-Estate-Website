@@ -586,6 +586,14 @@ nav {
     justify-content: center;
     flex-direction: column;
 }
+.bott{
+    text-decoration: none;
+    color: white;
+    margin: 10px 0;
+}
+.bott:hover{
+    border-bottom: 2px solid rgb(233, 73, 73);
+}
 .fam{
     text-align: center;
     display: flex;
