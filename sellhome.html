@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+<style>
+    .non,
+    .bord {
+        border: none;
+        background: none;
+        border-bottom: 1px solid gray;
+        outline: none;
+    }
+
+    .image {
+        width: 100%;
+        height: 60%;
+    }
+
+    body {
+        overflow-x: hidden;
+    }
+
+    .spinn {
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        background-color: white;
+        top: 0;
+        left: 0;
+        padding: 20% 45%;
+        display: none;
+    }
+
+    .spinner-border {
+        width: 100px;
+        height: 100px;
+    }
+</style>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bolder fs-4" href="#">
+                Realtor<span class="text-danger">.com®</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <div class="d-flex align-items-center item-div">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Buy</a>
+                        </li>
+                        <li class="nav-item ">
+                            <a onclick="sell()" class="nav-link" href="#">Sell</a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="rent.html">Rent</a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="#">Mortgage</a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="#">Find Realtors</a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="#">My Home</a>
+                        </li>
+                    </div>
+                    <div class="d-flex sec-div align-items-center">
+                        <li class="nav-item">
+                            <button class="btn butt btn-outline-secondary mx-2">Manage Rentals</button>
+                        </li>
+                        <li class="nav-item">
+                            <button class="btn butt btn-outline-secondary mx-2">Advertise</button>
+                        </li>
+                        <li class="nav-item">
+                            <button onclick="sigout()" class="btn butt btn-danger mx-2">Sign Out <i
+                                    class="fa-solid fa-user"></i></button>
+                        </li>
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <div>
+            <img id="buybackground" class="backgroundimg"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSS9GpSnG5P5uXIjMxSwkinuZafxGPX9SqSQg&usqp=CAU"
+                alt="">
+            <div class="abs2">
+                <h1 class="text-light size my-4">Sell your home with confidence</h1>
+                <p class="text-light fs-5">Zillow is making it simpler to sell your home and move forward.</p>
+            </div>
+        </div>
+    </main>
+    <div class="spinn">
+        <div class="spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+    <section class="bg-light">
+        <h1 class="fs-1 fw-bolder p-5">Post your home for sale</h1>
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <div class="w-75 mx-auto py-3 px-5 bg-light shadow border my-3 rounded-2">
+                    <h4 class="fs-4 fw-bolder mx-2">Description</h4>
+                    <textarea name="" id="description" class="w-100 non" cols="30" rows="2"></textarea>
+                </div>
+                <div class="w-75 mx-auto py-3 px-5 bg-light shadow border my-3 rounded-2">
+                    <h4 class="fs-4 fw-bolder mx-2">Adress</h4>
+                    <input class="w-100 my-2 non bord" id="city" placeholder="City" type="text">
+                    <input class="w-100 non bord" id="state" placeholder="State" type="text">
+                </div>
+                <div class="w-75 mx-auto py-3 px-5 bg-light shadow border my-3 rounded-2">
+                    <h4 class="fs-4 fw-bolder mx-2">Details & price</h4>
+                    <input class="w-100 my-2 non bord" id="details" placeholder="Details" type="text">
+                    <input class="w-100 non bord" id="price" placeholder="Price" type="text">
+                </div>
+                <div class="w-75 mx-auto py-3 px-5 bg-light shadow border my-3 rounded-2">
+                    <h4 class="fs-4 fw-bolder mx-2">Feactures</h4>
+                    <textarea name="" id="feactures" class="w-100 non" cols="30" rows="2"></textarea>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6">
+                <h1 class="fs-1 fw-bolder">Add your Home Image</h1>
+                <input onclick="pickfile(event)" type="file" name="home" id="home" class="">
+                <img class="image img-fluid" src="" alt="" id="img">
+
+
+                <button onclick="postforsale()" class="btn btn-danger rounded-5 m-5 py-2 px-4">Post Home For
+                    Sale</button>
+            </div>
+        </div>
+
+    </section>
+
+    <footer class="bg-dark text-light p-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-sm-12">
+                    <h3>About Realtor</h3>
+                    <p>Realtor is a real estate website dedicated to helping you find your dream home. Our team of
+                        expert agents are committed to providing you with the best service possible.</p>
+                </div>
+                <div class="col-md-4 col-sm-12">
+                    <h3>Contact Us</h3>
+                    <p>123 Main Street<br>
+                        Anytown, USA 12345<br>
+                        Phone: (555) 555-1234<br>
+                        Email: info@realtor.com</p>
+                </div>
+                <div class="col-md-4 col-sm-12">
+                    <h3>Connect with Us</h3>
+                    <ul class="social-media">
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                        <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex my-5">
+            <img class="img-fluid get" src="https://s.zillowstatic.com/pfs/static/app-store-badge.svg" alt="">
+            <img class="img-fluid get" src="https://s.zillowstatic.com/pfs/static/google-play-badge.svg" alt="">
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/7fe2d1a9ce.js" crossorigin="anonymous"></script>
+    <script src="main.js"></script>
+
+</body>
+
+</html>
+<script>
+   let reader = new FileReader();
+
+function pickfile(ev) {
+  let file = ev.target.files[0];
+  console.log(file);
+  reader.onload = (event) => {
+    let imageData = event.target.result;
+    document.getElementById("img").src = imageData;
+    let homeinfo = {
+      description: description.value,
+      city: city.value,
+      state: state.value,
+      details: details.value,
+      price: price.value,
+      feactures: feactures.value,
+      homeimage: imageData
+    };
+    localStorage.setItem("homeinfo", JSON.stringify(homeinfo));
+  };
+  if (file) {
+    reader.readAsDataURL(file);
+  }
+}
+    let description = document.getElementById("description");
+    let city = document.getElementById("city");
+    let state = document.getElementById("state");
+    let details = document.getElementById("details");
+    let price = document.getElementById("price")
+    let feactures = document.getElementById("feactures")
+    let homeimage = document.getElementById("img")
+     let posthomearray = JSON.parse(localStorage.getItem("posthome"))
+    console.log(posthomearray);
+
+    if (posthomearray == null) {
+        posthomearray = []
+    }
+    function postforsale() {
+        if (description.value == "" || city.value == "" || state.value == "" || price.value == "" || feactures.value == "") {
+            alert("input your home details as listed correctly")
+            return;
+        } else {
+            document.querySelector(".spinn").style.display = "block"
+            setTimeout(() => {
+                document.querySelector(".spinn").style.display = "block"
+                window.location.href = "homes.html"
+            }, 4000);
+            let homeinfo = {
+                city: city.value,
+                state: state.value,
+                details: details.value,
+                price: price.value,
+                feactures: feactures.value,
+                homeimage : homeimage.value
+            }
+            posthomearray.push(homeinfo)
+            localStorage.setItem("posthome", JSON.stringify(posthomearray))
+            console.log(posthomearray);
+        }
+    }
+
+
+
+</script>

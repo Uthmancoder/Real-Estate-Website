@@ -103,10 +103,12 @@
     border-bottom: 1px solid rgb(64, 64, 220);
     cursor: pointer;
   }
-  .side1{
+
+  .side1 {
     width: 75%;
   }
-  .side2{
+
+  .side2 {
     width: 25%;
   }
 
@@ -121,27 +123,32 @@
     }
 
     .schedule {
-      width: 90%;
+      width: 100%;
       margin: 20px auto;
     }
 
     .twobed {
       width: 100%;
     }
-    .side1{
-      width: 90%;
+
+    .side1 {
+      width: 100%;
       margin: auto;
     }
-    .side2{
+
+    .side2 {
       width: 100%;
     }
-    body{
+
+    body {
       overflow-x: hidden;
     }
-    #modal{
+
+    #modal {
       display: none;
     }
-    .show_container{
+
+    .show_container {
       width: 100%;
     }
   }
@@ -159,19 +166,21 @@
     color: white;
     height: 30px;
   }
-  .vicinity{
+
+  .vicinity {
     display: flex;
     flex-wrap: wrap;
   }
-  .email{
+
+  .email {
     width: 100%;
   }
 </style>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav id="nav" class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-      <a class="navbar-brand fw-bolder fs-4" href="#">
+      <a class="navbar-brand fw-bolder fs-4" href="index.html">
         Realtor<span class="text-danger">.com®</span>
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -182,7 +191,7 @@
         <ul class="navbar-nav ms-auto">
           <div class="d-flex align-items-center item-div">
             <li class="nav-item">
-              <a class="nav-link" href="#">Buy</a>
+              <a class="nav-link" href="index.html">Buy</a>
             </li>
             <li class="nav-item ">
               <a onclick="sell()" class="nav-link" href="sell.html">Sell</a>
@@ -191,7 +200,7 @@
               <a class="nav-link" href="rent.html">Rent</a>
             </li>
             <li class="nav-item ">
-              <a class="nav-link" href="#">Mortgage</a>
+              <a class="nav-link" href="mortgage.html">Mortgage</a>
             </li>
             <li class="nav-item ">
               <a class="nav-link" href="#">Find Realtors</a>
@@ -346,8 +355,8 @@
           <h6 class="fs-5 fw-200">Review This property</h6>
           <p id="starredscreen"></p>
           <div class="w-100 bg-light p-2">
-            <textarea class="p-2 wdt" name="" id="" cols="30" rows="1" placeholder="Type Your comment Here"></textarea>
-            <button class="btn btn-danger m-3">Submit Review</button>
+            <textarea class="p-2 wdt" name="" id="reviews" cols="30" rows="1" placeholder="Type Your comment Here"></textarea>
+            <button onclick="review()" class="btn btn-danger m-3">Submit Review</button>
           </div>
         </div>
 
@@ -362,11 +371,11 @@
           </div>
           <div class="w=-100 rounded-2 h-25 my-5 shadow agentinfo">
             <button class="btn btn-secondary  w-100">Request A Tour</button>
-            <input  id="reqname" type="text" class="wdt p-2 " placeholder="Name">
-            <input id="reqphonenum" type="number" class="wdt p-2 " placeholder="Phone">
-            <input id="reqemail" type="email" class="wdt p-2 " placeholder="Email">
-            <textarea id="reqmessae" class="p-2 wdt" name="" id="" cols="30" rows="1" placeholder="Message"></textarea>
-            <button onclick="sendrequest" class="btn btn-danger w-75 mx-auto mt-3">Send Request</button>
+            <input id="name2" type="text" class="wdt p-2 " placeholder="Name">
+            <input id="phonenum2" type="number" class="wdt p-2 " placeholder="Phone">
+            <input id="email2" type="email" class="wdt p-2 " placeholder="Email">
+            <textarea id="message2" class="p-2 wdt" name="" id="" cols="30" rows="1" placeholder="Message"></textarea>
+            <button onclick="requesttour()" class="btn btn-danger w-75 mx-auto mt-3">Send Request</button>
           </div>
         </div>
 
@@ -521,14 +530,6 @@
     </button>
   </div>
 `;
-
-let username = document.getElementById("name")
-let useremail = document.getElementById("email")
-let userphonenum = document.getElementById("phonenum")
-let movindate = document.getElementById("date")
-let message = document.getElementById("message")
-
-
   let calendarArray = [
     {
       day: "mon",
@@ -700,7 +701,11 @@ let message = document.getElementById("message")
   function propt(event) {
     event.prreventDefault();
   }
-  let usercontact = document.getElementById("tourinput").value
+  let usercontactarray = JSON.parse(localStorage.getItem("usercontact"))
+  if (usercontactarray == null) {
+    usercontactarray = []
+  }
+
   let phonenum = document.getElementById("tourinput")
   function gotour() {
     if (document.getElementById("tourinput").value == "") {
@@ -712,7 +717,11 @@ let message = document.getElementById("message")
     }
     else if (document.getElementById("tourinput").value.startsWith("0") && document.getElementById("tourinput").value.length == 11) {
       alert("Contact sent successfully")
-      localStorage.setItem("usercontact", JSON.stringify(usercontact))
+      usercontactarray.push(
+        document.getElementById("tourinput").value
+      )
+      localStorage.setItem("usercontact", JSON.stringify(usercontactarray))
+      console.log(usercontactarray);
 
     } else if (document.getElementById("tourinput").value.length < 11) {
       alert("input a valid phone number")
@@ -739,14 +748,60 @@ let message = document.getElementById("message")
 
   let name = document.getElementById("name")
   let email = document.getElementById("email")
-  let password = document.getElementById("password")
+  // let password = document.getElementById("password")
+  let userphonenum = document.getElementById("phonenum")
+  let movindate = document.getElementById("date")
+  let message = document.getElementById("message")
+  let requestarray = JSON.parse(localStorage.getItem("requestdate"))
+  console.log(requestarray);
+  if (requestarray == null) {
+    requestarray = []
+  } 
+
   function emailpropt(event) {
+    let userdata = {
+        username: name.value,
+        email: email.value,
+        phonenum: userphonenum.value,
+        date: movindate.value,
+        message: message.value
+      }
     event.preventDefault();
-    if (name.value.length <= 30 || email.value.length <= 20 || password.value.length <= 8) {
-      alert("email sent successfully")
-    } else if (name.value == "" || email.value == "" || password.value == "") {
-      alert("email successfully")
+   if (document.getElementById("name").value == "" ||  document.getElementById("email").value == "" || document.getElementById("phonenum").value == "") {
+      alert("inputs field can not be empty") 
+    }else{
+  alert("Email sent successfully")
+      requestarray.push(userdata)
+      localStorage.setItem("requestdata", JSON.stringify(requestarray))
+      console.log(requestarray);
     }
+
+  }
+  let name2 = document.getElementById("name2")
+  let email2 = document.getElementById("email2")
+  let phonenum2 = document.getElementById("phonenum2")
+  let message2 =  document.getElementById("message2")
+  
+  function requesttour(event) {
+    let userdata = {
+        username: name.value,
+        email: email.value,
+        phonenum: phonenum2.value,
+        message: message2.value
+      }
+   if (document.getElementById("name2").value == "" ||  document.getElementById("email2").value == "" || document.getElementById("phonenum2").value == "") {
+      alert("inputs field can not be empty") 
+    }else{
+  alert("Email sent successfully")
+      requestarray.push(userdata)
+      localStorage.setItem("requestdata", JSON.stringify(requestarray))
+      console.log(requestarray);
+    }
+  
+    name2.value = "",
+    email2.value = "",
+    phonenum2.value = ""
+    message2.value = ""
 
   }
 
@@ -784,6 +839,21 @@ let message = document.getElementById("message")
     document.getElementById("star2").style.backgroundColor = "yellow"
   }
 
+ 
+
+let reviewarray = JSON.parse(localStorage.getItem("review"))
+console.log(reviewarray);
+if (reviewarray == null) {
+  reviewarray = []
+  
+}
+function review() {
+  let sentmessage = document.getElementById("reviews").value;
+   reviewarray.push(sentmessage)
+   console.log(reviewarray);
+   alert("review sent successfully")
+   localStorage.setItem(("reviews"), JSON.stringify (reviewarray))
+}
 
 
 </script>

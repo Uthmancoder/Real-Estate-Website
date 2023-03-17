@@ -145,8 +145,9 @@
         <aside>
           <button onclick="mydashboard()" class="btn btn-light shadow w-75 rounded-5 my-2 mx-4">Dasboard</button>
           <button class="btn btn-light shadow w-75 rounded-5 my-2 mx-4">Agents</button>
+          <button onclick="buyers()" class="btn btn-light shadow w-75 rounded-5 my-2 mx-4">Users info</button>
+          <button onclick="customersreview()" class="btn btn-light shadow w-75 rounded-5 my-2 mx-4">Reviews</button>
           <button class="btn btn-light shadow w-75 rounded-5 my-2 mx-4">Buyers</button>
-          <button class="btn btn-light shadow w-75 rounded-5 my-2 mx-4">Reviews</button>
           <button class="btn btn-light shadow w-75 rounded-5 my-2 mx-4">Post New Properties</button>
           <button class="btn btn-light shadow w-75 rounded-5 my-2 mx-4">Requests</button>
           <button class="btn btn-light shadow w-75 rounded-5 my-2 mx-4">Payments</button>
@@ -452,6 +453,40 @@
         </div>
  `
 
+ let usercontacts = localStorage.getItem("usercontact")
+ console.log(usercontacts);
+
+ let userrequest = JSON.parse(localStorage.getItem("requestdata"))
+console.log(userrequest);
+function buyers() {
+  screen.innerHTML = ""
+  screen.innerHTML = `
+        <div  class ="picx bg-info m-3 p-3 rounded-1 shadow  ">
+         <h1 class="fs-1 fw-bolder text-light" > ${usercontacts.length} </h1 >  
+           <p class = "text-light fs-5  fw-bold"> Total list of users contact requested  </p>
+           <button class ="btn btn-outline-light  view"> view all </button>
+        </div>
+ `
+  screen.innerHTML += `
+        <div  class ="picx bg-info m-3 p-3 rounded-1 shadow  ">
+         <h1 class="fs-1 fw-bolder text-light" > ${userrequest.length} </h1 >  
+           <p class = "text-light fs-5  fw-bold"> Total list of Users Request </p>
+           <button class ="btn btn-outline-light  view"> view all </button>
+        </div>
+ `
+}
+let reviews = JSON.parse(localStorage.getItem("reviews"))
+console.log(reviews);
+function customersreview() {
+  screen.innerHTML = ""
+  screen.innerHTML += `
+        <div  class ="picx bg-info m-3 p-3 rounded-1 shadow  ">
+         <h1 class="fs-1 fw-bolder text-light" > ${reviews.length} </h1 >  
+           <p class = "text-light fs-5  fw-bold"> Customer's Review </p>
+           <button class ="btn btn-outline-light  view"> view all </button>
+        </div>
+ `
+}
 
 
 

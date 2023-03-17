@@ -325,7 +325,7 @@ nav {
 .abs {
     position: absolute;
     top: 20%;
-    left: 20%;
+    left: 21%;
     text-align: center;
     /* font-size: 17px; */
 }
@@ -614,4 +614,19 @@ nav {
     background: none;
     outline: none;
     border-bottom:  1px solid lightslategrey;
+}
+.spinn {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background-color: white;
+    top: 0;
+    left: 0;
+    padding: 20% 45%;
+    display: none;
+}
+
+.spinner-border {
+    width: 100px;
+    height: 100px;
 }

@@ -29,6 +29,14 @@
         justify-content: center;
         flex-direction: column;
     }
+    .dec{
+        margin-top: -10px;
+    }
+    #rentalscreen{
+     width: 100%;
+     display: flex;
+     flex-wrap: wrap;
+    }
 </style>
 
 <body>
@@ -117,32 +125,6 @@
          <a class="mx-2" href="#">View all Pet-Friendly Rentals in Santa Cruz, CA</a>
          <p id="rentalscreen"></p>
 
-        <div class="w-100 d-flex">
-            <div onclick = "viewhouse(index)" class="prpt-div shadow m-3 py-2 px-3"> 
-                <img class="picx" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRE-RLRCe866lKfpyAVW1vGyzHoV3Vif8NkZQ&usqp=CAU">
-                  <p class = "fw-bolder"> $1,700 </p>
-                  <p class = ""> Studio+ bed 1 bath 290 sqft </p>
-                  <p class = ""> Santa Crus, CA 95060 </p>
-            </div>
-             <div onclick = "viewhouse(index)" class="prpt-div shadow m-3 py-2 px-3"> 
-                <img class="picx" src="https://ap.rdcpix.com/06a5bc5591c79bd87d4a7a44a3412147l-m2150310693od-w480_h360_x2.webp">
-                  <p class = "fw-bolder"> $1,700 </p>
-                  <p class = ""> Studio+ bed 1 bath 290 sqft </p>
-                  <p class = ""> Santa Crus, CA 95060 </p>
-            </div>
-             <div onclick = "viewhouse(index)" class="prpt-div shadow m-3 py-2 px-3"> 
-                <img class="picx" src="https://ar.rdcpix.com/00968d9d386eaa1defe5227cf7760ceac-f3577265312od-w480_h360_x2.webp">
-                  <p class = "fw-bolder"> $1,700 </p>
-                  <p class = ""> Studio+ bed 1 bath 290 sqft </p>
-                  <p class = ""> Santa Crus, CA 95060 </p>
-            </div>
-             <div onclick = "viewhouse(index)" class="prpt-div shadow m-3 py-2 px-3"> 
-                <img class="picx" src="https://ap.rdcpix.com/0a53958b33f699c27ab774905342a603l-m3916264541od-w480_h360_x2.webp">
-                  <p class = "fw-bolder"> $1,700 </p>
-                  <p class = ""> Studio+ bed 1 bath 290 sqft </p>
-                  <p class = ""> Santa Crus, CA 95060 </p>
-            </div>
-        </div>
         <div class="man">
             <h4>What a Renter Needs to Know About a <br> Landlord Checking Their Credit</h4>
             <button class="btn btn-outline-light rounded-5 ">Read More</button>
@@ -222,3 +204,49 @@
 </body>
 
 </html>
+<script>
+    let screen = document.getElementById("homesScreen")
+    let screen2 = document.getElementById("rentalscreen")
+     let rentArray = JSON.parse(localStorage.getItem("dashboard"))
+   console.log(rentArray);
+  
+   let AffordableRent = JSON.parse(localStorage.getItem("affordable"))
+   console.log(AffordableRent);
+
+   for (let index = 0; index < rentArray.length; index++) {
+    const element = rentArray[index];
+    screen.innerHTML += `
+    <div onclick = "viewhouse(${index})" class="prpt-div shadow m-3 py-2 px-3"> 
+    <img class="picx" src="${element.image[0]}">
+      <p class = ""> ${element.description} </p>
+      <p class = "fw-bolder dec"> ${element.price} </p>
+      <p class = "dec"> ${element.location} </p>
+      <p class = "dec"> ${element.location2} </p>
+    </div>`
+}
+   for (let index = 0; index < AffordableRent.length; index++) {
+    const element = AffordableRent[index];
+    screen2.innerHTML += `
+    <div onclick = "viewhouse2(${index})" class="prpt-div shadow m-3 py-2 px-3"> 
+    <img class="picx" src="${element.image[0]}">
+      <p class = ""> ${element.description} </p>
+      <p class = "fw-bolder dec"> ${element.price} </p>
+      <p class = "dec"> ${element.location} </p>
+      <p class = "dec"> ${element.location2} </p>
+    </div>`
+}
+
+function viewhouse(index) {
+    console.log(index);
+    let innerhome = rentArray[index].image;
+    localStorage.setItem("innerhome", JSON.stringify(innerhome));
+    window.location.href = "showprpt.html";
+}
+
+function viewhouse2(index) {
+    let innerhome = AffordableRent[index].image;
+    console.log(AffordableRent[index].image);
+    localStorage.setItem("innerhome", JSON.stringify(innerhome));
+    window.location.href = "showprpt.html";
+}
+</script>

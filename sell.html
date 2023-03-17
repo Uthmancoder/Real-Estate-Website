@@ -53,7 +53,8 @@
                             <button class="btn butt btn-outline-secondary mx-2">Advertise</button>
                         </li>
                         <li class="nav-item">
-                            <button onclick="sigout()" class="btn butt btn-danger mx-2">Sign Out</button>
+                            <button onclick="sigout()" class="btn butt btn-danger mx-2">Sign Out <i
+                                class="fa-solid fa-user"></i></button>
                         </li>
                     </div>
                 </ul>
@@ -81,7 +82,7 @@
                         from <br> prepping and listing your home to marketing that gets buyers in the door.</p>
 
 
-                    <button class="btn btn-primary m-3 w-50">Find an agent</button>
+                    <button onclick="findagent()" class="btn btn-primary m-3 w-50">Find an agent</button>
                     <a class="my-3" href="#">learn how to choose an agent</a>
 
                     <div class="d-flex">
@@ -122,13 +123,19 @@
                 </div>
             </div>
 
+            <div class="spinn">
+                <div class="spinner-border" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
+
             <div class="row my-5 d-flex align-items-center">
                 <div class="col-6 big">
                     <h1>Sell your home yourself</h1>
                     <p>Deciding to sell your home yourself is referred to as for-sale-by-owner (FSBO). The FSBO process
                         is similar to traditional selling, but without the help of a real estate agent. In this case,
                         you’re responsible for the home prep, marketing, showings, and negotiations.</p>
-                        <button class= "btn btn-primary w-75"> Post your home for sale </button>
+                        <button onclick="postfoesell()" class= "btn btn-primary w-75"> Post your home for sale </button>
                         <a  class="my-3" href="#">Learn more about FSBO</a>
                 </div>
                 <div class="col-6">
@@ -138,7 +145,7 @@
         </div>
     </section>
 
-    <!-- <footer class="bg-dark text-light p-5">
+    <footer class="bg-dark text-light p-5">
         <div class="container">
           <div class="row">
             <div class="col-md-4 col-sm-12">
@@ -167,7 +174,7 @@
             <img class="img-fluid get" src="https://s.zillowstatic.com/pfs/static/app-store-badge.svg" alt="">
             <img class="img-fluid get" src="https://s.zillowstatic.com/pfs/static/google-play-badge.svg" alt="">
            </div>
-      </footer> -->
+      </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
@@ -178,3 +185,22 @@
 </body>
 
 </html>
+<script>
+    function findagent() {
+        document.querySelector(".spinn").style.display = "block"
+            setTimeout(() => {
+                document.querySelector(".spinn").style.display = "none"
+            }, 4000);
+            setTimeout(() => {
+                alert("we re having issues with finding an agent for now we'll get back to you shortly")
+            }, 5000);
+
+    }
+    function postfoesell() {
+        document.querySelector(".spinn").style.display = "block"
+        setTimeout(() => {
+                document.querySelector(".spinn").style.display = "none"
+                window.location.href = "sellhome.html"
+            }, 2000);
+    }
+</script>
