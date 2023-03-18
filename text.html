@@ -13,10 +13,32 @@
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 <style>
-
+.user{
+  width: 200px;
+  height: 200px;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+.userico{
+  font-size: 150px;
+  color: white;
+}
 </style>
 
 <body>
+
+  <div  class="d-flex align-items-center">
+    <div class="user bg-secondary">
+      <i class="fa-solid fa-user userico"></i>
+    </div>
+    <div>
+      <p id="agent"></p>
+    </div>
+  </div>
+
   <p class="fw-bold fs-1">Signup</p>
   <input id="name" type="text" name="" id="" placeholder="name">
   <input id="pas" type="text" name="" id="" placeholder="password">
@@ -27,6 +49,7 @@
   <input id="paspas" type="text" name="" id=""  placeholder="password">
   <button onclick="login()" class="btn btn-success">login</button>
 </body>
+<script src="https://kit.fontawesome.com/7fe2d1a9ce.js" crossorigin="anonymous"></script>
 <script>
   let checked = JSON.parse(localStorage.getItem ("userdata"))
   console.log(checked);
@@ -65,5 +88,3 @@ let logpas = document.getElementById("paspas")
  }
 </script>
 </html>
-<script>
-</script>

@@ -14,11 +14,29 @@
 </head>
 <style>
     body {
-        background-image: url(https://static.vecteezy.com/system/resources/thumbnails/002/106/276/small/geometric-black-and-gold-background-free-vector.jpg);
+        background-image: url(https://cdn.create.vista.com/api/media/medium/208061328/stock-photo-cup-black-coffee-laptop-black?token=);
         background-size: cover;
         background-repeat: no-repeat;
         width: 100%;
         height: 100vh;
+    }
+    .form_container3 {
+        width: 50%;
+        margin: 1% 0;
+        height: fit-content;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+        padding: 50px 40px 20px 40px;
+        background-color: #ffffff;
+        box-shadow: 0px 106px 42px rgba(0, 0, 0, 0.01),
+            0px 59px 36px rgba(0, 0, 0, 0.05), 0px 26px 26px rgba(0, 0, 0, 0.09),
+            0px 7px 15px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
+        border-radius: 11px;
+        font-family: "Inter", sans-serif;
+        position: relative;
     }
 
     .pasinp {
@@ -30,21 +48,24 @@
 
     .hide {
         display: none;
-    
+
     }
+
     @media (max-width :500px) {
-        .form_container2{
+        .form_container3 {
             width: 98%;
             height: 90vh;
             margin: 10% 0;
         }
     }
+
+
 </style>
 
 <body>
-    <form class="form_container2 mx-auto">
+    <form class="form_container3   contain mx-auto">
         <div class="title_container">
-            <p class="title fs-2">Sign Up</p>
+            <p class="title fs-2">Sign Up as an agent</p>
         </div>
         <br>
         <div class="input_container">
@@ -59,8 +80,8 @@
             <label class="input_label" for="email_field">Name</label>
             <div class="w-100 py-1 px-2 border rounded-3 shadow d-flex align-items-center">
                 <i class="fa-solid fa-user text-secondary mx-2"></i>
-                <input class="pasinp my-1" placeholder="Name" name="input-name" type="text"
-                    class="input_field shadow" id="newname">
+                <input class="pasinp my-1" placeholder="Name" name="input-name" type="text" class="input_field shadow"
+                    id="newname">
             </div>
         </div>
         <div class="input_container">
@@ -121,8 +142,8 @@
 
 </html>
 <script>
-    let newsigneduser = JSON.parse(localStorage.getItem("newuser"))
-    console.log(newsigneduser);
+    let newsignedagent = JSON.parse(localStorage.getItem("agent"))
+    console.log(newsignedagent);
     let newusername = document.getElementById("newusername")
     let newname = document.getElementById("newname")
     let newemail = document.getElementById("newemail")
@@ -140,9 +161,9 @@
             alert("please input a valid email address")
             return;
         }
-        else if (newsigneduser == null) {
-            newsigneduser = [];
-            newsigneduser.push({
+        else if (newsignedagent == null) {
+            newsignedagent = [];
+            newsignedagent.push({
                 username: newusername.value,
                 email: newemail.value,
                 name: newname.value,
@@ -150,13 +171,13 @@
                 confirmpassword: confirmpas.value
             })
             alert("signup successfully")
-            console.log(newsigneduser);
-            localStorage.setItem("newuser", JSON.stringify(newsigneduser))
+            console.log(newsignedagent);
+            localStorage.setItem("agent", JSON.stringify(newsignedagent))
             setInterval(() => {
-                window.location.href = "login.html"
+                window.location.href = "agentlogin.html"
             }, 1000);
-        }else{
-            newsigneduser.push({
+        } else {
+            newsignedagent.push({
                 username: newusername.value,
                 email: newemail.value,
                 name: newname.value,
@@ -164,37 +185,37 @@
                 confirmpassword: confirmpas.value
             })
             alert("signup successfully")
-            console.log(newsigneduser);
-            localStorage.setItem("newuser", JSON.stringify(newsigneduser))
+            console.log(newsignedagent);
+            localStorage.setItem("agent", JSON.stringify(newsignedagent))
             setInterval(() => {
-                window.location.href = "login.html"
-            }, 2000); 
+                window.location.href = "agentlogin.html"
+            }, 2000);
         }
     }
     function hidepassword(event) {
-  event.preventDefault();
-  document.getElementById("password").type = "text"
-  document.getElementById("hidepas").style.display = "none"
-  document.getElementById("showpas").style.display ="block"
-}
-function showpassword(event) {
-  event.preventDefault();
-  document.getElementById("password").type = "password"
-  document.getElementById("hidepas").style.display = "block"
-  document.getElementById("showpas").style.display ="none"
-}
-function hidepassword2(event) {
-  event.preventDefault();
-  document.getElementById("Confirmpassword").type = "text"
-  document.getElementById("hidepas2").style.display = "none"
-  document.getElementById("showpas2").style.display ="block"
-}
-function showpassword2(event) {
-  event.preventDefault();
-  document.getElementById("Confirmpassword").type = "password"
-  document.getElementById("hidepas2").style.display = "block"
-  document.getElementById("showpas2").style.display ="none"
-}
+        event.preventDefault();
+        document.getElementById("password").type = "text"
+        document.getElementById("hidepas").style.display = "none"
+        document.getElementById("showpas").style.display = "block"
+    }
+    function showpassword(event) {
+        event.preventDefault();
+        document.getElementById("password").type = "password"
+        document.getElementById("hidepas").style.display = "block"
+        document.getElementById("showpas").style.display = "none"
+    }
+    function hidepassword2(event) {
+        event.preventDefault();
+        document.getElementById("Confirmpassword").type = "text"
+        document.getElementById("hidepas2").style.display = "none"
+        document.getElementById("showpas2").style.display = "block"
+    }
+    function showpassword2(event) {
+        event.preventDefault();
+        document.getElementById("Confirmpassword").type = "password"
+        document.getElementById("hidepas2").style.display = "block"
+        document.getElementById("showpas2").style.display = "none"
+    }
 
 
 </script>

@@ -47,3 +47,6 @@ function manage() {
 function advertise() {
    window.location.href = "https://www.realtor.com/marketing/"
 }
+function signagent() {
+   window.location.href = "agent.html"
+}

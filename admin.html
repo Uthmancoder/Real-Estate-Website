@@ -85,6 +85,19 @@
     right: 20px;
 
   }
+  .user{
+  width: 200px;
+  height: 200px;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+.userico{
+  font-size: 150px;
+  color: white;
+}
 </style>
 
 <body>
@@ -144,7 +157,7 @@
       <div class="aside py-5">
         <aside>
           <button onclick="mydashboard()" class="btn btn-light shadow w-75 rounded-5 my-2 mx-4">Dasboard</button>
-          <button class="btn btn-light shadow w-75 rounded-5 my-2 mx-4">Agents</button>
+          <button onclick="agent()" class="btn btn-light shadow w-75 rounded-5 my-2 mx-4">Agents</button>
           <button onclick="buyers()" class="btn btn-light shadow w-75 rounded-5 my-2 mx-4">Users info</button>
           <button onclick="customersreview()" class="btn btn-light shadow w-75 rounded-5 my-2 mx-4">Reviews</button>
           <button class="btn btn-light shadow w-75 rounded-5 my-2 mx-4">Buyers</button>
@@ -163,6 +176,7 @@
       </div>
     </div>
   </main>
+  <script src="https://kit.fontawesome.com/7fe2d1a9ce.js" crossorigin="anonymous"></script>
 </body>
 
 </html>
@@ -173,22 +187,22 @@
   let DasboardArray = [
     {
       image: ["https://cdn.pixabay.com/photo/2016/11/18/17/46/house-1836070__480.jpg", "https://media.designcafe.com/wp-content/uploads/2022/07/15170350/luxury-home-design-on-budget.jpg", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ39UtkIoXM6K5vjsRpi-pvd7G7forUwnMhR15FNd1gAThr-p2JVC62qVRBreyieMj6kcg&usqp=CAU"],
-      description: "single-family home",
-      price: "$418,503",
+      description: "Town Home",
+      price: "$18,503",
       location: "Canada",
       location2: "5967 Bella Rosa Ln"
     },
     {
       image: ["https://ap.rdcpix.com/c2a64fad4f8127b3a79fa1346951e0a8l-m1838440254od-w480_h360.jpg", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPwSIhumpRfrEsIsmcPYeQkvJfuyf62HOdRJEA47mmT_ut9GWNiaDpcGi831HowyVs4Zs&usqp=CAU", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqRJvjFALG6e5FyBXV8DJLvlmorahI6d1GuOdDyYq-wARMz4d4o4gDqueqhDFTv8d2Hpo&usqp=CAU"],
       description: "single-family home",
-      price: "$418,503",
+      price: "$413,503",
       location: "Pakistan",
       location2: "5967 Bella Rosa Ln"
     },
     {
       image: ["https://ap.rdcpix.com/654ce471fed375993b57638b1a33ae65l-m2524340623od-w480_h360_x2.jpg", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSULIpWznkN6VMxk4EFF5srh5gw6Dt-Npi8krwsiMEMMtkgq6OlD7aXql75KtHa9QrbRlE&usqp=CAU", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTu5rqViECjRG_MMvyhtAvkLwHM2KxQYzwCxXi394euVL3JzBtRQ_so5mTvU5x3SkRQBSs&usqp=CAU"],
-      description: "single-family home",
-      price: "$418,503",
+      description: "Multi Family home ",
+      price: "$518,503",
       location: "Afganistan",
       location2: "5967 Bella Rosa Ln"
     },
@@ -196,40 +210,41 @@
       image: ["https://ap.rdcpix.com/e06ca77a53835c607fb74301139ada4el-b673694140od-w480_h360_x2.jpg", "https://www.decorilla.com/online-decorating/wp-content/uploads/2019/03/home-interior-design-color-scheme.jpg", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-kVEX3KupNRHtvYi-KItGbia7EpCme82lODtrS-mTiwgZuSh5vy-iJ5vCZw6l8WALeS4&usqp=CAU"],
       description: "single-family home",
       price: "$418,503",
-      location: "Alabama",
+      location: "Pakistan",
       location2: "5967 Bella Rosa Ln"
     },
     {
       image: ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEvJf0LqSNQIMrlp95e0P7d7rF7NNhXnkWzYmeRJSmaDVyyhEo2gQ-ie3AQ_qNwQJvQ0k&usqp=CAU", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-kVEX3KupNRHtvYi-KItGbia7EpCme82lODtrS-mTiwgZuSh5vy-iJ5vCZw6l8WALeS4&usqp=CAU", "https://assets.architecturaldigest.in/photos/60190f002814797e457e5e04/4:3/w_1703,h_1277,c_limit/How%20to%20create%20healing%20home%20interiors.jpg"],
-      description: "single-family home",
+      description: "Bungalow with a Penthouse",
       price: "$418,503",
-      location: "Ohio",
+      location: "canada",
       location2: "5967 Bella Rosa Ln"
     },
     {
       image: ["https://ap.rdcpix.com/4821e57cb16cc40ec119bdcb22421baal-m1217027824od-w480_h360_x2.jpg", "https://www.decorilla.com/online-decorating/wp-content/uploads/2019/02/spring-interior-design-trends.jpg", "https://ap.rdcpix.com/4821e57cb16cc40ec119bdcb22421baal-m1217027824od-w480_h360_x2.jpg"],
       description: "single-family home",
       price: "$418,503",
-      location: "New York",
-      location2: "5967 Bella Rosa Ln"
+      location: "Afganistan",
+      location2: "567 Rosa Ln"
     },
     {
       image: ["https://ap.rdcpix.com/03b2abe6b03c56ffb945e60124b23959l-m4239461195od-w480_h360_x2.jpg", "https://ap.rdcpix.com/03b2abe6b03c56ffb945e60124b23959l-m4239461195od-w480_h360_x2.jpg", "https://ap.rdcpix.com/03b2abe6b03c56ffb945e60124b23959l-m4239461195od-w480_h360_x2.jpg"],
       description: "single-family home",
       price: "$418,503",
       location: "Canada",
-      location2: "5967 Bella Rosa Ln"
+      location2: "3967 Bella Rosa Ln"
     },
     {
       image: ["https://ap.rdcpix.com/b33b12767f98ae150c58277b095143c0l-m4222848648od-w480_h360_x2.jpg", "https://ap.rdcpix.com/b33b12767f98ae150c58277b095143c0l-m4222848648od-w480_h360_x2.jpg", "https://ap.rdcpix.com/b33b12767f98ae150c58277b095143c0l-m4222848648od-w480_h360_x2.jpg"],
       description: "single-family home",
-      price: "$418,503",
+      price: "$218,503",
       location: "Texas",
       location2: "5967 Bella Rosa Ln"
     },
   ]
 
   localStorage.setItem("dashboard", JSON.stringify(DasboardArray))
+  console.log(DasboardArray);
 
   let Affordable = [
     {
@@ -487,11 +502,6 @@ function customersreview() {
         </div>
  `
 }
-
-
-
-
-
   // screen2.innerHTML += `
   // <div class="w-50  h-100 border shadow rounded-1 py-3 px-5 bg-dark text-light mt-5 mx-auto">
   //          <p>Type  of  : <input type="text" id="type" class="inps">  </p>
@@ -555,8 +565,7 @@ function customersreview() {
     <img class="pix" src="${element.image[0]}">
       <p class = ""> ${element.description} </p>
       <p class = ""> ${element.location} </p>
-      <p class = ""> ${element.location2} </p>
-     
+      <p class = ""> ${element.location2}</p>   
     </div>
     <button onclick="del(${index})" class="btn btn-danger text-light del">del </button>  
     </div> 
@@ -618,10 +627,39 @@ function customersreview() {
     }
   }
 
+  let signedagent = JSON.parse(localStorage.getItem("agent"))
+  console.log(signedagent);
+
   function del(index) {
   DasboardArray.splice(index, 1);
   dashboard();
   localStorage.removeItem(DasboardArray[index])
+}
+function agent() {
+  screen.innerHTML = ""
+  screen.innerHTML += `
+        <div  class ="picx bg-info m-3 p-3 rounded-1 shadow  ">
+         <h1 class="fs-1 fw-bolder text-light">${signedagent.length}</h1 >  
+           <p class = "text-light fs-5  fw-bold"> signed up agent</p>
+           <button onclick = "viewagent()" class ="btn btn-outline-light  view"> view all </button>
+        </div>
+ `
+}
+function viewagent() {
+  screen.innerHTML = ""
+  screen.innerHTML  += ` <div class="user bg-secondary text-center">
+      <i class="fa-solid fa-user userico"></i>
+    </div>
+    <p id="agentsscreen"></p>
+    `
+  for (let index = 0; index < signedagent.length; index++) {
+    const element = signedagent[index];
+     document.getElementById("agentsscreen").innerHTML += `
+     <div  class="d-flex align-items-center">
+      <p id="agent"></p>
+   </div>
+     `
+  }
 }
 
 </script>

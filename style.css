@@ -615,6 +615,15 @@ nav {
     position: sticky;
     top: 20px;
 }
+.pasinp{
+    width: 85%;
+    border: none;
+    background: none;
+    outline: none;
+  }
+  .hide{
+    display: none;
+  }
 .wdt{
     width: 80%;
     margin: auto;
@@ -638,3 +647,120 @@ nav {
     width: 100px;
     height: 100px;
 }
+    .non,
+    .bord {
+        border: none;
+        background: none;
+        border-bottom: 1px solid gray;
+        outline: none;
+    }
+
+    .image {
+        width: 100%;
+        height: 60%;
+    }
+
+    body {
+        overflow-x: hidden;
+    }
+
+    .spinn {
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        background-color: white;
+        top: 0;
+        left: 0;
+        padding: 20% 45%;
+        display: none;
+    }
+
+    .spinner-border {
+        width: 100px;
+        height: 100px;
+    }
+    @media (max-width : 500px) {
+        .button{
+            display: flex;
+            flex-direction: column;
+            margin-top: -30px;
+            width: 100%;
+            margin-left: -50px;
+        }
+        .but2{
+            margin-top: -30px;
+        }
+    }
+    .topp {
+        margin-top: 3%;
+    }
+
+    .man {
+        width: 100%;
+        height: 400px;
+        background-size: cover;
+        background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://na.rdcpix.com/ce04996063a819dc397f5481455f1d6cw-c3629674996srd_q80.jpg');
+        color: white;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .cols {
+        position: absolute;
+        top: 10%;
+        left: 29%;
+        text-align: center;
+    }
+
+    .cacul {
+        width: 50px;
+        height: 50px;
+        border-radius: 100%;
+    }
+
+    .mort {
+        width: 30%;
+        margin: 10px;
+    }
+
+    .mortt {
+        width: 40%;
+        margin: 10px;
+    }
+
+    .font {
+        font-size: 17px;
+        color: rgb(137, 137, 227);
+        text-decoration: none;
+    }
+
+    .font:hover {
+        text-decoration: underline;
+    }
+
+    .rel {
+        position: relative;
+    }
+
+    .abb {
+        position: absolute;
+        top: 7%;
+        left: 20%;
+        text-align: center;
+        width: 50%;
+    }
+
+    .manageimg {
+        font-size: 53px;
+    }
+    body{
+        overflow-x: hidden;
+    }
+    @media (max-width:500px) {
+        .cen{
+            text-align: center;
+        }
+    }
