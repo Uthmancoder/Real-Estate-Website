@@ -63,6 +63,17 @@ nav {
 .email::-webkit-scrollbar{
     display: none;
 }
+.resuest{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.4);
+    /* z-index: 999; */
+    display: none; 
+    overflow-x: scroll; 
+}
 
 .navbar-collapse {
     z-index: 1;
@@ -94,7 +105,7 @@ nav {
 }
 /* Center the modal vertically and horizontally */
 .modal {
-    display: flex !important;
+    display: flex;
     align-items: center;
     justify-content: center;
   }

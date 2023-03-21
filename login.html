@@ -100,7 +100,7 @@
  console.log(getuser);
  function signuser(event){
     event.preventDefault();
- let found = getuser.find((curr)=>curr.email == logemail.value && curr.password == logpass.value)
+ let found = getuser.find((curr)=>curr.email == logemail.value || curr.password == logpass.value)
  if (found) {
   loggeduser.push({
   email:logemail.value,

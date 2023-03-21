@@ -50,3 +50,10 @@ function advertise() {
 function signagent() {
    window.location.href = "agent.html"
 }
+function getpreapproved() {
+   if (!signeduser) {
+      window.location.href = "signup.html"
+     }else{
+      window.location.href = "mortgage.html"
+     }
+}

@@ -76,28 +76,65 @@
     background-color: transparent;
     color: white;
   }
-  .biy{
+  .background{
+    width: 100%;
+    height: 100vh;
+  }
+
+  .biy {
     position: relative;
   }
-  .del{
+
+  .del {
     position: absolute;
     bottom: 20px;
     right: 20px;
 
   }
-  .user{
-  width: 200px;
-  height: 200px;
-  border-radius: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  
-}
-.userico{
-  font-size: 150px;
-  color: white;
-}
+
+  .user {
+    width: 200px;
+    height: 200px;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+  }
+
+  .userico {
+    font-size: 150px;
+    color: white;
+  }
+
+  .user {
+    width: 200px;
+    height: 200px;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+  }
+
+  .userico {
+    font-size: 150px;
+    color: white;
+  }
+  #agentsscreen{
+    width: 70%;
+    height: 100vh;
+    display: flex;
+    text-align: left;
+    font-size: 20px;
+    flex-wrap: wrap;
+  }
+  .agentinformation{
+    width: 250px;
+    height: 200px;
+    border-radius: 10px;
+    margin: 0 20px;
+  }
 </style>
 
 <body>
@@ -164,7 +201,7 @@
           <button class="btn btn-light shadow w-75 rounded-5 my-2 mx-4">Post New Properties</button>
           <button class="btn btn-light shadow w-75 rounded-5 my-2 mx-4">Requests</button>
           <button class="btn btn-light shadow w-75 rounded-5 my-2 mx-4">Payments</button>
-          <button class="btn btn-light shadow w-75 rounded-5 my-2 mx-4">Mails</button>
+          <button onclick="mailsreceived()" class="btn btn-light shadow w-75 rounded-5 my-2 mx-4">Mails</button>
         </aside>
       </div>
       <div class="current-properties">
@@ -190,7 +227,7 @@
       description: "Town Home",
       price: "$18,503",
       location: "Canada",
-      location2: "5967 Bella Rosa Ln"
+      location2: "59, Colings Rosa Ln"
     },
     {
       image: ["https://ap.rdcpix.com/c2a64fad4f8127b3a79fa1346951e0a8l-m1838440254od-w480_h360.jpg", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPwSIhumpRfrEsIsmcPYeQkvJfuyf62HOdRJEA47mmT_ut9GWNiaDpcGi831HowyVs4Zs&usqp=CAU", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqRJvjFALG6e5FyBXV8DJLvlmorahI6d1GuOdDyYq-wARMz4d4o4gDqueqhDFTv8d2Hpo&usqp=CAU"],
@@ -468,40 +505,40 @@
         </div>
  `
 
- let usercontacts = localStorage.getItem("usercontact")
- console.log(usercontacts);
+  let usercontacts = localStorage.getItem("usercontact")
+  console.log(usercontacts);
 
- let userrequest = JSON.parse(localStorage.getItem("requestdata"))
-console.log(userrequest);
-function buyers() {
-  screen.innerHTML = ""
-  screen.innerHTML = `
+  let userrequest = JSON.parse(localStorage.getItem("requestdata"))
+  console.log(userrequest);
+  function buyers() {
+    screen.innerHTML = ""
+    screen.innerHTML = `
         <div  class ="picx bg-info m-3 p-3 rounded-1 shadow  ">
          <h1 class="fs-1 fw-bolder text-light" > ${usercontacts.length} </h1 >  
            <p class = "text-light fs-5  fw-bold"> Total list of users contact requested  </p>
            <button class ="btn btn-outline-light  view"> view all </button>
         </div>
  `
-  screen.innerHTML += `
+    screen.innerHTML += `
         <div  class ="picx bg-info m-3 p-3 rounded-1 shadow  ">
          <h1 class="fs-1 fw-bolder text-light" > ${userrequest.length} </h1 >  
            <p class = "text-light fs-5  fw-bold"> Total list of Users Request </p>
            <button class ="btn btn-outline-light  view"> view all </button>
         </div>
  `
-}
-let reviews = JSON.parse(localStorage.getItem("reviews"))
-console.log(reviews);
-function customersreview() {
-  screen.innerHTML = ""
-  screen.innerHTML += `
+  }
+  let reviews = JSON.parse(localStorage.getItem("reviews"))
+  console.log(reviews);
+  function customersreview() {
+    screen.innerHTML = ""
+    screen.innerHTML += `
         <div  class ="picx bg-info m-3 p-3 rounded-1 shadow  ">
          <h1 class="fs-1 fw-bolder text-light" > ${reviews.length} </h1 >  
            <p class = "text-light fs-5  fw-bold"> Customer's Review </p>
            <button class ="btn btn-outline-light  view"> view all </button>
         </div>
  `
-}
+  }
   // screen2.innerHTML += `
   // <div class="w-50  h-100 border shadow rounded-1 py-3 px-5 bg-dark text-light mt-5 mx-auto">
   //          <p>Type  of  : <input type="text" id="type" class="inps">  </p>
@@ -631,35 +668,94 @@ function customersreview() {
   console.log(signedagent);
 
   function del(index) {
-  DasboardArray.splice(index, 1);
-  dashboard();
-  localStorage.removeItem(DasboardArray[index])
-}
-function agent() {
-  screen.innerHTML = ""
-  screen.innerHTML += `
+    DasboardArray.splice(index, 1);
+    dashboard();
+    localStorage.removeItem(DasboardArray[index])
+  }
+  function agent() {
+    screen.innerHTML = ""
+    if (signedagent == "") {
+      screen.innerHTML += `<h1 class="fs-1 fw-bolder m-5"> You have no signed up agent </h1>`
+    }else{
+      screen.innerHTML += `
         <div  class ="picx bg-info m-3 p-3 rounded-1 shadow  ">
          <h1 class="fs-1 fw-bolder text-light">${signedagent.length}</h1 >  
            <p class = "text-light fs-5  fw-bold"> signed up agent</p>
            <button onclick = "viewagent()" class ="btn btn-outline-light  view"> view all </button>
         </div>
  `
-}
-function viewagent() {
-  screen.innerHTML = ""
-  screen.innerHTML  += ` <div class="user bg-secondary text-center">
+    }
+  
+  }
+  function viewagent() {
+    screen.innerHTML = ""
+    screen.innerHTML += ` <div class="user bg-secondary text-center">
       <i class="fa-solid fa-user userico"></i>
     </div>
     <p id="agentsscreen"></p>
     `
-  for (let index = 0; index < signedagent.length; index++) {
-    const element = signedagent[index];
-     document.getElementById("agentsscreen").innerHTML += `
-     <div  class="d-flex align-items-center">
-      <p id="agent"></p>
+    for (let index = 0; index < signedagent.length; index++) {
+      const element = signedagent[index];
+      document.getElementById("agentsscreen").innerHTML += `
+     <div  class="border rounded-3 bg-secondary p-2 agentinformation">
+      <p class="text-light" id="agent">${element.username}</p>
+      <p class="text-light" id="agent">${element.email}</p>
+      <p class="text-light" id="agent">${element.name}</p>
+      <p class="text-light" id="agent">${element.password}</p>
    </div>
      `
+    }
   }
-}
 
+  let mails = JSON.parse(localStorage.getItem("requestdata"))
+  console.log(mails)
+
+  function mailsreceived() {
+    if (mails == "") {
+      screen.innerHTML += `<h1 class="fs-1 fw-bolder m-5"> You have no mail in your mailbox </h1>`
+    }else{
+      screen.innerHTML = ""
+    screen.innerHTML += `
+        <div   class = "picx bg-info m-3 p-3 rounded-1 shadow  ">
+         <h1 class="fs-1 fw-bolder text-light">${mails.length}</h1 >  
+           <p class = "text-light fs-5  fw-bold"> Mails Received</p>
+           <button onclick = "viewmails()" class ="btn btn-outline-light  view"> view all </button>
+        </div>
+ `
+    }
+   
+  }
+  function viewmails() {
+    screen.innerHTML = ""
+    screen.innerHTML += `
+   <div class = "d-flex"> 
+    <div>
+      <div class="user bg-secondary mx-5">
+        <i class="fa-solid fa-user userico"></i>
+        </div>
+  
+    </div>
+      <div id="mailuserinfo"> </div>
+    </div>
+  `
+    for (let index = 0; index < mails.length; index++) {
+      const element = mails[index];
+      document.getElementById("mailuserinfo").innerHTML += `
+         <p class="w-100 border my-2 shadow text-light p-2 fs-5 bg-info">${element.username}</p>
+         <p class="w-100 border my-2 shadow text-light p-2 fs-5 bg-info">${element.email} </p>
+         <p class="w-100 border my-2 shadow text-light p-2 fs-5 bg-info">${element.phonenum} </p>
+         <p class="w-100 border my-2 shadow text-light p-2 fs-5 bg-info">${element.date} </p>
+         <p class="w-100 border my-2 shadow text-light p-2 fs-5 bg-info">${element.message} </p>
+         <button onclick="approvemail()" class="btn btn-danger py-2 px-3 my-1 mx-5 rounded-5"> Approve Mail </button>
+  `
+    }
+  }
+  let requestsent = [{
+    buying: "are you purchasing a home with us",
+    Renting: "Are you renting a home from us"
+  }]
+  function approvemail() {
+  localStorage.setItem("request", JSON.stringify(requestsent))
+  console.log(requestsent);
+  }
 </script>
